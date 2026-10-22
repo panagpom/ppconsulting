@@ -27,3 +27,13 @@ pnpm dev:cms
 ```
 
 Website: http://127.0.0.1:4331/el and /en. CMS: http://127.0.0.1:4331/cms/index.html. Run `pnpm site:inspect` to discover current configuration owners before prompt-driven edits.
+
+## Light-section inheritance correction
+
+Subsequent visual feedback identified white inherited section/card titles despite valid light tokens, and mismatched straight/curved accent colours. All section bands now expose their selected colour scheme. The light boundary sets the foreground and resolves its accent gradient locally, with one hue fading to transparent. The browser regression first failed at 1.11:1 heading contrast, then passed for both languages at 1440px/375px, including card hover and matching straight/curved accent colours. Desktop computed foreground is #0b1828 against #e3e9ef; both accent pieces begin at #245a91. Earlier token-only checks did not establish inherited title contrast. The previous release artifact predates this correction.
+
+## Header and Contact polish acceptance
+
+Header social icons share the language/menu centreline, with a 1px white separator and compact adjacent 44×44px targets. Checked EN/EL at 1440px, 768px and 375px without overflow. Contact introduction spans the left column; socials sit below on the left and direct contact details on the right, stacking appropriately at smaller widths. Checked EN/EL at 1440px, 1024px, 768px and 375px. The enquiry form no longer renders marketing consent or newsletter interest controls; intercepted request verification confirmed marketingConsent=false and no interest field. Newsletter modal remained available in both languages.
+
+Pre-commit verification: all 13 tests passed with the live browser regression enabled, check reported 0 errors/0 warnings (six existing hints), and static build produced 37 pages. Whitespace checks passed. Raw evidence is retained in `.generated/commit-polish-*.log` and the related browser scripts/screenshots.

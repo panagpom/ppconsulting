@@ -167,6 +167,14 @@ html[data-density='spacious'] {
   );
 }
 [data-section-color-scheme='light'] {
+  /* Resolve inherited text and the full curved accent against this section's palette. */
+  color: var(--color-text-primary);
+  --editorial-accent-gradient: linear-gradient(
+    to bottom,
+    var(--color-brand-accent),
+    color-mix(in srgb, var(--color-brand-accent) 35%, transparent) 65%,
+    transparent
+  );
   --input-border: var(--color-control-border);
   --input-filled-border: var(--color-control-border);
   --input-bg: var(--color-surface);
