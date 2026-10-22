@@ -48,7 +48,7 @@ export function initMotion(root: Document | HTMLElement): () => void {
     owners.delete(root);
   };
   try {
-    if (!win || scope.dataset.motion !== 'on' || typeof win.IntersectionObserver !== 'function' || typeof scope.animate !== 'function') return dispose;
+    if (!win || (scope.dataset.motion !== 'on' || scope.dataset.a11yMotion === '1') || typeof win.IntersectionObserver !== 'function' || typeof scope.animate !== 'function') return dispose;
     preference = win.matchMedia('(prefers-reduced-motion: reduce)');
     if (preference.matches) return dispose;
     const style = win.getComputedStyle(scope);
@@ -88,7 +88,7 @@ export function initMotion(root: Document | HTMLElement): () => void {
           if (!entry.isIntersecting || !pending.has(target)) continue;
           pending.delete(target);
           observer?.unobserve(target);
-          if (preference?.matches || target.closest('[hidden]') || target.contains(doc.activeElement)) continue;
+          if (scope.dataset.a11yMotion === '1' || preference?.matches || target.closest('[hidden]') || target.contains(doc.activeElement)) continue;
           const destination = fragment();
           if (destination && target.contains(destination)) continue;
           const hasTranslation = win.getComputedStyle(target).translate !== 'none';

@@ -10,6 +10,7 @@ export function localizeContent(source,locale,project,registry) {
  const translation=translations[locale];
  if(locale!==project.locale&&!translation)throw new Error('Missing required settings translation for locale '+locale);
  const settings=structuredClone(locale===project.locale?baseSettings:{
+  accessibility:baseSettings.accessibility,
   brand:{...baseSettings.brand,...translation.brand},legal:{...baseSettings.legal,...translation.legal},
   contact:{...baseSettings.contact,...translation.contact},social:baseSettings.social,
   newsletterPrompt:baseSettings.newsletterPrompt?{...baseSettings.newsletterPrompt,...newsletterCopySchema.parse(translation.newsletterPrompt??{})}:undefined,

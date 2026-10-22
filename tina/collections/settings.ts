@@ -23,6 +23,7 @@ export function settings(p: ProjectConfig) {
       'settings',
       'content/settings',
       [
+        {name:'accessibility',label:'Accessibility controls',type:'object',description:'Visitor presentation preferences. These controls do not replace accessibility checks of the underlying site.',fields:[{name:'enabled',label:'Show accessibility controls',type:'boolean'},{name:'position',label:'Desktop launcher position',type:'string',options:[{value:'right-middle',label:'Right middle'},{value:'right-bottom',label:'Right bottom'}],description:'Small screens always use right bottom.'}]},
         ...newsletterFields(p),
         object('brand', [text('name'), text('tagline')]),
         object('legal', [

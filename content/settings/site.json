@@ -1,4 +1,28 @@
 {
+  "accessibility": {
+    "enabled": true,
+    "position": "right-middle"
+  },
+  "newsletterPrompt": {
+    "enabled": true,
+    "modalEnabled": true,
+    "autoOpen": true,
+    "footerMode": "open-modal",
+    "delaySeconds": 20,
+    "dismissDays": 30,
+    "acceptedDays": 180,
+    "interestId": "updates",
+    "title": "Good ideas, now and then.",
+    "body": "Practical perspectives on your next financial step. Choose to receive occasional email updates.\n",
+    "footerPrompt": "Useful ideas and updates in your inbox.\n",
+    "emailLabel": "Email",
+    "submitLabel": "Send me useful updates",
+    "consentLabel": "I agree to receive these updates. I can unsubscribe at any time.",
+    "privacyLinkLabel": "Privacy notice",
+    "dismissLabel": "Maybe later",
+    "successTitle": "Check your inbox",
+    "successBody": "If appropriate, check your inbox for a confirmation link. Your subscription starts only after you confirm.\n"
+  },
   "brand": {
     "name": "PPConsulting",
     "tagline": "Accounting support and financial planning, built around the needs of your business and your everyday life."
@@ -6,7 +30,7 @@
   "legal": {
     "businessName": "PPConsulting — demonstration company",
     "privacyVersion": "sample-v1",
-    "notice": "Demonstration website. Business details and privacy wording require review before launch."
+    "notice": "Demonstration website. Business details and privacy wording require review before launch.\n"
   },
   "contact": {
     "email": "hello@example.com",
@@ -42,33 +66,25 @@
       "label": "Contact"
     }
   ],
-  "newsletterPrompt": {
-    "enabled": true,
-    "modalEnabled": true,
-    "autoOpen": true,
-    "footerMode": "open-modal",
-    "delaySeconds": 20,
-    "dismissDays": 30,
-    "acceptedDays": 180,
-    "interestId": "updates",
-    "title": "Good ideas, now and then.",
-    "body": "Practical perspectives on your next financial step. Choose to receive occasional email updates.",
-    "footerPrompt": "Useful ideas and updates in your inbox.",
-    "emailLabel": "Email",
-    "submitLabel": "Send me useful updates",
-    "consentLabel": "I agree to receive these updates. I can unsubscribe at any time.",
-    "privacyLinkLabel": "Privacy notice",
-    "dismissLabel": "Maybe later",
-    "successTitle": "Check your inbox",
-    "successBody": "If appropriate, check your inbox for a confirmation link. Your subscription starts only after you confirm."
-  },
   "translations": {
     "el": {
+      "newsletterPrompt": {
+        "title": "Καλές ιδέες, πού και πού.",
+        "body": "Χρήσιμες ιδέες και πρακτικές ενημερώσεις για την επιχείρηση και τα οικονομικά σας.\n",
+        "footerPrompt": "Χρήσιμες ιδέες και ενημερώσεις στο email σας.\n",
+        "emailLabel": "Email",
+        "submitLabel": "Θέλω χρήσιμες ενημερώσεις",
+        "consentLabel": "Συμφωνώ να λαμβάνω αυτές τις ενημερώσεις. Μπορώ να διαγραφώ οποιαδήποτε στιγμή.",
+        "privacyLinkLabel": "Πολιτική απορρήτου",
+        "dismissLabel": "Ίσως αργότερα",
+        "successTitle": "Ελέγξτε το email σας",
+        "successBody": "Αν χρειάζεται επιβεβαίωση, θα λάβετε email με σχετικό σύνδεσμο. Η εγγραφή ολοκληρώνεται μόνο αφού επιβεβαιώσετε.\n"
+      },
       "brand": {
         "tagline": "Λογιστική υποστήριξη και οικονομικός σχεδιασμός, με επίκεντρο τις ανάγκες της επιχείρησης και της καθημερινότητάς σας."
       },
       "legal": {
-        "notice": "Ενδεικτικός ιστότοπος. Τα επιχειρηματικά στοιχεία και η πολιτική απορρήτου χρειάζονται έλεγχο πριν τη δημοσίευση."
+        "notice": "Ενδεικτικός ιστότοπος. Τα επιχειρηματικά στοιχεία και η πολιτική απορρήτου χρειάζονται έλεγχο πριν τη δημοσίευση.\n"
       },
       "contact": {
         "address": "Ελλάδα · Διαδικτυακά και από κοντά"
@@ -94,19 +110,7 @@
           "pageId": "contact",
           "label": "Επικοινωνία"
         }
-      ],
-      "newsletterPrompt": {
-        "title": "Καλές ιδέες, πού και πού.",
-        "body": "Χρήσιμες ιδέες και πρακτικές ενημερώσεις για την επιχείρηση και τα οικονομικά σας.",
-        "footerPrompt": "Χρήσιμες ιδέες και ενημερώσεις στο email σας.",
-        "emailLabel": "Email",
-        "submitLabel": "Θέλω χρήσιμες ενημερώσεις",
-        "consentLabel": "Συμφωνώ να λαμβάνω αυτές τις ενημερώσεις. Μπορώ να διαγραφώ οποιαδήποτε στιγμή.",
-        "privacyLinkLabel": "Πολιτική απορρήτου",
-        "dismissLabel": "Ίσως αργότερα",
-        "successTitle": "Ελέγξτε το email σας",
-        "successBody": "Αν χρειάζεται επιβεβαίωση, θα λάβετε email με σχετικό σύνδεσμο. Η εγγραφή ολοκληρώνεται μόνο αφού επιβεβαιώσετε."
-      }
+      ]
     }
   }
 }

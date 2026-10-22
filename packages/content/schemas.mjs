@@ -1,3 +1,4 @@
+import {accessibilitySettingsSchema} from '../accessibility/settings.mjs';
 import {appearanceSchema} from '../design-system/presentation.mjs';
 import {mediaReferenceSchema} from './media.mjs';
 import {newsletterCopySchema,newsletterSettingsSchema} from './newsletter.mjs';
@@ -71,6 +72,7 @@ export const articleSchema=editorial({shared:{authorId:optionalId,offeringId:opt
 });
 const optionalContactText=max=>z.preprocess(value=>value==null?'':value,z.string().max(max));
 const settingsCopy = {
+ accessibility:accessibilitySettingsSchema.prefault({}),
  newsletterPrompt:newsletterSettingsSchema.prefault({}),
  social:socialSettingsSchema,
  brand:z.strictObject({name:title,tagline:z.string().max(300)}),

@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+// Browsers use the interpreter: even a caught JIT probe violates script-src 'self'.
+// Server/Worker validation keeps its existing runtime configuration.
+if (typeof window !== 'undefined') z.config({jitless: true});
+
 const bounded = (max: number) => z.string().trim().max(max);
 export const emailSchema = z
   .email()

@@ -41,7 +41,7 @@ if (dialog && menuOpener && closer && fallback && typeof dialog.showModal === 'f
     const currentPanel = getComputedStyle(panel).transform;
     cancelMotion();
     dialog.dataset.menuState = opening ? 'open' : 'closing';
-    if (reducedMotion.matches || typeof panel.animate !== 'function') return 0;
+    if (reducedMotion.matches || document.documentElement.dataset.a11yMotion === '1' || typeof panel.animate !== 'function') return 0;
     const token = opening ? '--motion-normal' : '--motion-fast';
     const duration = parseFloat(getComputedStyle(dialog).getPropertyValue(token)) || 200;
     const timing = { duration, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'both' as const };
@@ -94,6 +94,9 @@ if (dialog && menuOpener && closer && fallback && typeof dialog.showModal === 'f
     document.body.style.overflow = previousOverflow;
     menuOpener.setAttribute('aria-expanded', 'false');
     menuOpener.focus();
+  });
+  document.addEventListener('ppconsulting:accessibility-change', () => {
+    if(document.documentElement.dataset.a11yMotion!=='1')return;cancelMotion();if(dialog.dataset.menuState==='closing')finishClose();
   });
   reducedMotion.addEventListener('change', () => {
     if (!reducedMotion.matches) return;
