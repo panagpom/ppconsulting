@@ -1,0 +1,20 @@
+{
+  "contentId": "property",
+  "slug": "property-finances",
+  "status": "published",
+  "title": "Property and finances",
+  "description": "A clearer view of the records, obligations, and financial considerations around your property\\.",
+  "body": "A clearer view of the records, obligations, and financial considerations around your property\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+  "seoDescription": "",
+  "audience": "individual",
+  "number": "06",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Ακίνητα και περιουσία",
+      "description": "Ξεκάθαρη εικόνα των στοιχείων, των υποχρεώσεων και των οικονομικών θεμάτων της ακίνητης περιουσίας σας\\.",
+      "body": "Ξεκάθαρη εικόνα των στοιχείων, των υποχρεώσεων και των οικονομικών θεμάτων της ακίνητης περιουσίας σας\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+      "seoDescription": ""
+    }
+  }
+}

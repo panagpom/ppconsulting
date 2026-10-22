@@ -19,3 +19,5 @@ tina/tina-lock.json
 apps/site/public/_headers
 apps/site/src/styles/themes.generated.css
 packages/design-system/themes.generated.json
+
+apps/site/public/presentation.css

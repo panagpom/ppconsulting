@@ -1,0 +1,20 @@
+{
+  "contentId": "funding",
+  "slug": "funding-support",
+  "status": "published",
+  "title": "Funding preparation",
+  "description": "Assess your project needs and prepare the financial information for a funding application\\.",
+  "body": "Assess your project needs and prepare the financial information for a funding application\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+  "seoDescription": "",
+  "audience": "business",
+  "number": "04",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Προετοιμασία χρηματοδότησης",
+      "description": "Καταγραφή των αναγκών του έργου και προετοιμασία των οικονομικών στοιχείων για αίτηση χρηματοδότησης\\.",
+      "body": "Καταγραφή των αναγκών του έργου και προετοιμασία των οικονομικών στοιχείων για αίτηση χρηματοδότησης\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+      "seoDescription": ""
+    }
+  }
+}

@@ -1,0 +1,9 @@
+---
+import {resolveSectionMedia} from '../../lib/section-media';
+interface Props {src?:string;enabled?:boolean;hero?:boolean;pageId:string;sectionId:string}
+const {src,enabled,hero=false,pageId,sectionId}=Astro.props;
+const media=enabled&&src?await resolveSectionMedia({src,crop:'center'},{pageId,sectionId}):undefined;
+const candidates=media?(media.format==='webp'?media.webp:media.fallback):[];
+const last=candidates.at(-1);
+---
+{media&&<div class={hero?'hero-background':'section-background'} aria-hidden="true"><img src={last?.src??media.src} srcset={candidates.map(c=>`${c.src} ${c.width}w`).join(', ')||undefined} sizes="100vw" width={last?.width??media.width} height={last?.height??media.height} alt="" loading={hero?'eager':'lazy'} fetchpriority={hero?'high':undefined} decoding="async"/></div>}

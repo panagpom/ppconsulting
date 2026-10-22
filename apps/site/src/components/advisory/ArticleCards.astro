@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+import LinkLabel from './LinkLabel.astro';
+import {resolveSectionMedia} from '../../lib/section-media';
+import SectionImage from '../ui/SectionImage.astro';
+import type {LocalizedContent} from '../../../../../packages/content/types';
+import type {RenderContext} from '../../lib/render-context';
+interface Props {content:LocalizedContent;context:RenderContext;pageId:string;sectionId:string}
+const {content,context,pageId,sectionId}=Astro.props;
+const articles=await Promise.all(content.articles.map(async a=>({a,media:a.image?await resolveSectionMedia(a.image,{pageId,sectionId,itemId:a.contentId}):undefined})));
+---
+<div class="cards editorial-articles">{articles.map(({a,media})=>{return <a href={context.link('/insights/'+a.slug,content.locale)} class="ds-card ds-card--editorial article-card" data-motion-reveal><span class="ds-card-arrow"><Icon name="arrow-right"/></span><div class="ds-card-media article-preview-media">{media&&<div class:list={['article-preview-image',a.imagePosition==='right center'&&'image-position-right',a.imagePosition==='left center'&&'image-position-left']}><SectionImage context={context} media={media} layout="gallery" itemCount={2} alt={a.imageAlt??''} crop={a.image!.crop} ratio="gallery" locale={content.locale}/></div>}<div class="article-preview-meta"><span class="article-preview-category">{a.category}</span><time datetime={a.publishAt}>{new Date(a.publishAt).toLocaleDateString(content.locale,{dateStyle:'medium',timeZone:'UTC'})}</time></div></div><h3 class="ds-card-title"><LinkLabel>{a.title}</LinkLabel></h3><div class="description" set:html={context.rich(a.description,content.locale,true,false)}/></a>})}</div>

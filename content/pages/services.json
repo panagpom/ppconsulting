@@ -1,26 +1,28 @@
 {
   "contentId": "services",
   "_template": "offerings",
-  "slug": "services",
+  "slug": "offerings",
   "status": "published",
   "meta": {
-    "title": "Services",
-    "seoDescription": ""
+    "title": "What we do",
+    "seoDescription": "",
+    "noindex": false
   },
   "sections": [
     {
       "id": "intro",
       "_template": "hero",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "imageEnabled": false
       }
     },
     {
-      "id": "services_list",
+      "id": "services",
       "_template": "offering-list",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
         "surface": "default"
@@ -32,14 +34,15 @@
       {
         "id": "intro",
         "_template": "hero",
-        "title": "Services",
-        "description": "Explore a starting point for working together."
+        "title": "The right support.\nAt every step.",
+        "eyebrow": "What we do",
+        "description": "Every financial situation is different\\. Start with the support that fits yours\\."
       },
       {
-        "id": "services_list",
+        "id": "services",
         "_template": "offering-list",
-        "title": "Available services",
-        "description": "Each service can begin with a discussion of your needs."
+        "title": "The right support.\nAt every step.",
+        "description": ""
       }
     ]
   },
@@ -47,22 +50,24 @@
     "el": {
       "status": "published",
       "meta": {
-        "title": "Υπηρεσίες",
-        "seoDescription": ""
+        "title": "Τι κάνουμε",
+        "seoDescription": "",
+        "noindex": false
       },
       "copy": {
         "sections": [
           {
             "id": "intro",
             "_template": "hero",
-            "title": "Υπηρεσίες",
-            "description": "Εξερευνήστε ένα σημείο εκκίνησης για τη συνεργασία μας."
+            "title": "Η σωστή υποστήριξη.\nΣε κάθε βήμα.",
+            "eyebrow": "Τι κάνουμε",
+            "description": "Κάθε οικονομική ανάγκη είναι διαφορετική\\. Ξεκινήστε με την υποστήριξη που ταιριάζει στη δική σας πραγματικότητα\\."
           },
           {
-            "id": "services_list",
+            "id": "services",
             "_template": "offering-list",
-            "title": "Διαθέσιμες υπηρεσίες",
-            "description": "Κάθε υπηρεσία μπορεί να ξεκινήσει με μια συζήτηση για τις ανάγκες σας."
+            "title": "Η σωστή υποστήριξη.\nΣε κάθε βήμα.",
+            "description": ""
           }
         ]
       }

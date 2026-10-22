@@ -1,0 +1,6 @@
+---
+import Action from './Action.astro';import type {RenderContext} from '../../lib/render-context';
+interface Props {context:RenderContext;locale:string;contextId?:string}
+const {context,locale,contextId}=Astro.props;const href=context.link('/contact'+(contextId?'?contextId='+encodeURIComponent(contextId):''),locale);
+---
+<div class="advisory-enquiry" data-motion-reveal><Action href={href} size="large" trailingIcon="conversation">{locale==='el'?'Ας συζητήσουμε τις ανάγκες σας':'Discuss your needs'}</Action></div>

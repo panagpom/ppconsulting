@@ -1,0 +1,30 @@
+{
+  "source": "C:\\Projects\\financial-consulting-example",
+  "sourcePublicContentSha256": "9e6b2166cfbf582a8ec62e67268fd17185e332d7b66752b00638756d424b84c3",
+  "files": [
+    "content/pages/about.json",
+    "content/pages/contact.json",
+    "content/pages/home.json",
+    "content/pages/insights.json",
+    "content/pages/privacy.json",
+    "content/pages/services.json",
+    "content/offerings/04-funding.json",
+    "content/offerings/05-personal-tax.json",
+    "content/offerings/06-property.json",
+    "content/offerings/07-investment.json",
+    "content/offerings/considered-solutions.json",
+    "content/offerings/ongoing-support.json",
+    "content/offerings/personal-guidance.json",
+    "content/articles/a-good-start.json",
+    "content/articles/the-small-details.json",
+    "content/people/alex.json",
+    "project.json",
+    "content/settings/site.json"
+  ],
+  "retiredFields": [
+    "offerings.detail/features preserved in archive; not rendered in approved reference",
+    "experience.scrollPercent/confirmedDays/consentVersion/consentDays and cookie labels retained in archive; v2 uses its own tested consent/preferences lifecycle",
+    "home.actions.about/allStories mapped to localized section links"
+  ],
+  "sendingEnabled": false
+}

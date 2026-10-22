@@ -4,23 +4,25 @@
   "slug": "privacy",
   "status": "published",
   "meta": {
-    "title": "Privacy information",
-    "seoDescription": ""
+    "title": "Privacy",
+    "seoDescription": "",
+    "noindex": true
   },
   "sections": [
     {
       "id": "intro",
       "_template": "hero",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "imageEnabled": false
       }
     },
     {
       "id": "privacy_details",
       "_template": "rich-text",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
         "surface": "default"
@@ -32,14 +34,15 @@
       {
         "id": "intro",
         "_template": "hero",
-        "title": "Privacy information",
-        "description": "Read how this demonstration describes the handling of enquiries."
+        "title": "Privacy, with care.",
+        "eyebrow": "Your information",
+        "description": ""
       },
       {
         "id": "privacy_details",
         "_template": "rich-text",
-        "title": "Example privacy notice",
-        "body": "## Before using this website\n\nThis notice is a placeholder for review. Replace it with information about your organization, the data you collect, why you use it, how long you keep it, and how people can contact you about their rights.\n\nDo not publish this demonstration as a completed privacy notice."
+        "title": "Privacy",
+        "body": "## Enquiries\n\nThe starter stores the information you submit so that the business can respond\\. Newsletter consent is separate and optional\\.\n\n## Email updates\n\nWhen enabled, subscriptions require email confirmation\\. Every marketing email includes an unsubscribe link\\.\n\n## Before publishing\n\nIdentify the controller, contact details, purposes and lawful bases, processors and transfers, retention periods, rights, withdrawal procedures and complaint authority\\. Replace this template with reviewed business\\-specific wording\\."
       }
     ]
   },
@@ -47,22 +50,24 @@
     "el": {
       "status": "published",
       "meta": {
-        "title": "Πληροφορίες απορρήτου",
-        "seoDescription": ""
+        "title": "Απόρρητο",
+        "seoDescription": "",
+        "noindex": true
       },
       "copy": {
         "sections": [
           {
             "id": "intro",
             "_template": "hero",
-            "title": "Πληροφορίες απορρήτου",
-            "description": "Διαβάστε πώς αυτό το παράδειγμα περιγράφει τη διαχείριση αιτημάτων."
+            "title": "Απόρρητο, με φροντίδα.",
+            "eyebrow": "Τα στοιχεία σας",
+            "description": ""
           },
           {
             "id": "privacy_details",
             "_template": "rich-text",
-            "title": "Ενδεικτική ενημέρωση απορρήτου",
-            "body": "## Πριν χρησιμοποιήσετε αυτόν τον ιστότοπο\n\nΑυτή η ενημέρωση είναι προσωρινό κείμενο προς έλεγχο. Αντικαταστήστε την με πληροφορίες για τον οργανισμό σας, τα δεδομένα που συλλέγετε, τον σκοπό χρήσης, τον χρόνο διατήρησης και τον τρόπο επικοινωνίας σχετικά με τα δικαιώματα των προσώπων.\n\nΜη δημοσιεύσετε αυτό το παράδειγμα ως ολοκληρωμένη ενημέρωση απορρήτου."
+            "title": "Privacy",
+            "body": "## Αιτήματα\n\nΗ εφαρμογή αποθηκεύει τα στοιχεία που υποβάλλετε ώστε η επιχείρηση να απαντήσει\\. Η συγκατάθεση για ενημερώσεις είναι χωριστή και προαιρετική\\.\n\n## Ενημερώσεις μέσω email\n\nΌταν ενεργοποιούνται, οι εγγραφές απαιτούν επιβεβαίωση μέσω email\\. Κάθε ενημερωτικό email περιλαμβάνει σύνδεσμο διαγραφής\\.\n\n## Πριν από τη δημοσίευση\n\nΠροσδιορίστε τον υπεύθυνο επεξεργασίας, τα στοιχεία επικοινωνίας, τους σκοπούς και τις νομικές βάσεις, τους εκτελούντες και τις διαβιβάσεις, τους χρόνους διατήρησης, τα δικαιώματα, τη διαδικασία ανάκλησης και την αρμόδια αρχή\\. Αντικαταστήστε το πρότυπο με ελεγμένο κείμενο για την επιχείρησή σας\\."
           }
         ]
       }

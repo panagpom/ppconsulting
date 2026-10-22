@@ -1,3 +1,4 @@
+import {generatePresentation} from './presentation.mjs';
 import {deploymentIdentity,identityText} from '../packages/config/deployment-identity.mjs';
 import {publicAssetHeaders} from '../packages/config/security-headers.mjs';
 import {formProtection} from '../packages/config/form-protection.mjs';
@@ -22,6 +23,7 @@ const source=readContent(process.cwd(),p);
 writeFileSync('.generated/manifest.json',JSON.stringify(createManifest(source,p),null,2)+'\n');
 syncMigrations(process.cwd());
 generateDesign(p.design);
+generatePresentation(p,source);
 mkdirSync('apps/site/public',{recursive:true});
 writeFileSync('apps/site/public/_headers',publicAssetHeaders(formProtection(p).mode==='turnstile'));
 const config=createWorkerConfig(p,local);

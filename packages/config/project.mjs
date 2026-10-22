@@ -1,3 +1,4 @@
+import {designOptionDeclarations} from '../design-system/design-options.mjs';
 import { z } from 'zod';
 import { accessEmails } from './access.mjs';
 import {providerAnalyticsSchema} from './provider-analytics.mjs';
@@ -38,11 +39,12 @@ export const projectSchema = z.strictObject({
   modules: z.strictObject({rooms:z.boolean().default(false),newsletterPrompt:z.boolean().default(false),visitorPreferences:z.boolean().default(false)}).prefault({}),
   locale: code, languages: z.array(z.strictObject({code, label:text})).min(1), siteUrl: origin,
   environment: z.enum(['local','staging','production']).default('local'),
-  design: z.strictObject({theme:z.string().regex(/^[a-z0-9-]+$/).default('neutral'),density:z.enum(['comfortable','compact','spacious']).default('comfortable'),motion:motionSchema.prefault({})}).prefault({}),
+  design: z.strictObject({radius:z.string().regex(/^\d{1,2}px$/).optional(),typography:z.record(z.string(),z.unknown()).optional(),eyebrows:z.record(z.string(),z.unknown()).optional(),dividers:z.record(z.string(),z.unknown()).optional(),footer:z.record(z.string(),z.unknown()).optional(),theme:z.string().regex(/^[a-z0-9-]+$/).default('neutral'),density:z.enum(['comfortable','compact','spacious']).default('comfortable'),motion:motionSchema.prefault({})}).prefault({}),
   media: z.strictObject({ optimization: optimization.prefault({}) }).prefault({}),
   infrastructure: infrastructure.prefault({}), legalReviewed:z.boolean().default(false), contentReviewed:z.boolean().default(false),
   interests:z.array(z.strictObject({id,label:text})).default([]),
 }).superRefine((p,ctx) => {
+  try{const {motion,...presentation}=p.design;designOptionDeclarations(presentation);}catch(error){ctx.addIssue({code:'custom',path:['design'],message:error.message});}
   if(p.infrastructure.providerAnalytics.enabled&&p.infrastructure.databaseId==='00000000-0000-0000-0000-000000000000')ctx.addIssue({code:'custom',path:['infrastructure','databaseId'],message:'Enabled analytics requires a real deployment database'});
   if (new Set(p.languages.map(l=>l.code)).size !== p.languages.length) ctx.addIssue({code:'custom',path:['languages'],message:'Language codes must be unique'});
   if (!p.languages.some(l=>l.code===p.locale)) ctx.addIssue({code:'custom',path:['locale'],message:'Default locale must be included in languages'});

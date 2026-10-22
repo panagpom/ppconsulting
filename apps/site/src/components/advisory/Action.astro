@@ -1,0 +1,61 @@
+---
+import type { ComponentProps, HTMLAttributes } from 'astro/types';
+import Icon from './Icon.astro';
+import LinkLabel from './LinkLabel.astro';
+type Props = (
+  ({ href: string } & HTMLAttributes<'a'>) | ({ href?: never } & HTMLAttributes<'button'>)
+) & {
+  variant?: 'primary' | 'secondary' | 'quiet' | 'inverse';
+  size?: 'regular' | 'large';
+  arrow?: boolean;
+  icon?: ComponentProps<typeof Icon>['name'];
+  trailingIcon?: ComponentProps<typeof Icon>['name'];
+};
+const {
+  href,
+  variant = 'primary',
+  size = 'regular',
+  arrow = false,
+  icon,
+  trailingIcon,
+  class: className,
+  ...attributes
+} = Astro.props;
+const classes = [
+  variant === 'quiet' ? 'text-link' : 'button',
+  'ds-action',
+  'ds-action--' + variant,
+  'ds-action--' + size,
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+const anchorAttributes = attributes as HTMLAttributes<'a'>;
+const buttonAttributes = attributes as HTMLAttributes<'button'>;
+---
+
+{href ? (
+  <a href={href} class={classes} {...anchorAttributes}>
+    {icon && (
+      <span class="ds-action-icon">
+        <Icon name={icon} />
+      </span>
+    )}
+    <LinkLabel>
+      <slot />
+    </LinkLabel>
+    {(trailingIcon || arrow) && <Icon name={trailingIcon || 'arrow'} />}
+  </a>
+) : (
+  <button class={classes} {...buttonAttributes} type={buttonAttributes.type || 'button'}>
+    {icon && (
+      <span class="ds-action-icon">
+        <Icon name={icon} />
+      </span>
+    )}
+    <LinkLabel>
+      <slot />
+    </LinkLabel>
+    {(trailingIcon || arrow) && <Icon name={trailingIcon || 'arrow'} />}
+  </button>
+)}

@@ -1,156 +1,218 @@
 {
   "contentId": "home",
-  "_template": "home",
   "slug": "",
   "status": "published",
   "meta": {
-    "title": "Clear thinking for your next step",
-    "seoDescription": ""
+    "title": "Accounting and financial consulting",
+    "seoDescription": "",
+    "noindex": false
   },
   "sections": [
     {
-      "id": "intro",
+      "id": "hero",
       "_template": "hero",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "imageEnabled": true,
+        "backgroundImage": "/uploads/advisory-consultation.webp"
       }
     },
     {
-      "id": "services_preview",
+      "id": "perspective",
+      "_template": "rich-text",
+      "variant": "editorial",
+      "enabled": true,
+      "appearance": {
+        "surface": "default",
+        "backgroundColor": "#1b3048",
+        "imageEnabled": true,
+        "backgroundImage": "/uploads/advisory-perspective.webp",
+        "imageOpacity": 0.6,
+        "imageOpacityMobile": 0.45,
+        "overlayOpacity": 0.84
+      }
+    },
+    {
+      "id": "services",
       "_template": "offering-list",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "imageEnabled": false
       }
     },
     {
-      "id": "our_process",
+      "id": "approach",
       "_template": "steps",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
-      "appearance": {
-        "surface": "default"
-      },
       "items": [
         {
-          "id": "listen"
+          "id": "item_1"
         },
         {
-          "id": "plan"
+          "id": "item_2"
+        },
+        {
+          "id": "item_3"
         }
-      ]
-    },
-    {
-      "id": "our_people",
-      "_template": "people-list",
-      "variant": "default",
-      "enabled": true,
+      ],
       "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "backgroundColor": "#172b42",
+        "imageEnabled": true,
+        "backgroundImage": "/uploads/advisory-method.webp",
+        "imageOpacity": 0.6,
+        "imageOpacityMobile": 0.45,
+        "overlayOpacity": 0.84
       }
     },
     {
-      "id": "insights_preview",
+      "id": "insights",
       "_template": "article-list",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
-        "surface": "default"
+        "colorScheme": "light",
+        "surface": "muted",
+        "imageEnabled": false
       }
     },
     {
       "id": "questions",
       "_template": "faq",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
-      "appearance": {
-        "surface": "default"
-      },
       "items": [
         {
-          "id": "start"
+          "id": "item_1"
+        },
+        {
+          "id": "item_2"
+        },
+        {
+          "id": "item_3"
+        },
+        {
+          "id": "item_4"
         }
-      ]
-    },
-    {
-      "id": "next_step",
-      "_template": "cta",
-      "variant": "default",
-      "enabled": true,
+      ],
       "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "imageEnabled": false
       }
     }
   ],
   "copy": {
     "sections": [
       {
-        "id": "intro",
-        "_template": "hero",
-        "title": "Clear thinking for your next step",
-        "description": "Illustrative sample content. Replace these details before publication."
-      },
-      {
-        "id": "services_preview",
-        "_template": "offering-list",
-        "title": "Explore our services",
-        "description": "Illustrative sample content. Replace these details before publication."
-      },
-      {
-        "id": "our_process",
-        "_template": "steps",
-        "title": "How it works",
-        "description": "Illustrative sample content. Replace these details before publication.",
-        "items": [
+        "id": "hero",
+        "title": "Clear numbers.\nConsidered decisions.\nLasting value.",
+        "description": "Accounting support and financial planning, built around the needs of your business and your everyday life.\n",
+        "eyebrow": "Accounting · Consulting · Investment planning\n",
+        "actions": [
           {
-            "id": "listen",
-            "title": "We listen",
-            "body": "Illustrative sample content. Replace these details before publication."
+            "label": "Discuss your needs",
+            "href": "/contact",
+            "icon": "conversation"
           },
           {
-            "id": "plan",
-            "title": "We plan",
-            "body": "Illustrative sample content. Replace these details before publication."
+            "label": "Explore our services",
+            "href": "#services",
+            "icon": "briefcase"
           }
-        ]
+        ],
+        "_template": "hero"
       },
       {
-        "id": "our_people",
-        "_template": "people-list",
-        "title": "Meet the people",
-        "description": "Illustrative sample content. Replace these details before publication."
+        "id": "perspective",
+        "title": "A clearer view.\nA considered next step.",
+        "body": "A business decision starts with the whole picture: day-to-day obligations, available resources, and what comes next. We bring these conversations together, with a practical plan you can follow.\n",
+        "eyebrow": "Our perspective\n",
+        "_template": "rich-text"
       },
       {
-        "id": "insights_preview",
-        "_template": "article-list",
-        "title": "Ideas and perspective",
-        "description": "Illustrative sample content. Replace these details before publication."
+        "id": "services",
+        "title": "The right support.\nAt every step.",
+        "description": "Every financial situation is different. Start with the support that fits yours.\n",
+        "eyebrow": "What we do\n",
+        "_template": "offering-list"
+      },
+      {
+        "id": "approach",
+        "title": "Behind every number,\nthere is a person.",
+        "description": "We listen to your priorities, make the options clear, and agree practical next steps. One point of contact, from the first conversation onwards.\n",
+        "items": [
+          {
+            "id": "item_1",
+            "title": "Listen and understand",
+            "body": "We start with your situation, your priorities, and what you want to achieve.\n"
+          },
+          {
+            "id": "item_2",
+            "title": "Plan with clarity",
+            "body": "We agree the scope, the responsibilities, and a practical way forward.\n"
+          },
+          {
+            "id": "item_3",
+            "title": "Move forward together",
+            "body": "We keep the conversation open as your business and circumstances change.\n"
+          }
+        ],
+        "link": {
+          "label": "A little about us",
+          "href": "/about"
+        },
+        "eyebrow": "Our method\n",
+        "_template": "steps"
+      },
+      {
+        "id": "insights",
+        "title": "Useful ideas.\nA different perspective.",
+        "description": "",
+        "link": {
+          "label": "All stories",
+          "href": "/insights"
+        },
+        "eyebrow": "Insights\n",
+        "_template": "article-list"
       },
       {
         "id": "questions",
-        "_template": "faq",
-        "title": "Useful questions",
-        "description": "Illustrative sample content. Replace these details before publication.",
+        "title": "Your questions.\nStraightforward answers.",
+        "description": "",
         "items": [
           {
-            "id": "start",
-            "question": "How do we start?",
-            "answer": "Send a message through the [contact form](/contact)."
+            "id": "item_1",
+            "question": "Can we work together remotely?",
+            "answer": "We can begin with a call or an online meeting. We will agree how to share documents securely and how to keep in touch.\n"
+          },
+          {
+            "id": "item_2",
+            "question": "Do you support new businesses?",
+            "answer": "Yes. The first conversation helps us understand your idea and identify the accounting, planning, and organisational support you need.\n"
+          },
+          {
+            "id": "item_3",
+            "question": "How is the cost of working together agreed?",
+            "answer": "We discuss the scope and frequency of the work first, then provide a proposal with the services and fees clearly set out.\n"
+          },
+          {
+            "id": "item_4",
+            "question": "What do I need for the first conversation?",
+            "answer": "A short description of your situation and the topics you want to discuss is enough. We will explain which documents are needed later through a suitable channel.\n"
           }
-        ]
-      },
-      {
-        "id": "next_step",
-        "_template": "cta",
-        "title": "Start a conversation",
-        "description": "Illustrative sample content. Replace these details before publication.",
+        ],
+        "eyebrow": "Common questions\n",
+        "contactTitle": "Have another question?",
         "link": {
-          "label": "Contact us",
+          "label": "Get in touch",
           "href": "/contact"
-        }
+        },
+        "_template": "faq"
       }
     ]
   },
@@ -158,78 +220,121 @@
     "el": {
       "status": "published",
       "meta": {
-        "title": "Καθαρή σκέψη για το επόμενο βήμα",
-        "seoDescription": ""
+        "title": "Λογιστική και οικονομική συμβουλευτική",
+        "seoDescription": "",
+        "noindex": false
       },
       "copy": {
         "sections": [
           {
-            "id": "intro",
-            "_template": "hero",
-            "title": "Καθαρή σκέψη για το επόμενο βήμα",
-            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
-          },
-          {
-            "id": "services_preview",
-            "_template": "offering-list",
-            "title": "Γνωρίστε τις υπηρεσίες",
-            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
-          },
-          {
-            "id": "our_process",
-            "_template": "steps",
-            "title": "Πώς λειτουργεί",
-            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση.",
-            "items": [
+            "id": "hero",
+            "title": "Ξεκάθαροι αριθμοί.\nΣωστές αποφάσεις.\nΠραγματική αξία.",
+            "description": "Λογιστική υποστήριξη και οικονομικός σχεδιασμός, με επίκεντρο τις ανάγκες της επιχείρησης και της καθημερινότητάς σας.\n",
+            "eyebrow": "Λογιστική · Συμβουλευτική · Επενδυτικός σχεδιασμός\n",
+            "actions": [
               {
-                "id": "listen",
-                "title": "Συζητάμε",
-                "body": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+                "label": "Ας συζητήσουμε τις ανάγκες σας",
+                "href": "/contact",
+                "icon": "conversation"
               },
               {
-                "id": "plan",
-                "title": "Σχεδιάζουμε",
-                "body": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+                "label": "Οι υπηρεσίες μας",
+                "href": "#services",
+                "icon": "briefcase"
               }
-            ]
+            ],
+            "_template": "hero"
           },
           {
-            "id": "our_people",
-            "_template": "people-list",
-            "title": "Γνωρίστε την ομάδα",
-            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+            "id": "perspective",
+            "title": "Συνολική εικόνα.\nΟυσιαστικό επόμενο βήμα.",
+            "body": "Μια επιχειρηματική απόφαση ξεκινά με τη συνολική εικόνα: τις καθημερινές υποχρεώσεις, τους διαθέσιμους πόρους και το επόμενο βήμα. Συνδέουμε αυτά τα θέματα σε ένα πρακτικό σχέδιο που μπορείτε να ακολουθήσετε.\n",
+            "eyebrow": "Η οπτική μας\n",
+            "_template": "rich-text"
           },
           {
-            "id": "insights_preview",
-            "_template": "article-list",
-            "title": "Ιδέες και απόψεις",
-            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+            "id": "services",
+            "title": "Η σωστή υποστήριξη.\nΣε κάθε βήμα.",
+            "description": "Κάθε οικονομική ανάγκη είναι διαφορετική. Ξεκινήστε με την υποστήριξη που ταιριάζει στη δική σας πραγματικότητα.\n",
+            "eyebrow": "Τι κάνουμε\n",
+            "_template": "offering-list"
+          },
+          {
+            "id": "approach",
+            "title": "Πίσω από κάθε αριθμό,\nβλέπουμε τον άνθρωπο.",
+            "description": "Ακούμε τις προτεραιότητές σας, εξηγούμε τις επιλογές και συμφωνούμε συγκεκριμένα επόμενα βήματα. Ένα σταθερό σημείο επικοινωνίας, από την πρώτη συζήτηση.\n",
+            "items": [
+              {
+                "id": "item_1",
+                "title": "Ακούμε και κατανοούμε",
+                "body": "Ξεκινάμε από εσάς: την κατάσταση, τις προτεραιότητες και τους στόχους σας.\n"
+              },
+              {
+                "id": "item_2",
+                "title": "Σχεδιάζουμε με σαφήνεια",
+                "body": "Συμφωνούμε το πλαίσιο συνεργασίας, τις ευθύνες και τα συγκεκριμένα επόμενα βήματα.\n"
+              },
+              {
+                "id": "item_3",
+                "title": "Προχωράμε μαζί",
+                "body": "Κρατάμε την επικοινωνία ανοιχτή καθώς η επιχείρηση και οι ανάγκες σας εξελίσσονται.\n"
+              }
+            ],
+            "link": {
+              "label": "Λίγα λόγια για εμάς",
+              "href": "/about"
+            },
+            "eyebrow": "Ο τρόπος μας\n",
+            "_template": "steps"
+          },
+          {
+            "id": "insights",
+            "title": "Χρήσιμες ιδέες.\nΜια διαφορετική οπτική.",
+            "description": "",
+            "link": {
+              "label": "Όλα τα άρθρα",
+              "href": "/insights"
+            },
+            "eyebrow": "Άρθρα και ιδέες\n",
+            "_template": "article-list"
           },
           {
             "id": "questions",
-            "_template": "faq",
-            "title": "Χρήσιμες ερωτήσεις",
-            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση.",
+            "title": "Οι απορίες σας.\nΜε απλές απαντήσεις.",
+            "description": "",
             "items": [
               {
-                "id": "start",
-                "question": "Πώς ξεκινάμε;",
-                "answer": "Στείλτε μας ένα μήνυμα από τη [φόρμα επικοινωνίας](/contact)."
+                "id": "item_1",
+                "question": "Μπορούμε να συνεργαστούμε εξ αποστάσεως;",
+                "answer": "Μπορούμε να ξεκινήσουμε με ένα τηλεφώνημα ή μια διαδικτυακή συνάντηση. Συμφωνούμε τον ασφαλή τρόπο ανταλλαγής εγγράφων και τη συχνότητα επικοινωνίας.\n"
+              },
+              {
+                "id": "item_2",
+                "question": "Αναλαμβάνετε και νέες επιχειρήσεις;",
+                "answer": "Ναι. Στην πρώτη συζήτηση γνωρίζουμε την ιδέα σας και εντοπίζουμε τις ανάγκες λογιστικής υποστήριξης, οργάνωσης και σχεδιασμού.\n"
+              },
+              {
+                "id": "item_3",
+                "question": "Πώς διαμορφώνεται το κόστος συνεργασίας;",
+                "answer": "Συζητούμε πρώτα το αντικείμενο και τη συχνότητα της συνεργασίας. Στη συνέχεια παρουσιάζουμε πρόταση με σαφή περιγραφή των υπηρεσιών και της αμοιβής.\n"
+              },
+              {
+                "id": "item_4",
+                "question": "Τι χρειάζεται για την πρώτη επικοινωνία;",
+                "answer": "Αρκεί μια σύντομη περιγραφή της κατάστασης και των θεμάτων που σας ενδιαφέρουν. Θα εξηγήσουμε ποια δικαιολογητικά χρειάζονται αργότερα, μέσω κατάλληλου καναλιού.\n"
               }
-            ]
-          },
-          {
-            "id": "next_step",
-            "_template": "cta",
-            "title": "Ας μιλήσουμε",
-            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση.",
+            ],
+            "eyebrow": "Συχνές ερωτήσεις\n",
+            "contactTitle": "Έχετε κάποια άλλη ερώτηση;",
             "link": {
               "label": "Επικοινωνία",
               "href": "/contact"
-            }
+            },
+            "_template": "faq"
           }
         ]
       }
     }
-  }
+  },
+  "_template": "home"
 }

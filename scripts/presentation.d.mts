@@ -1,0 +1,1 @@
+import type {ProjectConfig} from '../packages/config/project.mjs';import type {ContentSnapshot} from '../packages/content/types';export function generatePresentation(project:ProjectConfig,snapshot:ContentSnapshot):void;

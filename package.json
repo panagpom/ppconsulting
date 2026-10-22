@@ -27,6 +27,7 @@
     "deploy:check": "node scripts/doctor.mjs --production"
   },
   "dependencies": {
+    "@fontsource/merriweather": "5.3.0",
     "@fontsource/noto-sans": "5.2.8",
     "aws4fetch": "1.0.20",
     "jose": "6.2.12",

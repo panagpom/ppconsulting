@@ -1,0 +1,27 @@
+---
+interface Props {
+  text: string;
+  level?: 'h1' | 'h2' | 'h3';
+  accentLastLine?: boolean;
+  variant?: 'standard' | 'display';
+  class?: string;
+}
+const {
+  text,
+  level = 'h2',
+  accentLastLine = false,
+  variant = 'standard',
+  class: className,
+} = Astro.props;
+const Tag = level,
+  lines = text.split('\n');
+---
+
+<Tag class:list={['ds-heading', variant === 'display' && 'ds-heading--display', className]}>
+  {lines.map((line, i) => (
+    <>
+      {i > 0 && <br />}
+      {accentLastLine && i === lines.length - 1 && lines.length > 1 ? <em>{line}</em> : line}
+    </>
+  ))}
+</Tag>

@@ -4,26 +4,25 @@
   "slug": "contact",
   "status": "published",
   "meta": {
-    "title": "Start a conversation",
-    "seoDescription": ""
+    "title": "Let’s talk",
+    "seoDescription": "",
+    "noindex": false
   },
   "sections": [
     {
       "id": "intro",
       "_template": "hero",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
-        "surface": "default"
-      }
-    },
-    {
-      "id": "before_writing",
-      "_template": "rich-text",
-      "variant": "default",
-      "enabled": true,
-      "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "backgroundImage": "/uploads/advisory-method.webp",
+        "imageEnabled": true,
+        "imagePosition": "right center",
+        "imagePositionMobile": "65% center",
+        "imageOpacity": 0.65,
+        "imageOpacityMobile": 0.45,
+        "overlayOpacity": 0.84
       }
     }
   ],
@@ -32,14 +31,9 @@
       {
         "id": "intro",
         "_template": "hero",
-        "title": "Start a conversation",
-        "description": "Tell us a little about your question or project."
-      },
-      {
-        "id": "before_writing",
-        "_template": "rich-text",
-        "title": "What to include",
-        "body": "Share your goal, any relevant timing, and the best way to reach you. Please leave out sensitive personal information."
+        "title": "A conversation.\nA good beginning.",
+        "eyebrow": "We’re here to help",
+        "description": "Tell us a little about what you have in mind\\. We’ll help you find the next step\\."
       }
     ]
   },
@@ -47,22 +41,18 @@
     "el": {
       "status": "published",
       "meta": {
-        "title": "Ξεκινήστε μια συζήτηση",
-        "seoDescription": ""
+        "title": "Ας μιλήσουμε",
+        "seoDescription": "",
+        "noindex": false
       },
       "copy": {
         "sections": [
           {
             "id": "intro",
             "_template": "hero",
-            "title": "Ξεκινήστε μια συζήτηση",
-            "description": "Πείτε μας λίγα λόγια για την ερώτηση ή το έργο σας."
-          },
-          {
-            "id": "before_writing",
-            "_template": "rich-text",
-            "title": "Τι να συμπεριλάβετε",
-            "body": "Αναφέρετε τον στόχο σας, το σχετικό χρονοδιάγραμμα και τον καλύτερο τρόπο επικοινωνίας. Παρακαλούμε μην συμπεριλαμβάνετε ευαίσθητα προσωπικά στοιχεία."
+            "title": "Μια συζήτηση.\nΜια καλή αρχή.",
+            "eyebrow": "Είμαστε εδώ για να βοηθήσουμε",
+            "description": "Πείτε μας τι έχετε στο μυαλό σας\\. Θα σας βοηθήσουμε να βρείτε το επόμενο βήμα\\."
           }
         ]
       }

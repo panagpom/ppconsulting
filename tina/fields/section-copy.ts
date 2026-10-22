@@ -25,7 +25,7 @@ export function FixedEntries({ input, field, tinaForm }: any) {
 
 // Tina-only registration seam for module-owned section copy controls.
 export const moduleSectionCopyFields:Readonly<Record<string,()=>TinaField[]>>=Object.freeze({'room-list':roomListCopyFields});
-export function sectionCopyFields(type: string): TinaField[] {
+function baseSectionCopyFields(type: string): TinaField[] {
   if(moduleSectionCopyFields[type])return moduleSectionCopyFields[type]();
   if(type==='media-text')return [text('id',true),text('title'),rich('body'),object('image',[text('alt'),rich('caption',true)]),link];
   if(type==='gallery')return [text('id',true),text('title'),rich('description',true),{name:'items',label:'Images',type:'object',list:true,fields:[text('id',true),text('alt'),rich('caption',true)],ui:{component:FixedSectionItems}}];
@@ -33,6 +33,8 @@ export function sectionCopyFields(type: string): TinaField[] {
   return [text('id', true), text('title'), type === 'rich-text' ? rich('body') : rich('description', true),
     ...(['hero', 'cta'].includes(type) ? [link] : [])];
 }
+
+export function sectionCopyFields(type:string):TinaField[]{const fields=baseSectionCopyFields(type);if(moduleSectionCopyFields[type])return fields;return [...fields,...(['steps','article-list'].includes(type)?[link]:[]),rich('eyebrow',true),...(type==='hero'?[object('actions',[text('label'),text('href'),{name:'icon',type:'string',options:['conversation','briefcase','arrow-right','mail']}],true)]:[]),...(type==='faq'?[text('contactTitle'),link]:[])];}
 
 export const sectionCopyTemplates: Template[] = sectionDefinitions.map(definition => ({
   name: definition.nativeName,

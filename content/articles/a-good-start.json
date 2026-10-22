@@ -1,0 +1,33 @@
+{
+  "contentId": "good-start",
+  "slug": "a-good-start",
+  "status": "published",
+  "title": "A good start begins with the right questions",
+  "description": "A few simple ways to prepare for a useful first conversation\\.",
+  "body": "You do not need to have every answer before asking for help\\. A useful first conversation is a chance to understand the situation together\\.\n\nStart with what you want to change\\. Note what matters most, what you have already tried, and any practical constraints\\. Sharing this context makes it easier to find a useful starting point\\.\n\nAsk what happens next, who will be involved, and what you should expect\\. Good guidance leaves you with clarity, rather than more questions\\.\n\nExplore [accounting support](/en/offerings/accounting-support), or [start a conversation](/en/contact?contextId=guidance).",
+  "seoDescription": "",
+  "publishAt": "2026-10-01T00:00:00.000Z",
+  "updatedAt": "2026-10-01T00:00:00.000Z",
+  "imageAlt": "",
+  "category": "Perspective",
+  "authorId": "alex",
+  "offeringId": "guidance",
+  "image": {
+    "src": "/uploads/advisory-consultation.webp",
+    "crop": "center"
+  },
+  "imagePosition": "right center",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Μια καλή αρχή ξεκινά με τις σωστές ερωτήσεις",
+      "description": "Απλοί τρόποι προετοιμασίας για μια χρήσιμη πρώτη συζήτηση\\.",
+      "body": "Δεν χρειάζεται να έχετε όλες τις απαντήσεις πριν ζητήσετε βοήθεια\\. Η πρώτη συζήτηση είναι μια ευκαιρία να καταλάβουμε μαζί την κατάσταση\\.\n\nΞεκινήστε με όσα θέλετε να αλλάξετε\\. Σημειώστε τι έχει σημασία, τι έχετε δοκιμάσει και τους πρακτικούς περιορισμούς\\.\n\nΡωτήστε ποιο είναι το επόμενο βήμα, ποιος θα συμμετέχει και τι να περιμένετε\\. Η καλή καθοδήγηση προσφέρει σαφήνεια\\.\n\nΜάθετε περισσότερα για τη [λογιστική υποστήριξη](/el/offerings/accounting-support) ή [ξεκινήστε μια συζήτηση](/el/contact?contextId=guidance).",
+      "seoDescription": "",
+      "publishAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
+      "imageAlt": "",
+      "category": "Οπτική"
+    }
+  }
+}

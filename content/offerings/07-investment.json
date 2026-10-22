@@ -1,0 +1,20 @@
+{
+  "contentId": "investment",
+  "slug": "investment-planning",
+  "status": "published",
+  "title": "Investment planning",
+  "description": "A conversation about your goals, time horizon, and the questions to consider before investing\\.",
+  "body": "A conversation about your goals, time horizon, and the questions to consider before investing\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+  "seoDescription": "",
+  "audience": "individual",
+  "number": "07",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Επενδυτικός σχεδιασμός",
+      "description": "Μια συζήτηση για τους στόχους, τον χρονικό ορίζοντα και τα ερωτήματα που χρειάζεται να εξετάσετε πριν επενδύσετε\\.",
+      "body": "Μια συζήτηση για τους στόχους, τον χρονικό ορίζοντα και τα ερωτήματα που χρειάζεται να εξετάσετε πριν επενδύσετε\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+      "seoDescription": ""
+    }
+  }
+}

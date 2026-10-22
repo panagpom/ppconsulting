@@ -13,6 +13,6 @@ const record=page??(route.kind==='domain'?getDomainRouteRecord(content,route.dom
 const Renderer=route.kind==='domain'?domainRenderer(route.domain):undefined;
 const title='meta' in record?record.meta.title:record.title;
 ---
-<Layout content={content} title={title} description={description('meta' in record?{...record,seoDescription:record.meta.seoDescription}:record)} path={route.path} alternates={route.alternates}>
+<Layout noindex={page?.meta.noindex??false} content={content} title={title} description={description('meta' in record?{...record,seoDescription:record.meta.seoDescription}:record)} path={route.path} alternates={route.alternates}>
 {page?<Page page={page} content={content}/>:Renderer?<Renderer record={record} content={content}/>:editorial&&<EditorialDetail record={editorial} content={content}/>}
 </Layout>

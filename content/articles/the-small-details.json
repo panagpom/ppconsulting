@@ -1,0 +1,33 @@
+{
+  "contentId": "small-details",
+  "slug": "the-small-details",
+  "status": "published",
+  "title": "Why the small details make a difference",
+  "description": "Careful preparation often makes the everyday feel easier\\.",
+  "body": "The most useful improvements are often small: a clear explanation, a well\\-prepared space, or a thoughtful follow\\-up\\. They make an experience feel easier from beginning to end\\.\n\nThink about the moments that create friction\\. Addressing one of them with care can be more helpful than adding something entirely new\\.\n\nExplore [tax planning](/en/offerings/tax-planning), or [start a conversation](/en/contact?contextId=solutions).",
+  "seoDescription": "",
+  "publishAt": "2026-09-22T00:00:00.000Z",
+  "updatedAt": "2026-09-22T00:00:00.000Z",
+  "imageAlt": "",
+  "category": "Everyday ideas",
+  "authorId": "alex",
+  "offeringId": "solutions",
+  "image": {
+    "src": "/uploads/advisory-method.webp",
+    "crop": "center"
+  },
+  "imagePosition": "right center",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Γιατί οι μικρές λεπτομέρειες κάνουν τη διαφορά",
+      "description": "Η προσεκτική προετοιμασία κάνει την καθημερινότητα πιο εύκολη\\.",
+      "body": "Οι πιο χρήσιμες βελτιώσεις είναι συχνά μικρές: μια σαφής εξήγηση, ένας προετοιμασμένος χώρος ή μια προσεγμένη συνέχεια\\.\n\nΣκεφτείτε τις στιγμές που δημιουργούν δυσκολίες\\. Η φροντίδα σε μία από αυτές μπορεί να βοηθήσει περισσότερο από κάτι εντελώς καινούριο\\.\n\nΜάθετε περισσότερα για τον [φορολογικό σχεδιασμό](/el/offerings/tax-planning) ή [ξεκινήστε μια συζήτηση](/el/contact?contextId=solutions).",
+      "seoDescription": "",
+      "publishAt": "2026-09-22T00:00:00.000Z",
+      "updatedAt": "2026-09-22T00:00:00.000Z",
+      "imageAlt": "",
+      "category": "Καθημερινές ιδέες"
+    }
+  }
+}

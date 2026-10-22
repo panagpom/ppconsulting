@@ -1,0 +1,37 @@
+import {it,expect} from 'vitest';
+import {readFileSync} from 'node:fs';
+import {parseProject} from '../packages/config/project.mjs';
+import {readContent} from '../packages/content/read.mjs';
+import {localizeContent} from '../packages/content/localize.mjs';
+import {beforeSubmit} from '../tina/validation';
+import {sectionCopyFields} from '../tina/fields/section-copy';
+import {parseMDX} from '@tinacms/mdx';
+const project=parseProject(JSON.parse(readFileSync('project.json','utf8')));
+const snapshot=()=>readContent(process.cwd(),project);
+it('preserves the complete bilingual financial catalog, relationships and inert delivery',()=>{
+ const source=snapshot();expect(source.pages).toHaveLength(6);expect(source.offerings).toHaveLength(7);expect(source.articles).toHaveLength(2);expect(source.people).toHaveLength(1);
+ expect(project.infrastructure.sendingEnabled).toBe(false);expect(project.infrastructure.marketingEnabled).toBe(false);expect(source.settings.brand.name).toBe('PPConsulting');
+ for(const locale of ['en','el']){const c=localizeContent(source,locale,project);expect(c.pages.find(p=>p._template==='offerings')!.path).toBe('/'+locale+'/offerings');expect(c.offerings.map(o=>o.slug)).toContain('investment-planning');expect(c.articles.every(a=>a.authorId==='alex'&&c.offerings.some(o=>o.contentId===a.offeringId))).toBe(true);expect(JSON.stringify(c)).not.toContain('AXIA');expect(JSON.stringify(c)).not.toContain('?offering=');}
+});
+it('section appearance and localized native editor values survive validation without AST mutation',()=>{
+ const current=JSON.parse(readFileSync('content/pages/home.json','utf8'));const candidate=structuredClone(current);
+ candidate.sections.find((s:any)=>s.id==='perspective').appearance.backgroundColor='#20364f';
+ const entry=candidate.copy.sections.find((s:any)=>s.id==='hero');entry.eyebrow=parseMDX('A **clearer** view',{name:'eyebrow',type:'rich-text',templates:[]},u=>u);
+ const original=structuredClone(candidate);expect(beforeSubmit(candidate,'page',project,current)).toBe(candidate);expect(candidate).toEqual(original);
+ expect(sectionCopyFields('hero').find(f=>f.name==='eyebrow')!.type).toBe('rich-text');expect(sectionCopyFields('steps').some(f=>f.name==='link')).toBe(true);
+});
+it('optional visibility keeps required capabilities and preserves translated copy',()=>{
+ const current=JSON.parse(readFileSync('content/pages/home.json','utf8'));const candidate=structuredClone(current);candidate.sections.find((s:any)=>s.id==='perspective').enabled=false;
+ expect(beforeSubmit(candidate,'page',project,current)).toBe(candidate);expect(candidate.translations.el.copy.sections.some((s:any)=>s.id==='perspective')).toBe(true);
+ candidate.sections[0].enabled=false;expect(()=>beforeSubmit(candidate,'page',project,current)).toThrow();
+});
+
+it('background controls reuse registered native fields instead of raw schema descriptors',async()=>{
+ const {appearanceChildFields}=await import('../tina/fields/composition');const Native=()=>null;
+ const fields=appearanceChildFields({fields:[{name:'appearance',fields:[{name:'surface',component:'select'},{name:'backgroundImage',component:Native},{name:'imageOpacity',component:'number'}]}]},2);
+ expect(fields.map((f:any)=>f.name)).toEqual(['sections.2.appearance.backgroundImage','sections.2.appearance.imageOpacity']);expect(fields[0].component).toBe(Native);
+});
+
+it('CMS receives the selected theme without infrastructure credentials',async()=>{
+ const {createCmsDescriptor}=await import('../scripts/cms-descriptor.mjs');const value=createCmsDescriptor(process.cwd(),project);expect(value.project.design.theme).toBe('advisory');expect(value.project).not.toHaveProperty('infrastructure');
+});

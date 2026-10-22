@@ -2,12 +2,12 @@
   "name": "ppconsulting",
   "starterVersion": "2.0.0-dev",
   "schemaVersion": 2,
-  "profile": "enquiries",
+  "profile": "newsletter",
   "articles": true,
   "modules": {
     "rooms": false,
-    "newsletterPrompt": false,
-    "visitorPreferences": false
+    "newsletterPrompt": true,
+    "visitorPreferences": true
   },
   "locale": "en",
   "languages": [
@@ -23,14 +23,72 @@
   "siteUrl": "https://example.com",
   "environment": "local",
   "design": {
-    "theme": "neutral",
+    "theme": "advisory",
     "density": "comfortable",
+    "radius": "3px",
+    "typography": {
+      "bodySize": 16,
+      "labelSize": 14,
+      "captionSize": 12,
+      "emphasisScale": 0.88,
+      "emphasisOpacity": 0.8,
+      "headings": {
+        "hero": {
+          "minRem": 3.3,
+          "fluidVw": 6.5,
+          "maxRem": 5.8
+        },
+        "heroMobile": {
+          "minRem": 2.75,
+          "fluidVw": 10.6,
+          "maxRem": 4
+        },
+        "section": {
+          "minRem": 2.6,
+          "fluidVw": 4.7,
+          "maxRem": 4.1
+        },
+        "sectionMobile": {
+          "minRem": 2.25,
+          "fluidVw": 8,
+          "maxRem": 3
+        },
+        "page": {
+          "minRem": 3,
+          "fluidVw": 6.5,
+          "maxRem": 5.5
+        }
+      }
+    },
+    "eyebrows": {
+      "treatment": "soft-highlight",
+      "fontSize": 15,
+      "mobileFontSize": 14,
+      "fontWeight": 700,
+      "trackingEm": 0.035,
+      "rule": true,
+      "ruleWidth": 24,
+      "gap": 12,
+      "casing": "natural"
+    },
+    "dividers": {
+      "sections": false,
+      "serviceRows": true,
+      "faqItems": true,
+      "footer": true
+    },
+    "footer": {
+      "topPadding": 32,
+      "columnGap": 64,
+      "rowGap": 32,
+      "linkGap": 8
+    },
     "motion": {
-      "enabled": false,
-      "durationMs": 600,
-      "distancePx": 18,
-      "staggerMs": 70,
-      "interactionMs": 180
+      "enabled": true,
+      "durationMs": 900,
+      "distancePx": 32,
+      "staggerMs": 100,
+      "interactionMs": 240
     }
   },
   "media": {
@@ -61,7 +119,7 @@
     },
     "databaseId": "00000000-0000-0000-0000-000000000000",
     "sesRegion": "eu-west-1",
-    "sender": "Example Studio <hello@example.com>",
+    "sender": "PPConsulting <hello@example.com>",
     "notificationEmail": "owner@example.com",
     "allowedRecipients": [],
     "sesConfigurationSet": "starter-transactional",

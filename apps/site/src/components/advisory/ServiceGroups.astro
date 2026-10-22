@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+import LinkLabel from './LinkLabel.astro';
+import type {LocalizedContent} from '../../../../../packages/content/types';
+import type {RenderContext} from '../../lib/render-context';
+interface Props {content:LocalizedContent;context:RenderContext;sectionId:string}
+const {content,context,sectionId}=Astro.props;const el=content.locale==='el';
+const groups=[{id:'business',icon:'building' as const,label:el?'Για επιχειρήσεις':'For businesses'},{id:'individual',icon:'user' as const,label:el?'Για ιδιώτες':'For individuals'}];
+---
+{groups.filter(g=>content.offerings.some(o=>o.audience===g.id)).map(g=><section class:list={['axia-service-group','axia-service-group--rows','axia-service-group--split',g.id==='business'&&'axia-service-group--reverse']} aria-labelledby={sectionId+'-'+g.id}><header class="axia-group-intro" data-motion-reveal><h3 id={sectionId+'-'+g.id} class="axia-group-title" tabindex="-1"><Icon name={g.icon}/><span>{g.label}</span></h3></header><div class="axia-service-rows">{content.offerings.filter(o=>o.audience===g.id).sort((a,b)=>(a.number??'').localeCompare(b.number??'')).map(o=><a class="ds-card ds-card--row ds-card--row-compact" href={context.link('/offerings/'+o.slug,content.locale)} data-motion-reveal><span class="ds-card-arrow"><Icon name="arrow-right"/></span><p class="eyebrow">{o.number}</p><h4 class="ds-card-title"><LinkLabel>{o.title}</LinkLabel></h4><div class="description" set:html={context.rich(o.description,content.locale,true,false)}/></a>)}</div></section>)}

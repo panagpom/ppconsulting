@@ -14,23 +14,23 @@ const meaningfulBody = richBody.refine(value=>plainText(value).trim().length>0,'
 const imageText = z.strictObject({alt:title,caption:richSummary.optional()});
 const itemSchemas = {gallery:z.strictObject({id:itemId,alt:title,caption:richSummary.optional()}),faq:z.strictObject({id:itemId,question:title,answer:meaningfulBody}),steps:z.strictObject({id:itemId,title,body:meaningfulBody})};
 const builtinCopySchemas = {
- hero:z.strictObject({title,description:richSummary,link:linkSchema.optional()}),
+ hero:z.strictObject({title,description:richSummary,link:linkSchema.optional(),actions:z.array(linkSchema.extend({icon:z.enum(['conversation','briefcase','arrow-right','mail']).optional()})).max(2).optional()}),
  'rich-text':z.strictObject({title,body:richBody}),
  'offering-list':z.strictObject({title,description:richSummary}),
  'people-list':z.strictObject({title,description:richSummary}),
- 'article-list':z.strictObject({title,description:richSummary}),
- faq:z.strictObject({title,description:richSummary,items:z.array(itemSchemas.faq)}),
- steps:z.strictObject({title,description:richSummary,items:z.array(itemSchemas.steps)}),
+ 'article-list':z.strictObject({title,description:richSummary,link:linkSchema.optional()}),
+ faq:z.strictObject({title,description:richSummary,contactTitle:richSummary.optional(),link:linkSchema.optional(),items:z.array(itemSchemas.faq)}),
+ steps:z.strictObject({title,description:richSummary,link:linkSchema.optional(),items:z.array(itemSchemas.steps)}),
  'media-text':z.strictObject({title,body:meaningfulBody,image:imageText.optional(),link:linkSchema.optional()}),
  gallery:z.strictObject({title,description:richSummary,items:z.array(itemSchemas.gallery)}),
  cta:z.strictObject({title,description:richSummary,link:linkSchema}),
 };
 
 const builtinSectionDefinitions = BUILTIN_SECTION_TYPES.map(type=>Object.freeze({
- type, nativeName:type.replaceAll('-','_'), copySchema:builtinCopySchemas[type], variants:Object.freeze(type==='faq'?['default','expanded']:type==='steps'?['default','cards']:type==='media-text'?['default','reversed']:type==='gallery'?['default','featured']:['default']),
+ type, nativeName:type.replaceAll('-','_'), copySchema:builtinCopySchemas[type].extend({eyebrow:richSummary.optional()}), variants:Object.freeze(type==='faq'?['default','expanded','editorial']:type==='steps'?['default','cards','editorial']:type==='media-text'?['default','reversed']:type==='gallery'?['default','featured']:['default','editorial']),
  referenceFields:type==='media-text'?{media:mediaReferenceSchema.optional()}:itemSchemas[type]?{items:z.array(z.strictObject({id:itemId,...(type==='gallery'?{media:mediaReferenceSchema}:{})}))}:{},
  defaultReference:()=>itemSchemas[type]?{items:[]}:{},
- richFields:Object.freeze([...(type==='media-text'?[{path:['body'],inline:false},{path:['image','caption'],inline:true}]:type==='rich-text'?[{path:['body'],inline:false}]:[{path:['description'],inline:true}]),...(itemSchemas[type]?[{path:['items','*',type==='gallery'?'caption':type==='faq'?'answer':'body'],inline:type==='gallery'}]:[])]),
+ richFields:Object.freeze([{path:['eyebrow'],inline:true},...(type==='media-text'?[{path:['body'],inline:false},{path:['image','caption'],inline:true}]:type==='rich-text'?[{path:['body'],inline:false}]:[{path:['description'],inline:true}]),...(itemSchemas[type]?[{path:['items','*',type==='gallery'?'caption':type==='faq'?'answer':'body'],inline:type==='gallery'}]:[])]),
  ...(itemSchemas[type]?{itemCopySchema:itemSchemas[type],defaultItemCopy:()=>type==='gallery'?{alt:'Describe this image',caption:''}:type==='faq'?{question:'New question',answer:'New answer'}:{title:'New step',body:'Describe this step'}}:{}),
  defaultCopy:()=>({title:'New section',...(['rich-text','media-text'].includes(type)?{body:type==='media-text'?'Describe this section':''}:{description:''}),...(itemSchemas[type]?{items:[]}:{}),...(type==='cta'?{link:{label:'Contact us',href:'/contact'}}:{})}),
 }));

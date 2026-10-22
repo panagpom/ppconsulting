@@ -1,0 +1,314 @@
+:root {
+  --paper: var(--color-surface);
+  --ink: var(--color-text-primary);
+  --muted: var(--color-text-muted);
+  --accent: var(--color-brand-accent);
+  --line: var(--color-border);
+  --control-border: var(--color-control-border);
+  --focus: var(--color-focus);
+  --error: var(--color-feedback-error);
+  --success: var(--color-feedback-success);
+  --error-surface: var(--color-error-surface);
+  --success-surface: var(--color-success-surface);
+  --serif: var(--font-heading);
+  --sans: var(--font-body);
+  --radius: var(--radius-control);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --type-body: 1rem;
+  --type-label: 0.875rem;
+  --type-caption: 0.75rem;
+  --emphasis-font-size: 0.88em;
+  --emphasis-opacity: 0.8;
+  --eyebrow-font-size: var(--type-label);
+  --eyebrow-font-size-mobile: var(--eyebrow-font-size);
+  --eyebrow-highlight-padding-block: 6px;
+  --eyebrow-highlight-padding-start: var(--space-3);
+  --eyebrow-highlight-padding-end: 22px;
+  --eyebrow-highlight-accent-width: 2px;
+  --eyebrow-highlight-tint: 12%;
+  --eyebrow-highlight-opacity: 0.9;
+  --eyebrow-font-weight: 500;
+  --eyebrow-text-transform: none;
+  --eyebrow-rule-display: block;
+  --eyebrow-tracking: 0.02em;
+  --eyebrow-rule-width: var(--space-6);
+  --eyebrow-gap: var(--space-3);
+  --target-size: 44px;
+  --motion-fast: 150ms;
+  --motion-normal: 200ms;
+  --scroll-reveal-enabled: 1;
+  --scroll-reveal-duration: 1000ms;
+  --scroll-reveal-distance: 44px;
+  --scroll-reveal-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --link-hover-scale: 1.015;
+  --link-weight: 500;
+  --link-emphasis-weight: 600;
+  --radius-pill: var(--radius-control);
+  --button-bg: var(--color-action-primary);
+  --button-fg: var(--color-on-action);
+  --button-hover-bg: var(--color-action-hover);
+  --input-bg: var(--color-surface);
+  --input-border: var(--color-control-border);
+  --input-filled-bg: var(--color-surface-muted);
+  --input-filled-border: var(--color-control-border);
+  --input-filled-height: 56px;
+  --input-filled-focus-width: 2px;
+  --input-filled-padding-block: var(--space-3);
+  --input-filled-padding-inline: var(--space-4);
+  --input-filled-textarea-height: calc(var(--space-24) * 2);
+  --card-radius: var(--radius-control);
+  --card-gap: var(--space-8);
+  --service-group-heading-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  --service-group-icon-size: 28px;
+  --service-group-title-track: 1fr;
+  --service-group-rows-track: 3fr;
+  --service-group-column-gap: var(--space-8);
+  --service-group-heading-inset: 0px;
+  --hero-band-min-height: 760px;
+  --hero-action-height: 64px;
+  --hero-action-height-large-desktop: 76px;
+  --hero-action-padding-inline-large-desktop: 56px;
+  --hero-action-font-size-large-desktop: 1.25rem;
+  --hero-action-gap: var(--space-4);
+  --hero-action-padding-inline: calc(var(--space-8) + var(--space-2));
+  --hero-action-padding-inline-tablet: var(--space-8);
+  --hero-action-padding-inline-mobile: var(--space-4);
+  --hero-action-font-size-desktop: 1.125rem;
+  --hero-action-font-size-mobile: 1.0625rem;
+  --hero-action-font-base: 1rem;
+  --hero-action-font-fluid: 0.15vw;
+  --hero-action-font-size: clamp(
+    var(--hero-action-font-size-mobile),
+    calc(var(--hero-action-font-base) + var(--hero-action-font-fluid)),
+    var(--hero-action-font-size-desktop)
+  );
+  --hero-action-icon-gap: var(--space-6);
+  --hero-action-icon-gap-mobile: var(--space-4);
+  --hero-background-position: center;
+  --hero-background-position-mobile: 65% center;
+  --hero-background-opacity: 0.85;
+  --hero-background-scrim-mid: 78%;
+  --hero-background-scrim-edge: 45%;
+  --hero-background-opacity-mobile: 0.65;
+  --hero-background-scrim-edge-mobile: 78%;
+  --section-background-opacity: 0.85;
+  --section-background-opacity-mobile: 0.7;
+  --section-background-scrim: 78%;
+  --section-background-position: center;
+  --section-background-position-mobile: 65% center;
+  --section-perspective-position: right center;
+  --section-background-edge-fade: var(--space-24);
+  --section-background-edge-fade-mobile: var(--space-16);
+  --editorial-accent-width: 2px;
+  --editorial-accent-opacity: 0.45;
+  --editorial-accent-curve: calc(var(--space-3) - var(--editorial-accent-width));
+  --editorial-accent-gap: var(--space-6);
+  --editorial-accent-inset: var(--space-6);
+
+  --heading-display: clamp(3.3rem, 6.4vw, 6rem);
+  --heading-editorial-display: clamp(3.3rem, 6.5vw, 5.8rem);
+  --heading-editorial-mobile: clamp(2.75rem, 10.6vw, 4rem);
+  --heading-editorial-section: clamp(2.6rem, 4.7vw, 4.1rem);
+  --heading-editorial-section-mobile: clamp(2.25rem, 8vw, 3rem);
+  --heading-page: clamp(3rem, 6.5vw, 5.5rem);
+  --divider-section-width: 0px;
+  --divider-service-width: 1px;
+  --divider-faq-width: 1px;
+  --divider-footer-width: 1px;
+  --rich-text-heading-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  --rich-text-subheading-size: clamp(1.25rem, 2vw, 1.75rem);
+  --rich-text-block-gap: var(--space-6);
+  --enquiry-action-height: var(--space-16);
+  --enquiry-action-width: 400px;
+  --enquiry-action-font-size: 1.125rem;
+  --enquiry-action-font-size-mobile: 1.0625rem;
+  --contact-region-heading-size: 1.75rem;
+  --faq-contact-padding: var(--space-8);
+  --faq-contact-padding-mobile: var(--space-6);
+  --faq-contact-gap: var(--space-6);
+  --faq-contact-title-size: 1.5rem;
+  --footer-top-padding: var(--space-8);
+  --footer-column-gap: var(--space-16);
+  --footer-row-gap: var(--space-8);
+  --footer-link-gap: var(--space-2);
+  --heading-section: clamp(2.3rem, 4.3vw, 4rem);
+}
+html[lang|='el'] {
+  --font-heading: var(--font-greek-heading);
+  --font-body: var(--font-greek-body);
+}
+html[data-density='compact'] {
+  --section-space: var(--space-16);
+  --section-space-mobile: var(--space-12);
+  --card-gap: var(--space-4);
+}
+html[data-density='spacious'] {
+  --section-space: 128px;
+  --section-space-mobile: 80px;
+  --card-gap: var(--space-12);
+}
+
+/* Resolve colour-dependent component aliases inside an optional light section. */
+:root,
+[data-section-color-scheme='light'] {
+  --editorial-accent-gradient: linear-gradient(
+    to bottom,
+    var(--color-brand-accent),
+    color-mix(in srgb, var(--color-brand-accent) 35%, var(--color-art-start)) 65%,
+    color-mix(in srgb, var(--color-art-start) 25%, transparent)
+  );
+}
+[data-section-color-scheme='light'] {
+  --input-border: var(--color-control-border);
+  --input-filled-border: var(--color-control-border);
+  --input-bg: var(--color-surface);
+  --input-filled-bg: var(--color-surface-muted);
+}
+
+/* Individual translate leaves existing hover transforms intact; layout never changes. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-scroll-reveal][data-reveal-state='pending'] {
+    opacity: 0;
+    translate: 0 var(--scroll-reveal-distance);
+  }
+  [data-scroll-reveal][data-reveal-state='revealed'] {
+    animation: scroll-reveal var(--scroll-reveal-duration) var(--scroll-reveal-easing);
+  }
+}
+@keyframes scroll-reveal {
+  from { opacity: 0; translate: 0 var(--scroll-reveal-distance); }
+  to { opacity: 1; translate: 0 0; }
+}
+@media print {
+  [data-scroll-reveal][data-reveal-state] {
+    opacity: 1;
+    translate: none;
+    animation: none;
+  }
+}
+
+/* Shared interaction motion. Values are developer-adjustable, independent of scroll reveal. */
+:root {
+  --motion-feedback-duration: 280ms;
+  --motion-disclosure-duration: 380ms;
+  --motion-dialog-duration: 340ms;
+  --motion-interaction-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-icon-distance: 4px;
+  --motion-press-scale: 0.97;
+  --motion-dialog-distance: 18px;
+  --motion-stagger-step: 90ms;
+  --motion-spinner-duration: 800ms;
+}
+.form [data-feedback-icon] { display: inline-block; margin-inline-end: var(--space-2); }
+@media (prefers-reduced-motion: no-preference) {
+  .ds-faq-toggle { transition: transform var(--motion-disclosure-duration) var(--motion-interaction-easing); }
+  /* Progressive enhancement: unsupported browsers retain native instant details. */
+  @supports (interpolate-size: allow-keywords) and (transition-behavior: allow-discrete) {
+    .ds-faq details { interpolate-size: allow-keywords; }
+    .ds-faq details::details-content {
+      overflow: clip;
+      block-size: 0;
+      opacity: 0;
+      transition: block-size var(--motion-disclosure-duration) var(--motion-interaction-easing),
+        opacity var(--motion-disclosure-duration),
+        content-visibility var(--motion-disclosure-duration) allow-discrete;
+    }
+    .ds-faq details[open]::details-content { block-size: auto; opacity: 1; }
+  }
+  .ds-action.ds-action { transition: scale var(--motion-feedback-duration) var(--motion-interaction-easing), background-color var(--motion-feedback-duration), color var(--motion-feedback-duration); }
+  .ds-action:not(:disabled):active { scale: var(--motion-press-scale); }
+  .ds-action .ui-icon[data-icon] { transition: translate var(--motion-feedback-duration) var(--motion-interaction-easing), transform var(--motion-feedback-duration) var(--motion-interaction-easing); }
+  @media (hover: hover) {
+    .ds-action:not(:disabled):hover .ui-icon { translate: var(--motion-icon-distance) 0; }
+  }
+  .ds-action[aria-busy='true']::after {
+    content: '';
+    width: 1em; height: 1em; flex: 0 0 auto;
+    border: 2px solid currentColor;
+    border-inline-end-color: transparent;
+    border-radius: 50%;
+    animation: feedback-spin var(--motion-spinner-duration) linear infinite;
+  }
+  .form [data-form-status][data-state='success'],
+  .form [data-form-status][data-state='error'] {
+    animation: feedback-enter var(--motion-feedback-duration) var(--motion-interaction-easing);
+  }
+  [data-scroll-reveal][data-reveal-state='revealed'] {
+    animation-delay: calc(var(--reveal-order, 0) * var(--motion-stagger-step));
+    animation-fill-mode: backwards;
+  }
+  .visitor-dialog {
+    opacity: 0;
+    translate: 0 var(--motion-dialog-distance);
+    transition: opacity var(--motion-dialog-duration) var(--motion-interaction-easing),
+      translate var(--motion-dialog-duration) var(--motion-interaction-easing),
+      display var(--motion-dialog-duration) allow-discrete,
+      overlay var(--motion-dialog-duration) allow-discrete;
+  }
+  .visitor-dialog[open] { opacity: 1; translate: 0 0; }
+  .visitor-dialog::backdrop {
+    opacity: 0;
+    transition: opacity var(--motion-dialog-duration), display var(--motion-dialog-duration) allow-discrete, overlay var(--motion-dialog-duration) allow-discrete;
+  }
+  .visitor-dialog[open]::backdrop { opacity: 1; }
+  @starting-style {
+    .visitor-dialog[open] { opacity: 0; translate: 0 var(--motion-dialog-distance); }
+    .visitor-dialog[open]::backdrop { opacity: 0; }
+  }
+}
+@keyframes feedback-spin { to { rotate: 360deg; } }
+@keyframes feedback-enter { from { opacity: 0; translate: 0 4px; } to { opacity: 1; translate: 0 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .ds-faq-toggle, .ds-action, .ds-action .ui-icon, .visitor-dialog, .visitor-dialog::backdrop { transition: none; }
+  .ds-action:active { scale: none; }
+  .form [data-form-status], [data-scroll-reveal][data-reveal-state] { animation: none; }
+}
+
+/* Editorial reading and contextual titles: same scale in every language. */
+:root {
+  --heading-contact-column: clamp(2.75rem, 4.5vw, 4rem);
+  --heading-detail: clamp(2.5rem, 4.5vw, 4rem);
+  --reading-page-width: 42rem;
+  --reading-line-height: 1.75;
+  --reading-paragraph-gap: var(--space-6);
+  --reading-heading-gap: var(--space-12);
+  --reading-header-top: var(--space-12);
+  --reading-header-bottom: var(--space-8);
+  --photography-saturation: 0.65;
+}
+
+:root {
+  --service-group-feature-icon-size: 72px;
+  --service-group-feature-icon-opacity: 0.6;
+  --service-group-feature-icon-gap: var(--space-4);
+}
+
+:root {
+  --menu-column-gap: var(--space-16);
+  --menu-link-size: clamp(2rem, 4.3vw, 3.5rem);
+  --menu-link-height: 88px;
+  --menu-link-height-mobile: 64px;
+}
+
+:root {
+  --service-row-glow-strength: 10%;
+  --service-row-icon-distance: 3px;
+}
+
+:root {
+  --article-preview-ratio: 16 / 10;
+  --article-preview-title-size: clamp(1.5rem, 2.2vw, 2rem);
+  --article-preview-media-gap: var(--space-4);
+}
+
+:root {
+  --editorial-card-padding-block: var(--space-8);
+}

@@ -4,23 +4,25 @@
   "slug": "insights",
   "status": "published",
   "meta": {
-    "title": "Articles",
-    "seoDescription": ""
+    "title": "Journal",
+    "seoDescription": "",
+    "noindex": false
   },
   "sections": [
     {
       "id": "intro",
       "_template": "hero",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
-        "surface": "default"
+        "surface": "default",
+        "imageEnabled": false
       }
     },
     {
-      "id": "articles_list",
+      "id": "articles",
       "_template": "article-list",
-      "variant": "default",
+      "variant": "editorial",
       "enabled": true,
       "appearance": {
         "surface": "default"
@@ -32,14 +34,15 @@
       {
         "id": "intro",
         "_template": "hero",
-        "title": "Articles",
-        "description": "Notes and questions from everyday work."
+        "title": "Useful ideas.\nA fresh perspective.",
+        "eyebrow": "The journal",
+        "description": "Stories, practical guidance, and a few things worth thinking about\\."
       },
       {
-        "id": "articles_list",
+        "id": "articles",
         "_template": "article-list",
-        "title": "Recent reading",
-        "description": "Browse our latest notes."
+        "title": "Useful ideas.\nA fresh perspective.",
+        "description": ""
       }
     ]
   },
@@ -48,21 +51,23 @@
       "status": "published",
       "meta": {
         "title": "Άρθρα",
-        "seoDescription": ""
+        "seoDescription": "",
+        "noindex": false
       },
       "copy": {
         "sections": [
           {
             "id": "intro",
             "_template": "hero",
-            "title": "Άρθρα",
-            "description": "Σημειώσεις και ερωτήματα από την καθημερινή εργασία."
+            "title": "Χρήσιμες ιδέες.\nΜια νέα οπτική.",
+            "eyebrow": "Τα άρθρα μας",
+            "description": "Ιστορίες, πρακτικές συμβουλές και ιδέες που αξίζουν την προσοχή σας\\."
           },
           {
-            "id": "articles_list",
+            "id": "articles",
             "_template": "article-list",
-            "title": "Πρόσφατα άρθρα",
-            "description": "Διαβάστε τις τελευταίες σημειώσεις μας."
+            "title": "Χρήσιμες ιδέες.\nΜια νέα οπτική.",
+            "description": ""
           }
         ]
       }

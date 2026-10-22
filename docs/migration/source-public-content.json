@@ -1,0 +1,960 @@
+{
+  "pages": {
+    "about.json": {
+      "contentId": "about",
+      "_template": "about",
+      "title": "About",
+      "meta": {
+        "title": "Our approach",
+        "noindex": false
+      },
+      "header": {
+        "eyebrow": "Our approach",
+        "title": "Behind every number,\nthere is a person.",
+        "appearance": {
+          "background": "default",
+          "backgroundImage": "",
+          "imageEnabled": false
+        }
+      },
+      "body": "We listen to your priorities, make the options clear, and agree practical next steps\\. One point of contact, from the first conversation onwards\\.\n\nOur approach brings accounting, business planning, and personal financial goals into one conversation\\. We explain the work in plain language and agree the scope before we begin\\.",
+      "method": {
+        "title": "Our approach",
+        "steps": [
+          {
+            "title": "Listen and understand",
+            "text": "We start with your situation, your priorities, and what you want to achieve\\."
+          },
+          {
+            "title": "Plan with clarity",
+            "text": "We agree the scope, the responsibilities, and a practical way forward\\."
+          },
+          {
+            "title": "Move forward together",
+            "text": "We keep the conversation open as your business and circumstances change\\."
+          }
+        ],
+        "appearance": {
+          "background": "default",
+          "backgroundImage": "",
+          "imageEnabled": false
+        }
+      },
+      "faq": {
+        "title": "Your questions.\nStraightforward answers.",
+        "items": [
+          {
+            "question": "Can we work together remotely?",
+            "answer": "We can begin with a call or an online meeting\\. We will agree how to share documents securely and how to keep in touch\\."
+          },
+          {
+            "question": "Do you support new businesses?",
+            "answer": "Yes\\. The first conversation helps us understand your idea and identify the accounting, planning, and organisational support you need\\."
+          },
+          {
+            "question": "How is the cost of working together agreed?",
+            "answer": "We discuss the scope and frequency of the work first, then provide a proposal with the services and fees clearly set out\\."
+          },
+          {
+            "question": "What do I need for the first conversation?",
+            "answer": "A short description of your situation and the topics you want to discuss is enough\\. We will explain which documents are needed later through a suitable channel\\."
+          }
+        ],
+        "appearance": {
+          "background": "default",
+          "backgroundImage": "",
+          "imageEnabled": false
+        }
+      },
+      "translations": {
+        "el": {
+          "title": "About",
+          "meta": {
+            "title": "Η προσέγγισή μας"
+          },
+          "header": {
+            "eyebrow": "Η προσέγγισή μας",
+            "title": "Πίσω από κάθε αριθμό,\nβλέπουμε τον άνθρωπο."
+          },
+          "body": "Ακούμε τις προτεραιότητές σας, εξηγούμε τις επιλογές και συμφωνούμε συγκεκριμένα επόμενα βήματα\\. Ένα σταθερό σημείο επικοινωνίας, από την πρώτη συζήτηση\\.\n\nΣυνδέουμε τη λογιστική υποστήριξη, τον επιχειρηματικό σχεδιασμό και τους προσωπικούς οικονομικούς στόχους σε μία συζήτηση\\. Εξηγούμε τη δουλειά μας με απλά λόγια και συμφωνούμε το πλαίσιο πριν ξεκινήσουμε\\.",
+          "method": {
+            "title": "Η προσέγγισή μας",
+            "steps": [
+              {
+                "title": "Ακούμε και κατανοούμε",
+                "text": "Ξεκινάμε από εσάς: την κατάσταση, τις προτεραιότητες και τους στόχους σας\\."
+              },
+              {
+                "title": "Σχεδιάζουμε με σαφήνεια",
+                "text": "Συμφωνούμε το πλαίσιο συνεργασίας, τις ευθύνες και τα συγκεκριμένα επόμενα βήματα\\."
+              },
+              {
+                "title": "Προχωράμε μαζί",
+                "text": "Κρατάμε την επικοινωνία ανοιχτή καθώς η επιχείρηση και οι ανάγκες σας εξελίσσονται\\."
+              }
+            ]
+          },
+          "faq": {
+            "title": "Οι απορίες σας.\nΜε απλές απαντήσεις.",
+            "items": [
+              {
+                "question": "Μπορούμε να συνεργαστούμε εξ αποστάσεως;",
+                "answer": "Μπορούμε να ξεκινήσουμε με ένα τηλεφώνημα ή μια διαδικτυακή συνάντηση\\. Συμφωνούμε τον ασφαλή τρόπο ανταλλαγής εγγράφων και τη συχνότητα επικοινωνίας\\."
+              },
+              {
+                "question": "Αναλαμβάνετε και νέες επιχειρήσεις;",
+                "answer": "Ναι\\. Στην πρώτη συζήτηση γνωρίζουμε την ιδέα σας και εντοπίζουμε τις ανάγκες λογιστικής υποστήριξης, οργάνωσης και σχεδιασμού\\."
+              },
+              {
+                "question": "Πώς διαμορφώνεται το κόστος συνεργασίας;",
+                "answer": "Συζητούμε πρώτα το αντικείμενο και τη συχνότητα της συνεργασίας\\. Στη συνέχεια παρουσιάζουμε πρόταση με σαφή περιγραφή των υπηρεσιών και της αμοιβής\\."
+              },
+              {
+                "question": "Τι χρειάζεται για την πρώτη επικοινωνία;",
+                "answer": "Αρκεί μια σύντομη περιγραφή της κατάστασης και των θεμάτων που σας ενδιαφέρουν\\. Θα εξηγήσουμε ποια δικαιολογητικά χρειάζονται αργότερα, μέσω κατάλληλου καναλιού\\."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "contact.json": {
+      "contentId": "contact",
+      "_template": "contact",
+      "title": "Contact",
+      "meta": {
+        "title": "Let’s talk",
+        "noindex": false
+      },
+      "header": {
+        "eyebrow": "We’re here to help",
+        "title": "A conversation.\nA good beginning.",
+        "description": "Tell us a little about what you have in mind\\. We’ll help you find the next step\\.",
+        "appearance": {
+          "background": "default",
+          "backgroundImage": "/uploads/advisory-method.webp",
+          "imageEnabled": true,
+          "imagePosition": "right center",
+          "imagePositionMobile": "65% center",
+          "imageOpacity": 0.65,
+          "imageOpacityMobile": 0.45,
+          "overlayOpacity": 0.84
+        }
+      },
+      "detailsIntro": "We’re here to help",
+      "translations": {
+        "el": {
+          "title": "Contact",
+          "meta": {
+            "title": "Ας μιλήσουμε"
+          },
+          "header": {
+            "eyebrow": "Είμαστε εδώ για να βοηθήσουμε",
+            "title": "Μια συζήτηση.\nΜια καλή αρχή.",
+            "description": "Πείτε μας τι έχετε στο μυαλό σας\\. Θα σας βοηθήσουμε να βρείτε το επόμενο βήμα\\."
+          },
+          "detailsIntro": "Είμαστε εδώ για να βοηθήσουμε"
+        }
+      }
+    },
+    "home.json": {
+      "contentId": "home",
+      "title": "Home",
+      "meta": {
+        "title": "Accounting and financial consulting",
+        "noindex": false
+      },
+      "sections": {
+        "hero": {
+          "eyebrow": "Accounting · Consulting · Investment planning",
+          "title": "Clear numbers.\nConsidered decisions.\nLasting value.",
+          "description": "Accounting support and financial planning, built around the needs of your business and your everyday life.\n",
+          "appearance": {
+            "background": "default",
+            "backgroundImage": "/uploads/advisory-consultation.webp",
+            "imageEnabled": true
+          }
+        },
+        "perspective": {
+          "eyebrow": "Our perspective",
+          "title": "A clearer view.\nA considered next step.",
+          "description": "A business decision starts with the whole picture: day-to-day obligations, available resources, and what comes next. We bring these conversations together, with a practical plan you can follow.\n",
+          "appearance": {
+            "background": "custom",
+            "backgroundColor": "#1b3048",
+            "backgroundImage": "/uploads/advisory-perspective.webp",
+            "imageEnabled": true,
+            "imageOpacity": 0.6,
+            "imageOpacityMobile": 0.45,
+            "overlayOpacity": 0.84
+          }
+        },
+        "services": {
+          "eyebrow": "What we do",
+          "title": "The right support.\nAt every step.",
+          "description": "Every financial situation is different. Start with the support that fits yours.\n",
+          "appearance": {
+            "background": "default",
+            "imageEnabled": false
+          }
+        },
+        "approach": {
+          "eyebrow": "Our method",
+          "title": "Behind every number,\nthere is a person.",
+          "description": "We listen to your priorities, make the options clear, and agree practical next steps. One point of contact, from the first conversation onwards.\n",
+          "steps": [
+            {
+              "title": "Listen and understand",
+              "text": "We start with your situation, your priorities, and what you want to achieve.\n"
+            },
+            {
+              "title": "Plan with clarity",
+              "text": "We agree the scope, the responsibilities, and a practical way forward.\n"
+            },
+            {
+              "title": "Move forward together",
+              "text": "We keep the conversation open as your business and circumstances change.\n"
+            }
+          ],
+          "appearance": {
+            "background": "custom",
+            "backgroundColor": "#172b42",
+            "backgroundImage": "/uploads/advisory-method.webp",
+            "imageEnabled": true,
+            "imageOpacity": 0.6,
+            "imageOpacityMobile": 0.45,
+            "overlayOpacity": 0.84
+          }
+        },
+        "insights": {
+          "eyebrow": "Insights",
+          "title": "Useful ideas.\nA different perspective.",
+          "appearance": {
+            "colorScheme": "light",
+            "background": "muted",
+            "imageEnabled": false
+          }
+        },
+        "questions": {
+          "eyebrow": "Common questions",
+          "title": "Your questions.\nStraightforward answers.",
+          "items": [
+            {
+              "question": "Can we work together remotely?",
+              "answer": "We can begin with a call or an online meeting. We will agree how to share documents securely and how to keep in touch.\n"
+            },
+            {
+              "question": "Do you support new businesses?",
+              "answer": "Yes. The first conversation helps us understand your idea and identify the accounting, planning, and organisational support you need.\n"
+            },
+            {
+              "question": "How is the cost of working together agreed?",
+              "answer": "We discuss the scope and frequency of the work first, then provide a proposal with the services and fees clearly set out.\n"
+            },
+            {
+              "question": "What do I need for the first conversation?",
+              "answer": "A short description of your situation and the topics you want to discuss is enough. We will explain which documents are needed later through a suitable channel.\n"
+            }
+          ],
+          "ctaHeading": "Have another question?",
+          "ctaLabel": "Get in touch",
+          "appearance": {
+            "background": "default",
+            "imageEnabled": false
+          }
+        }
+      },
+      "actions": {
+        "contact": {
+          "href": "/contact",
+          "label": "Discuss your needs"
+        },
+        "services": {
+          "href": "#services",
+          "label": "Explore our services"
+        },
+        "about": {
+          "href": "/about",
+          "label": "A little about us"
+        },
+        "allStories": {
+          "href": "/insights",
+          "label": "All stories"
+        }
+      },
+      "translations": {
+        "el": {
+          "title": "Home",
+          "meta": {
+            "title": "Λογιστική και οικονομική συμβουλευτική"
+          },
+          "sections": {
+            "hero": {
+              "eyebrow": "Λογιστική · Συμβουλευτική · Επενδυτικός σχεδιασμός",
+              "title": "Ξεκάθαροι αριθμοί.\nΣωστές αποφάσεις.\nΠραγματική αξία.",
+              "description": "Λογιστική υποστήριξη και οικονομικός σχεδιασμός, με επίκεντρο τις ανάγκες της επιχείρησης και της καθημερινότητάς σας.\n"
+            },
+            "perspective": {
+              "eyebrow": "Η οπτική μας",
+              "title": "Συνολική εικόνα.\nΟυσιαστικό επόμενο βήμα.",
+              "description": "Μια επιχειρηματική απόφαση ξεκινά με τη συνολική εικόνα: τις καθημερινές υποχρεώσεις, τους διαθέσιμους πόρους και το επόμενο βήμα. Συνδέουμε αυτά τα θέματα σε ένα πρακτικό σχέδιο που μπορείτε να ακολουθήσετε.\n"
+            },
+            "services": {
+              "eyebrow": "Τι κάνουμε",
+              "title": "Η σωστή υποστήριξη.\nΣε κάθε βήμα.",
+              "description": "Κάθε οικονομική ανάγκη είναι διαφορετική. Ξεκινήστε με την υποστήριξη που ταιριάζει στη δική σας πραγματικότητα.\n"
+            },
+            "approach": {
+              "eyebrow": "Ο τρόπος μας",
+              "title": "Πίσω από κάθε αριθμό,\nβλέπουμε τον άνθρωπο.",
+              "description": "Ακούμε τις προτεραιότητές σας, εξηγούμε τις επιλογές και συμφωνούμε συγκεκριμένα επόμενα βήματα. Ένα σταθερό σημείο επικοινωνίας, από την πρώτη συζήτηση.\n",
+              "steps": [
+                {
+                  "title": "Ακούμε και κατανοούμε",
+                  "text": "Ξεκινάμε από εσάς: την κατάσταση, τις προτεραιότητες και τους στόχους σας.\n"
+                },
+                {
+                  "title": "Σχεδιάζουμε με σαφήνεια",
+                  "text": "Συμφωνούμε το πλαίσιο συνεργασίας, τις ευθύνες και τα συγκεκριμένα επόμενα βήματα.\n"
+                },
+                {
+                  "title": "Προχωράμε μαζί",
+                  "text": "Κρατάμε την επικοινωνία ανοιχτή καθώς η επιχείρηση και οι ανάγκες σας εξελίσσονται.\n"
+                }
+              ]
+            },
+            "insights": {
+              "eyebrow": "Άρθρα και ιδέες",
+              "title": "Χρήσιμες ιδέες.\nΜια διαφορετική οπτική."
+            },
+            "questions": {
+              "eyebrow": "Συχνές ερωτήσεις",
+              "title": "Οι απορίες σας.\nΜε απλές απαντήσεις.",
+              "items": [
+                {
+                  "question": "Μπορούμε να συνεργαστούμε εξ αποστάσεως;",
+                  "answer": "Μπορούμε να ξεκινήσουμε με ένα τηλεφώνημα ή μια διαδικτυακή συνάντηση. Συμφωνούμε τον ασφαλή τρόπο ανταλλαγής εγγράφων και τη συχνότητα επικοινωνίας.\n"
+                },
+                {
+                  "question": "Αναλαμβάνετε και νέες επιχειρήσεις;",
+                  "answer": "Ναι. Στην πρώτη συζήτηση γνωρίζουμε την ιδέα σας και εντοπίζουμε τις ανάγκες λογιστικής υποστήριξης, οργάνωσης και σχεδιασμού.\n"
+                },
+                {
+                  "question": "Πώς διαμορφώνεται το κόστος συνεργασίας;",
+                  "answer": "Συζητούμε πρώτα το αντικείμενο και τη συχνότητα της συνεργασίας. Στη συνέχεια παρουσιάζουμε πρόταση με σαφή περιγραφή των υπηρεσιών και της αμοιβής.\n"
+                },
+                {
+                  "question": "Τι χρειάζεται για την πρώτη επικοινωνία;",
+                  "answer": "Αρκεί μια σύντομη περιγραφή της κατάστασης και των θεμάτων που σας ενδιαφέρουν. Θα εξηγήσουμε ποια δικαιολογητικά χρειάζονται αργότερα, μέσω κατάλληλου καναλιού.\n"
+                }
+              ],
+              "ctaHeading": "Έχετε κάποια άλλη ερώτηση;",
+              "ctaLabel": "Επικοινωνία"
+            }
+          },
+          "actions": {
+            "contact": {
+              "label": "Ας συζητήσουμε τις ανάγκες σας"
+            },
+            "services": {
+              "label": "Οι υπηρεσίες μας"
+            },
+            "about": {
+              "label": "Λίγα λόγια για εμάς"
+            },
+            "allStories": {
+              "label": "Όλα τα άρθρα"
+            }
+          }
+        }
+      },
+      "_template": "home"
+    },
+    "insights.json": {
+      "contentId": "insights",
+      "_template": "insights",
+      "title": "Insights",
+      "meta": {
+        "title": "Journal",
+        "noindex": false
+      },
+      "header": {
+        "eyebrow": "The journal",
+        "title": "Useful ideas.\nA fresh perspective.",
+        "description": "Stories, practical guidance, and a few things worth thinking about\\.",
+        "appearance": {
+          "background": "default",
+          "backgroundImage": "",
+          "imageEnabled": false
+        }
+      },
+      "translations": {
+        "el": {
+          "title": "Insights",
+          "meta": {
+            "title": "Άρθρα"
+          },
+          "header": {
+            "eyebrow": "Τα άρθρα μας",
+            "title": "Χρήσιμες ιδέες.\nΜια νέα οπτική.",
+            "description": "Ιστορίες, πρακτικές συμβουλές και ιδέες που αξίζουν την προσοχή σας\\."
+          }
+        }
+      }
+    },
+    "privacy.json": {
+      "contentId": "privacy",
+      "_template": "privacy",
+      "title": "Privacy",
+      "meta": {
+        "title": "Privacy",
+        "noindex": true
+      },
+      "header": {
+        "eyebrow": "Your information",
+        "title": "Privacy, with care.",
+        "appearance": {
+          "background": "default",
+          "backgroundImage": "",
+          "imageEnabled": false
+        }
+      },
+      "body": "## Enquiries\n\nThe starter stores the information you submit so that the business can respond\\. Newsletter consent is separate and optional\\.\n\n## Email updates\n\nWhen enabled, subscriptions require email confirmation\\. Every marketing email includes an unsubscribe link\\.\n\n## Before publishing\n\nIdentify the controller, contact details, purposes and lawful bases, processors and transfers, retention periods, rights, withdrawal procedures and complaint authority\\. Replace this template with reviewed business\\-specific wording\\.",
+      "templateNotice": "Template only. This is not a completed privacy notice. Legal review and project-specific wording are required before production launch.",
+      "translations": {
+        "el": {
+          "title": "Privacy",
+          "meta": {
+            "title": "Απόρρητο"
+          },
+          "header": {
+            "eyebrow": "Τα στοιχεία σας",
+            "title": "Απόρρητο, με φροντίδα."
+          },
+          "body": "## Αιτήματα\n\nΗ εφαρμογή αποθηκεύει τα στοιχεία που υποβάλλετε ώστε η επιχείρηση να απαντήσει\\. Η συγκατάθεση για ενημερώσεις είναι χωριστή και προαιρετική\\.\n\n## Ενημερώσεις μέσω email\n\nΌταν ενεργοποιούνται, οι εγγραφές απαιτούν επιβεβαίωση μέσω email\\. Κάθε ενημερωτικό email περιλαμβάνει σύνδεσμο διαγραφής\\.\n\n## Πριν από τη δημοσίευση\n\nΠροσδιορίστε τον υπεύθυνο επεξεργασίας, τα στοιχεία επικοινωνίας, τους σκοπούς και τις νομικές βάσεις, τους εκτελούντες και τις διαβιβάσεις, τους χρόνους διατήρησης, τα δικαιώματα, τη διαδικασία ανάκλησης και την αρμόδια αρχή\\. Αντικαταστήστε το πρότυπο με ελεγμένο κείμενο για την επιχείρησή σας\\.",
+          "templateNotice": "Ενδεικτικό πρότυπο. Απαιτείται νομικός έλεγχος και κείμενο προσαρμοσμένο στην επιχείρηση πριν από τη δημοσίευση."
+        }
+      }
+    },
+    "services.json": {
+      "contentId": "services",
+      "_template": "services",
+      "title": "Services",
+      "meta": {
+        "title": "What we do",
+        "noindex": false
+      },
+      "header": {
+        "eyebrow": "What we do",
+        "title": "The right support.\nAt every step.",
+        "description": "Every financial situation is different\\. Start with the support that fits yours\\.",
+        "appearance": {
+          "background": "default",
+          "backgroundImage": "",
+          "imageEnabled": false
+        }
+      },
+      "translations": {
+        "el": {
+          "title": "Services",
+          "meta": {
+            "title": "Τι κάνουμε"
+          },
+          "header": {
+            "eyebrow": "Τι κάνουμε",
+            "title": "Η σωστή υποστήριξη.\nΣε κάθε βήμα.",
+            "description": "Κάθε οικονομική ανάγκη είναι διαφορετική\\. Ξεκινήστε με την υποστήριξη που ταιριάζει στη δική σας πραγματικότητα\\."
+          }
+        }
+      }
+    }
+  },
+  "offerings": {
+    "04-funding.json": {
+      "contentId": "funding",
+      "slug": "funding-support",
+      "number": "04",
+      "audience": "business",
+      "title": "Funding preparation",
+      "status": "published",
+      "description": "Assess your project needs and prepare the financial information for a funding application\\.",
+      "detail": "Turn an idea into a prepared proposal\\.",
+      "body": "Assess your project needs and prepare the financial information for a funding application\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+      "features": [
+        {
+          "title": "Clear scope",
+          "text": "Know what is included before work starts\\."
+        },
+        {
+          "title": "Personal contact",
+          "text": "A familiar point of contact for your questions\\."
+        },
+        {
+          "title": "Agreed next steps",
+          "text": "Practical direction and clear responsibilities\\."
+        }
+      ],
+      "translations": {
+        "el": {
+          "title": "Προετοιμασία χρηματοδότησης",
+          "status": "published",
+          "description": "Καταγραφή των αναγκών του έργου και προετοιμασία των οικονομικών στοιχείων για αίτηση χρηματοδότησης\\.",
+          "detail": "Από την ιδέα σε έναν οργανωμένο φάκελο\\.",
+          "body": "Καταγραφή των αναγκών του έργου και προετοιμασία των οικονομικών στοιχείων για αίτηση χρηματοδότησης\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+          "features": [
+            {
+              "title": "Σαφές αντικείμενο",
+              "text": "Γνωρίζετε τι περιλαμβάνεται πριν ξεκινήσουμε\\."
+            },
+            {
+              "title": "Προσωπική επικοινωνία",
+              "text": "Ένα σταθερό σημείο επαφής για τις ερωτήσεις σας\\."
+            },
+            {
+              "title": "Συγκεκριμένα επόμενα βήματα",
+              "text": "Πρακτική κατεύθυνση και σαφείς ευθύνες\\."
+            }
+          ]
+        }
+      }
+    },
+    "05-personal-tax.json": {
+      "contentId": "personal-tax",
+      "slug": "personal-tax",
+      "number": "05",
+      "audience": "individual",
+      "title": "Personal tax support",
+      "status": "published",
+      "description": "Help with organising your information and preparing your personal tax return\\.",
+      "detail": "Your obligations, clearly explained\\.",
+      "body": "Help with organising your information and preparing your personal tax return\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+      "features": [
+        {
+          "title": "Clear scope",
+          "text": "Know what is included before work starts\\."
+        },
+        {
+          "title": "Personal contact",
+          "text": "A familiar point of contact for your questions\\."
+        },
+        {
+          "title": "Agreed next steps",
+          "text": "Practical direction and clear responsibilities\\."
+        }
+      ],
+      "translations": {
+        "el": {
+          "title": "Φορολογικές δηλώσεις",
+          "status": "published",
+          "description": "Υποστήριξη στην οργάνωση των στοιχείων και την προετοιμασία της φορολογικής σας δήλωσης\\.",
+          "detail": "Οι υποχρεώσεις σας, με απλά λόγια\\.",
+          "body": "Υποστήριξη στην οργάνωση των στοιχείων και την προετοιμασία της φορολογικής σας δήλωσης\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+          "features": [
+            {
+              "title": "Σαφές αντικείμενο",
+              "text": "Γνωρίζετε τι περιλαμβάνεται πριν ξεκινήσουμε\\."
+            },
+            {
+              "title": "Προσωπική επικοινωνία",
+              "text": "Ένα σταθερό σημείο επαφής για τις ερωτήσεις σας\\."
+            },
+            {
+              "title": "Συγκεκριμένα επόμενα βήματα",
+              "text": "Πρακτική κατεύθυνση και σαφείς ευθύνες\\."
+            }
+          ]
+        }
+      }
+    },
+    "06-property.json": {
+      "contentId": "property",
+      "slug": "property-finances",
+      "number": "06",
+      "audience": "individual",
+      "title": "Property and finances",
+      "status": "published",
+      "description": "A clearer view of the records, obligations, and financial considerations around your property\\.",
+      "detail": "Make sense of the details\\.",
+      "body": "A clearer view of the records, obligations, and financial considerations around your property\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+      "features": [
+        {
+          "title": "Clear scope",
+          "text": "Know what is included before work starts\\."
+        },
+        {
+          "title": "Personal contact",
+          "text": "A familiar point of contact for your questions\\."
+        },
+        {
+          "title": "Agreed next steps",
+          "text": "Practical direction and clear responsibilities\\."
+        }
+      ],
+      "translations": {
+        "el": {
+          "title": "Ακίνητα και περιουσία",
+          "status": "published",
+          "description": "Ξεκάθαρη εικόνα των στοιχείων, των υποχρεώσεων και των οικονομικών θεμάτων της ακίνητης περιουσίας σας\\.",
+          "detail": "Σαφήνεια στις λεπτομέρειες\\.",
+          "body": "Ξεκάθαρη εικόνα των στοιχείων, των υποχρεώσεων και των οικονομικών θεμάτων της ακίνητης περιουσίας σας\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+          "features": [
+            {
+              "title": "Σαφές αντικείμενο",
+              "text": "Γνωρίζετε τι περιλαμβάνεται πριν ξεκινήσουμε\\."
+            },
+            {
+              "title": "Προσωπική επικοινωνία",
+              "text": "Ένα σταθερό σημείο επαφής για τις ερωτήσεις σας\\."
+            },
+            {
+              "title": "Συγκεκριμένα επόμενα βήματα",
+              "text": "Πρακτική κατεύθυνση και σαφείς ευθύνες\\."
+            }
+          ]
+        }
+      }
+    },
+    "07-investment.json": {
+      "contentId": "investment",
+      "slug": "investment-planning",
+      "number": "07",
+      "audience": "individual",
+      "title": "Investment planning",
+      "status": "published",
+      "description": "A conversation about your goals, time horizon, and the questions to consider before investing\\.",
+      "detail": "Clarity before action\\.",
+      "body": "A conversation about your goals, time horizon, and the questions to consider before investing\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+      "features": [
+        {
+          "title": "Clear scope",
+          "text": "Know what is included before work starts\\."
+        },
+        {
+          "title": "Personal contact",
+          "text": "A familiar point of contact for your questions\\."
+        },
+        {
+          "title": "Agreed next steps",
+          "text": "Practical direction and clear responsibilities\\."
+        }
+      ],
+      "translations": {
+        "el": {
+          "title": "Επενδυτικός σχεδιασμός",
+          "status": "published",
+          "description": "Μια συζήτηση για τους στόχους, τον χρονικό ορίζοντα και τα ερωτήματα που χρειάζεται να εξετάσετε πριν επενδύσετε\\.",
+          "detail": "Σαφήνεια πριν από κάθε κίνηση\\.",
+          "body": "Μια συζήτηση για τους στόχους, τον χρονικό ορίζοντα και τα ερωτήματα που χρειάζεται να εξετάσετε πριν επενδύσετε\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+          "features": [
+            {
+              "title": "Σαφές αντικείμενο",
+              "text": "Γνωρίζετε τι περιλαμβάνεται πριν ξεκινήσουμε\\."
+            },
+            {
+              "title": "Προσωπική επικοινωνία",
+              "text": "Ένα σταθερό σημείο επαφής για τις ερωτήσεις σας\\."
+            },
+            {
+              "title": "Συγκεκριμένα επόμενα βήματα",
+              "text": "Πρακτική κατεύθυνση και σαφείς ευθύνες\\."
+            }
+          ]
+        }
+      }
+    },
+    "considered-solutions.json": {
+      "contentId": "solutions",
+      "slug": "tax-planning",
+      "number": "02",
+      "audience": "business",
+      "title": "Tax planning",
+      "status": "published",
+      "description": "Preparation, organised records, and clear communication about your business tax obligations\\.",
+      "detail": "Prepare with a clear view\\.",
+      "body": "Preparation, organised records, and clear communication about your business tax obligations\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+      "features": [
+        {
+          "title": "Clear scope",
+          "text": "Know what is included before work starts\\."
+        },
+        {
+          "title": "Personal contact",
+          "text": "A familiar point of contact for your questions\\."
+        },
+        {
+          "title": "Agreed next steps",
+          "text": "Practical direction and clear responsibilities\\."
+        }
+      ],
+      "translations": {
+        "el": {
+          "title": "Φορολογικός σχεδιασμός",
+          "status": "published",
+          "description": "Σωστή προετοιμασία, οργανωμένα στοιχεία και σαφής ενημέρωση για τις φορολογικές υποχρεώσεις της επιχείρησής σας\\.",
+          "detail": "Προετοιμασία με ξεκάθαρη εικόνα\\.",
+          "body": "Σωστή προετοιμασία, οργανωμένα στοιχεία και σαφής ενημέρωση για τις φορολογικές υποχρεώσεις της επιχείρησής σας\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+          "features": [
+            {
+              "title": "Σαφές αντικείμενο",
+              "text": "Γνωρίζετε τι περιλαμβάνεται πριν ξεκινήσουμε\\."
+            },
+            {
+              "title": "Προσωπική επικοινωνία",
+              "text": "Ένα σταθερό σημείο επαφής για τις ερωτήσεις σας\\."
+            },
+            {
+              "title": "Συγκεκριμένα επόμενα βήματα",
+              "text": "Πρακτική κατεύθυνση και σαφείς ευθύνες\\."
+            }
+          ]
+        }
+      }
+    },
+    "ongoing-support.json": {
+      "contentId": "support",
+      "slug": "business-consulting",
+      "number": "03",
+      "audience": "business",
+      "title": "Business consulting",
+      "status": "published",
+      "description": "From a first business idea to the next stage: financial organisation, cash\\-flow planning, and informed decisions\\.",
+      "detail": "A practical plan for the next step\\.",
+      "body": "From a first business idea to the next stage: financial organisation, cash\\-flow planning, and informed decisions\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+      "features": [
+        {
+          "title": "Clear scope",
+          "text": "Know what is included before work starts\\."
+        },
+        {
+          "title": "Personal contact",
+          "text": "A familiar point of contact for your questions\\."
+        },
+        {
+          "title": "Agreed next steps",
+          "text": "Practical direction and clear responsibilities\\."
+        }
+      ],
+      "translations": {
+        "el": {
+          "title": "Επιχειρηματική συμβουλευτική",
+          "status": "published",
+          "description": "Από την πρώτη ιδέα μέχρι το επόμενο βήμα: οικονομική οργάνωση, σχεδιασμός ταμειακών ροών και τεκμηριωμένες αποφάσεις\\.",
+          "detail": "Πρακτικό σχέδιο για το επόμενο βήμα\\.",
+          "body": "Από την πρώτη ιδέα μέχρι το επόμενο βήμα: οικονομική οργάνωση, σχεδιασμός ταμειακών ροών και τεκμηριωμένες αποφάσεις\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+          "features": [
+            {
+              "title": "Σαφές αντικείμενο",
+              "text": "Γνωρίζετε τι περιλαμβάνεται πριν ξεκινήσουμε\\."
+            },
+            {
+              "title": "Προσωπική επικοινωνία",
+              "text": "Ένα σταθερό σημείο επαφής για τις ερωτήσεις σας\\."
+            },
+            {
+              "title": "Συγκεκριμένα επόμενα βήματα",
+              "text": "Πρακτική κατεύθυνση και σαφείς ευθύνες\\."
+            }
+          ]
+        }
+      }
+    },
+    "personal-guidance.json": {
+      "contentId": "guidance",
+      "slug": "accounting-support",
+      "number": "01",
+      "audience": "business",
+      "title": "Accounting support",
+      "status": "published",
+      "description": "Bookkeeping, payroll, and reporting\\. A clear picture of the everyday finances of your business\\.",
+      "detail": "Bring structure to the everyday\\.",
+      "body": "Bookkeeping, payroll, and reporting\\. A clear picture of the everyday finances of your business\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+      "features": [
+        {
+          "title": "Clear scope",
+          "text": "Know what is included before work starts\\."
+        },
+        {
+          "title": "Personal contact",
+          "text": "A familiar point of contact for your questions\\."
+        },
+        {
+          "title": "Agreed next steps",
+          "text": "Practical direction and clear responsibilities\\."
+        }
+      ],
+      "translations": {
+        "el": {
+          "title": "Λογιστική υποστήριξη",
+          "status": "published",
+          "description": "Οργάνωση βιβλίων, μισθοδοσία και οικονομική πληροφόρηση\\. Η καθημερινότητα της επιχείρησής σας σε σωστή βάση\\.",
+          "detail": "Οργάνωση στην καθημερινότητα\\.",
+          "body": "Οργάνωση βιβλίων, μισθοδοσία και οικονομική πληροφόρηση\\. Η καθημερινότητα της επιχείρησής σας σε σωστή βάση\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+          "features": [
+            {
+              "title": "Σαφές αντικείμενο",
+              "text": "Γνωρίζετε τι περιλαμβάνεται πριν ξεκινήσουμε\\."
+            },
+            {
+              "title": "Προσωπική επικοινωνία",
+              "text": "Ένα σταθερό σημείο επαφής για τις ερωτήσεις σας\\."
+            },
+            {
+              "title": "Συγκεκριμένα επόμενα βήματα",
+              "text": "Πρακτική κατεύθυνση και σαφείς ευθύνες\\."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "articles": {
+    "a-good-start.json": {
+      "slug": "a-good-start",
+      "title": "A good start begins with the right questions",
+      "status": "published",
+      "description": "A few simple ways to prepare for a useful first conversation\\.",
+      "authorId": "alex",
+      "offeringId": "guidance",
+      "publishedAt": "2026-10-01",
+      "updatedAt": "2026-10-01",
+      "interest": "updates",
+      "category": "Perspective",
+      "body": "You do not need to have every answer before asking for help\\. A useful first conversation is a chance to understand the situation together\\.\n\nStart with what you want to change\\. Note what matters most, what you have already tried, and any practical constraints\\. Sharing this context makes it easier to find a useful starting point\\.\n\nAsk what happens next, who will be involved, and what you should expect\\. Good guidance leaves you with clarity, rather than more questions\\.\n\nExplore [accounting support](/en/offerings/accounting-support), or [start a conversation](/en/contact?offering=guidance).",
+      "contentId": "good-start",
+      "translations": {
+        "el": {
+          "status": "published",
+          "title": "Μια καλή αρχή ξεκινά με τις σωστές ερωτήσεις",
+          "description": "Απλοί τρόποι προετοιμασίας για μια χρήσιμη πρώτη συζήτηση\\.",
+          "category": "Οπτική",
+          "body": "Δεν χρειάζεται να έχετε όλες τις απαντήσεις πριν ζητήσετε βοήθεια\\. Η πρώτη συζήτηση είναι μια ευκαιρία να καταλάβουμε μαζί την κατάσταση\\.\n\nΞεκινήστε με όσα θέλετε να αλλάξετε\\. Σημειώστε τι έχει σημασία, τι έχετε δοκιμάσει και τους πρακτικούς περιορισμούς\\.\n\nΡωτήστε ποιο είναι το επόμενο βήμα, ποιος θα συμμετέχει και τι να περιμένετε\\. Η καλή καθοδήγηση προσφέρει σαφήνεια\\.\n\nΜάθετε περισσότερα για τη [λογιστική υποστήριξη](/el/offerings/accounting-support) ή [ξεκινήστε μια συζήτηση](/el/contact?offering=guidance).",
+          "imageAlt": ""
+        }
+      },
+      "image": "/uploads/advisory-consultation.webp",
+      "imagePosition": "right center",
+      "imageAlt": ""
+    },
+    "the-small-details.json": {
+      "slug": "the-small-details",
+      "title": "Why the small details make a difference",
+      "status": "published",
+      "description": "Careful preparation often makes the everyday feel easier\\.",
+      "authorId": "alex",
+      "offeringId": "solutions",
+      "publishedAt": "2026-09-22",
+      "updatedAt": "2026-09-22",
+      "interest": "updates",
+      "category": "Everyday ideas",
+      "body": "The most useful improvements are often small: a clear explanation, a well\\-prepared space, or a thoughtful follow\\-up\\. They make an experience feel easier from beginning to end\\.\n\nThink about the moments that create friction\\. Addressing one of them with care can be more helpful than adding something entirely new\\.\n\nExplore [tax planning](/en/offerings/tax-planning), or [start a conversation](/en/contact?offering=solutions).",
+      "contentId": "small-details",
+      "translations": {
+        "el": {
+          "status": "published",
+          "title": "Γιατί οι μικρές λεπτομέρειες κάνουν τη διαφορά",
+          "description": "Η προσεκτική προετοιμασία κάνει την καθημερινότητα πιο εύκολη\\.",
+          "category": "Καθημερινές ιδέες",
+          "body": "Οι πιο χρήσιμες βελτιώσεις είναι συχνά μικρές: μια σαφής εξήγηση, ένας προετοιμασμένος χώρος ή μια προσεγμένη συνέχεια\\.\n\nΣκεφτείτε τις στιγμές που δημιουργούν δυσκολίες\\. Η φροντίδα σε μία από αυτές μπορεί να βοηθήσει περισσότερο από κάτι εντελώς καινούριο\\.\n\nΜάθετε περισσότερα για τον [φορολογικό σχεδιασμό](/el/offerings/tax-planning) ή [ξεκινήστε μια συζήτηση](/el/contact?offering=solutions).",
+          "imageAlt": ""
+        }
+      },
+      "image": "/uploads/advisory-method.webp",
+      "imagePosition": "right center",
+      "imageAlt": ""
+    }
+  },
+  "people": {
+    "alex.json": {
+      "slug": "alex-example",
+      "name": "AXIA editorial team",
+      "role": "Accounting and consulting",
+      "bio": "Practical notes from the AXIA demonstration project\\. Replace this editorial profile with your verified team information before publication\\.",
+      "contentId": "alex",
+      "translations": {
+        "el": {
+          "status": "published",
+          "name": "Συντακτική ομάδα AXIA",
+          "role": "Λογιστική και συμβουλευτική",
+          "bio": "Πρακτικά κείμενα από το ενδεικτικό έργο AXIA\\. Αντικαταστήστε το προφίλ με επαληθευμένα στοιχεία της ομάδας πριν από τη δημοσίευση\\."
+        }
+      }
+    }
+  },
+  "settings": {
+    "site.json": {
+      "brand": "AXIA",
+      "legalName": "AXIA — demonstration company",
+      "email": "hello@example.com",
+      "phone": "+30 210 000 0000",
+      "location": "Greece · Online and in person",
+      "newsletterPromise": "A thoughtful note with practical ideas, new stories, and useful updates. Sent occasionally.",
+      "privacyVersion": "sample-v1",
+      "social": {
+        "instagram": "https://www.instagram.com/stefanakisvagelis",
+        "linkedin": "https://www.linkedin.com/in/evangelos-stefanakis-515078bb"
+      },
+      "seoDescription": "Accounting support and financial planning, built around the needs of your business and your everyday life.",
+      "translations": {
+        "el": {
+          "location": "Ελλάδα · Διαδικτυακά και από κοντά",
+          "newsletterPromise": "Ένα προσεγμένο μήνυμα με πρακτικές ιδέες, νέα άρθρα και χρήσιμες ενημερώσεις, πού και πού.",
+          "seoDescription": "Λογιστική υποστήριξη και οικονομικός σχεδιασμός, με επίκεντρο τις ανάγκες της επιχείρησης και της καθημερινότητάς σας."
+        }
+      }
+    }
+  },
+  "experience": {
+    "site.json": {
+      "enabled": true,
+      "delaySeconds": 20,
+      "scrollPercent": 35,
+      "cooldownDays": 30,
+      "requestedDays": 180,
+      "confirmedDays": 365,
+      "consentVersion": 1,
+      "consentDays": 180,
+      "title": "Good ideas, now and then.",
+      "body": "Practical perspectives on your next financial step. Choose to receive occasional email updates.",
+      "button": "Send me useful updates",
+      "dismiss": "Maybe later",
+      "consent": "I agree to receive these updates. I can unsubscribe at any time.",
+      "success": "If appropriate, check your inbox for a confirmation link. Your subscription starts only after you confirm.",
+      "cookieTitle": "Your privacy choices",
+      "cookieBody": "We remember your cookie choice as necessary storage. Optional site preferences let us remember whether to show the newsletter invitation. We do not use analytics or advertising trackers.",
+      "preferences": "Site preferences",
+      "preferencesBody": "Remember newsletter invitation choices on this browser. This does not subscribe or unsubscribe you.",
+      "necessary": "Necessary — always on",
+      "accept": "Accept all",
+      "reject": "Only necessary",
+      "settings": "Settings",
+      "save": "Save choices",
+      "close": "Close",
+      "cookieSettings": "Cookie settings",
+      "newsletter": "Newsletter",
+      "privacy": "Privacy notice",
+      "translations": {
+        "el": {
+          "title": "Καλές ιδέες, πού και πού.",
+          "body": "Χρήσιμες ιδέες και πρακτικές ενημερώσεις για την επιχείρηση και τα οικονομικά σας.",
+          "button": "Θέλω χρήσιμες ενημερώσεις",
+          "dismiss": "Ίσως αργότερα",
+          "consent": "Συμφωνώ να λαμβάνω αυτές τις ενημερώσεις. Μπορώ να διαγραφώ οποιαδήποτε στιγμή.",
+          "success": "Αν χρειάζεται επιβεβαίωση, θα λάβετε email με σχετικό σύνδεσμο. Η εγγραφή ολοκληρώνεται μόνο αφού επιβεβαιώσετε.",
+          "cookieTitle": "Οι επιλογές απορρήτου σας",
+          "cookieBody": "Αποθηκεύουμε την επιλογή cookies ως απαραίτητη αποθήκευση. Οι προαιρετικές προτιμήσεις ιστοτόπου μάς επιτρέπουν να θυμόμαστε αν θα εμφανίσουμε την πρόσκληση ενημερώσεων. Δεν χρησιμοποιούμε εργαλεία στατιστικής παρακολούθησης ή διαφημιστικούς ιχνηλάτες.",
+          "preferences": "Προτιμήσεις ιστοτόπου",
+          "preferencesBody": "Απομνημόνευση επιλογών της πρόσκλησης ενημερώσεων σε αυτό το πρόγραμμα περιήγησης. Αυτό δεν σας εγγράφει ή διαγράφει από τις ενημερώσεις.",
+          "necessary": "Απαραίτητα — πάντα ενεργά",
+          "accept": "Αποδοχή όλων",
+          "reject": "Μόνο απαραίτητα",
+          "settings": "Ρυθμίσεις",
+          "save": "Αποθήκευση επιλογών",
+          "close": "Κλείσιμο",
+          "cookieSettings": "Ρυθμίσεις cookies",
+          "newsletter": "Ενημερώσεις",
+          "privacy": "Δήλωση απορρήτου"
+        }
+      }
+    }
+  }
+}

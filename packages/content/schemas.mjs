@@ -1,3 +1,5 @@
+import {appearanceSchema} from '../design-system/presentation.mjs';
+import {mediaReferenceSchema} from './media.mjs';
 import {newsletterCopySchema,newsletterSettingsSchema} from './newsletter.mjs';
 import {socialSettingsSchema} from './contact.mjs';
 import {modulePageTemplates} from './module-extensions.mjs';
@@ -18,10 +20,10 @@ const slug = z.string().regex(/^(?:[a-z0-9]+(?:-[a-z0-9]+)*)(?:\/[a-z0-9]+(?:-[a
 const seo = z.preprocess(value => value == null ? '' : value, z.string().trim().max(LIMITS.seoDescription));
 const publication = {status:z.enum(['draft','published']),publishAt:z.iso.datetime({offset:true}).optional()};
 const translations = schema => z.record(z.string().regex(/^[a-z]{2}(?:-[A-Z]{2})?$/),schema).default({});
-export const metaSchema = z.strictObject({title,seoDescription:seo});
+export const metaSchema = z.strictObject({title,seoDescription:seo,noindex:z.boolean().optional()});
 export const sectionSchema = z.discriminatedUnion('_template',sectionDefinitions.map(d=>z.strictObject({
  id:fieldId,_template:z.literal(d.type),variant:z.enum(d.variants),enabled:z.boolean().default(true),
- appearance:z.strictObject({surface:z.enum(SURFACES)}),...d.referenceFields,
+ appearance:appearanceSchema,...d.referenceFields,
 })));
 const copy = z.strictObject({sections:z.record(fieldId,z.unknown())});
 const pageTranslation = z.strictObject({...publication,meta:metaSchema,copy});
@@ -59,11 +61,11 @@ const editorial = extra => z.strictObject({
  contentId:identifier,slug:slug.refine(value=>value.length>0,'Editorial slug cannot be empty'),...publication,...prose,...extra.shared,
  translations:translations(z.strictObject({...publication,...prose,...extra.localized})),
 });
-export const offeringSchema=editorial({shared:{},localized:{}});
+export const offeringSchema=editorial({shared:{audience:z.enum(['business','individual']).default('business'),number:z.string().regex(/^\d{0,3}$/).default('')},localized:{}});
 export const personSchema=editorial({shared:{role:title},localized:{role:title}});
 const optionalId=z.preprocess(value=>value==null || (typeof value==='string'&&!value.trim())?undefined:value,identifier.optional());
 const articleDates={publishAt:z.iso.datetime({offset:true}),updatedAt:z.iso.datetime({offset:true}).optional()};
-export const articleSchema=editorial({shared:{authorId:optionalId,offeringId:optionalId,...articleDates},localized:articleDates}).superRefine((article,ctx)=>{
+export const articleSchema=editorial({shared:{authorId:optionalId,offeringId:optionalId,image:mediaReferenceSchema.optional(),imagePosition:z.enum(['center','left center','right center']).default('center'),imageAlt:z.string().max(500).default(''),category:z.string().max(100).default(''),...articleDates},localized:{...articleDates,imageAlt:z.string().max(500).default(''),category:z.string().max(100).default('')}}).superRefine((article,ctx)=>{
  for(const [value,path] of [[article,[]],...Object.entries(article.translations).map(([locale,translation])=>[translation,['translations',locale]])])
   if(value.updatedAt&&Date.parse(value.updatedAt)<Date.parse(value.publishAt))ctx.addIssue({code:'custom',path:[...path,'updatedAt'],message:'updatedAt must not precede publishAt'});
 });

@@ -6,8 +6,8 @@ import { getDisabledDomainPages } from '../packages/content/domain-registry.mjs'
 import { parseProject } from '../packages/config/project.mjs';
 /** Validates content, then emits only developer-owned native schema metadata. */
 export function createCmsDescriptor(root,project,registry) {
- const {name,starterVersion,schemaVersion,profile,articles,modules,locale,languages,siteUrl,interests}=project;
- const editorProject={name,starterVersion,schemaVersion,profile,articles,modules,locale,languages,siteUrl,interests};
+ const {name,starterVersion,schemaVersion,profile,articles,modules,locale,languages,siteUrl,interests,design}=project;
+ const editorProject={name,starterVersion,schemaVersion,profile,articles,modules,locale,languages,siteUrl,interests,design};
  readContent(root,project,{registry});
  const disabledPages=new Set(getDisabledDomainPages(project,registry).map(page=>page.filename));
  if(!articles)disabledPages.add('insights.json');

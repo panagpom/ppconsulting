@@ -1,0 +1,20 @@
+{
+  "contentId": "personal-tax",
+  "slug": "personal-tax",
+  "status": "published",
+  "title": "Personal tax support",
+  "description": "Help with organising your information and preparing your personal tax return\\.",
+  "body": "Help with organising your information and preparing your personal tax return\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+  "seoDescription": "",
+  "audience": "individual",
+  "number": "05",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Φορολογικές δηλώσεις",
+      "description": "Υποστήριξη στην οργάνωση των στοιχείων και την προετοιμασία της φορολογικής σας δήλωσης\\.",
+      "body": "Υποστήριξη στην οργάνωση των στοιχείων και την προετοιμασία της φορολογικής σας δήλωσης\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+      "seoDescription": ""
+    }
+  }
+}

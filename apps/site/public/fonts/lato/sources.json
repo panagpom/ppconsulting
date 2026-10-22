@@ -1,0 +1,38 @@
+[
+  {
+    "weight": 400,
+    "source": "https://raw.githubusercontent.com/google/fonts/5d3b76120a319730fda218cc7410174a462b32cb/ofl/lato/Lato-Regular.ttf",
+    "sourceSha256": "d636e4683231f931eda222d588e944d082bfd3bdba02f928bee461c0f185b251",
+    "output": "apps/site/public/fonts/lato/lato-400-normal.woff2",
+    "bytes": 124748,
+    "greekGlyphsChecked": 67,
+    "coverage": "Latin, Latin extended, Greek, Greek extended, combining marks, punctuation, currencies, arrows"
+  },
+  {
+    "weight": 500,
+    "source": "https://raw.githubusercontent.com/google/fonts/5d3b76120a319730fda218cc7410174a462b32cb/ofl/lato/Lato-Medium.ttf",
+    "sourceSha256": "d3ac182a6833e005745dd75679fbad081c0b12535df4e93ad8ed57817a31a338",
+    "output": "apps/site/public/fonts/lato/lato-500-normal.woff2",
+    "bytes": 121496,
+    "greekGlyphsChecked": 67,
+    "coverage": "Latin, Latin extended, Greek, Greek extended, combining marks, punctuation, currencies, arrows"
+  },
+  {
+    "weight": 600,
+    "source": "https://raw.githubusercontent.com/google/fonts/5d3b76120a319730fda218cc7410174a462b32cb/ofl/lato/Lato-SemiBold.ttf",
+    "sourceSha256": "71b8b7decbe75a881ed267be539d402bd1e9420b799658aada4e0d1bd5af803c",
+    "output": "apps/site/public/fonts/lato/lato-600-normal.woff2",
+    "bytes": 125660,
+    "greekGlyphsChecked": 67,
+    "coverage": "Latin, Latin extended, Greek, Greek extended, combining marks, punctuation, currencies, arrows"
+  },
+  {
+    "weight": 700,
+    "source": "https://raw.githubusercontent.com/google/fonts/5d3b76120a319730fda218cc7410174a462b32cb/ofl/lato/Lato-Bold.ttf",
+    "sourceSha256": "8a0aace75d33794eece4b28187bfc1df0bbd2888b5d8a56e01788c8d65d16be1",
+    "output": "apps/site/public/fonts/lato/lato-700-normal.woff2",
+    "bytes": 122528,
+    "greekGlyphsChecked": 67,
+    "coverage": "Latin, Latin extended, Greek, Greek extended, combining marks, punctuation, currencies, arrows"
+  }
+]

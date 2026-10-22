@@ -12,6 +12,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/merriweather':
+        specifier: 5.3.0
+        version: 5.3.0
       '@fontsource/noto-sans':
         specifier: 5.2.8
         version: 5.2.8
@@ -854,6 +857,9 @@ packages:
 
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
+
+  '@fontsource/merriweather@5.3.0':
+    resolution: {integrity: sha512-9LpPsNTYzRALj468Uj1K9Usl5eXk991L/kKmcpdWbTF1na9NfMyAXMgUABlMReViU1MYBz9kJ8jEzEOtX9qGDg==}
 
   '@fontsource/noto-sans@5.2.8':
     resolution: {integrity: sha512-Gqsp0q7sL4G+KL7PRFy4eteeJad9Q3Ef8qlBVabT406e57vdbDH7fAQeiVn0ILGMQ/UDyj6j/SVK+VYzVzxE9w==}
@@ -7104,6 +7110,8 @@ snapshots:
       tabbable: 6.5.0
 
   '@floating-ui/utils@0.2.12': {}
+
+  '@fontsource/merriweather@5.3.0': {}
 
   '@fontsource/noto-sans@5.2.8': {}
 

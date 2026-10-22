@@ -1,0 +1,20 @@
+{
+  "contentId": "support",
+  "slug": "business-consulting",
+  "status": "published",
+  "title": "Business consulting",
+  "description": "From a first business idea to the next stage: financial organisation, cash\\-flow planning, and informed decisions\\.",
+  "body": "From a first business idea to the next stage: financial organisation, cash\\-flow planning, and informed decisions\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+  "seoDescription": "",
+  "audience": "business",
+  "number": "03",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Επιχειρηματική συμβουλευτική",
+      "description": "Από την πρώτη ιδέα μέχρι το επόμενο βήμα: οικονομική οργάνωση, σχεδιασμός ταμειακών ροών και τεκμηριωμένες αποφάσεις\\.",
+      "body": "Από την πρώτη ιδέα μέχρι το επόμενο βήμα: οικονομική οργάνωση, σχεδιασμός ταμειακών ροών και τεκμηριωμένες αποφάσεις\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+      "seoDescription": ""
+    }
+  }
+}

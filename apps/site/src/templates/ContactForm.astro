@@ -1,4 +1,7 @@
 ---
+import Heading from '../components/advisory/Heading.astro';
+import Background from '../components/advisory/Background.astro';
+import Icon from '../components/advisory/Icon.astro';
 import FormProtection from '../components/ui/FormProtection.astro';
 import {formProtection} from '../../../../packages/config/form-protection.mjs';
 import type {RenderContext} from '../lib/render-context';
@@ -8,18 +11,19 @@ import ContactDetails from '../components/ui/ContactDetails.astro';
 import SocialLinks from '../components/ui/SocialLinks.astro';
 import {contactChannels} from '../../../../packages/content/contact.mjs';
 import Field from '../components/ui/Field.astro';
-import type {LocalizedContent} from '../../../../packages/content/types';
+import type {LocalizedContent,LocalizedPage} from '../../../../packages/content/types';
 
-interface Props {context?:RenderContext;content:LocalizedContent}
-const {content,context=defaultContext}=Astro.props;const el=content.locale==='el';
+interface Props {context?:RenderContext;content:LocalizedContent;page:LocalizedPage}
+const {content,page,context=defaultContext}=Astro.props;const el=content.locale==='el';
 const project=context.project;const preview=Boolean(context.previewBase);
 const protection=formProtection(project,preview);
 const contexts=getEnquiryContexts(content);
 const channels=contactChannels(content.settings,content.locale);if(preview){channels.social=[];channels.direct=channels.direct.map(item=>({...item,href:'#'}));}
+const hero=page.sections.find(s=>s._template==='hero')!;const copy=hero.copy as {eyebrow?:string;title:string;description:string};
 const email=channels.direct.find(link=>link.id==='email')!;
 ---
-<section><div class="wrap"><h2>{el?'Ας μιλήσουμε':'Let’s talk'}</h2><p>{el?'Τα πεδία με * είναι υποχρεωτικά.':'Fields marked * are required.'}</p>
-<div class="contact-layout"><form id={preview?'preview-contact-form':'contact-form'} action={preview?undefined:'/api/contact'} method="post" data-locale={content.locale} data-protection-mode={protection.mode} data-protection-key={protection.siteKey} data-protection-action="contact">
+<section data-page-id={page.contentId} data-page-section={hero.id} class="home-section-band home-section-band--photographic contact-page-band"><Background src={hero.appearance.backgroundImage} enabled={hero.appearance.imageEnabled} pageId={page.contentId} sectionId={hero.id}/><div class="wrap contact-layout contact-page-grid"><aside class="contact-aside"><div class="page-header">{copy.eyebrow&&<p class="eyebrow" set:html={context.rich(copy.eyebrow,content.locale,true)}/>}<Heading text={copy.title} level="h1" variant="display" accentLastLine/><div class="intro description" set:html={context.rich(copy.description,content.locale,true)}/></div><ContactDetails channels={channels} locale={content.locale}/><SocialLinks links={channels.social} locale={content.locale} variant="labeled"/></aside><div class="contact-form-panel"><h2>{el?'Στείλτε μας ένα μήνυμα':'Send us a message'}</h2><p>{el?'Τα πεδία με * είναι υποχρεωτικά.':'Fields marked * are required.'}</p>
+<form id={preview?'preview-contact-form':'contact-form'} action={preview?undefined:'/api/contact'} method="post" data-locale={content.locale} data-protection-mode={protection.mode} data-protection-key={protection.siteKey} data-protection-action="contact">
 <Field disabled={preview} name="name" label={el?'Όνομα':'Name'} required maxlength={120} autocomplete="name"/>
 <Field disabled={preview} name="email" label={el?'Email':'Email'} type="email" required maxlength={254} autocomplete="email"/>
 <Field disabled={preview} name="phone" label={el?'Τηλέφωνο':'Phone'} type="tel" maxlength={40} autocomplete="tel"/>
@@ -29,9 +33,9 @@ const email=channels.direct.find(link=>link.id==='email')!;
 {project.profile!=='enquiries'&&<><label class="check"><input disabled={preview} type="checkbox" name="marketingConsent"/>{el?'Θέλω να λαμβάνω ενημερώσεις μέσω email (προαιρετικό).':'Send me useful email updates (optional).'}</label><div class="field"><label for="interest">{el?'Ενημερώσεις':'Updates'}</label><select disabled={preview} name="interest" id="interest">{project.interests.map(i=><option value={i.id}>{i.label}</option>)}</select></div></>}
 <FormProtection locale={content.locale}/>
 {!preview&&protection.mode==='unavailable'&&<p role="status">{el?'Η ηλεκτρονική φόρμα δεν είναι διαθέσιμη προσωρινά. Επικοινωνήστε μαζί μας μέσω email ή τηλεφώνου.':'The online form is temporarily unavailable. Please contact us by email or phone.'}</p>}
-<div id="form-errors" tabindex="-1" role="alert" hidden></div><button disabled={preview||protection.mode==='unavailable'} type="submit">{el?'Αποστολή μηνύματος':'Send message'}</button><p id="form-status" role="status" aria-live="polite"></p>
+<div id="form-errors" tabindex="-1" role="alert" hidden></div><button class="button ds-action ds-action--primary ds-action--large" disabled={preview||protection.mode==='unavailable'} type="submit">{el?'Αποστολή μηνύματος':'Send message'}<Icon name="send"/></button><p id="form-status" role="status" aria-live="polite"></p>
 <noscript><p>{el?'Η φόρμα χρειάζεται JavaScript. Εναλλακτικά, στείλτε email.':'This form needs JavaScript. You can also email us directly.'} <a href={email.href}>{email.label}</a></p></noscript>
-</form><aside class="contact-aside"><ContactDetails channels={channels} locale={content.locale}/><SocialLinks links={channels.social} locale={content.locale} variant="labeled"/></aside></div></div></section>
+</form></div></div></section>
 <script>
 import {createFormProtection} from '../scripts/form-protection';
 const form=document.querySelector<HTMLFormElement>('#contact-form');

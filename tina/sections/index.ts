@@ -2,6 +2,7 @@ import type { TinaField } from 'tinacms';
 import type { ProjectConfig } from '../../packages/config/project.mjs';
 import { createElement as h } from 'react';
 import { text, object } from '../fields/common';
+import { appearanceFields } from '../fields/appearance';
 import { SectionControls } from '../fields/composition';
 export const references: TinaField = {
   name: 'sections',
@@ -12,17 +13,11 @@ export const references: TinaField = {
   fields: [
     text('id', true),
     text('_template', true),
-    { name: 'variant', type: 'string', options: ['default','expanded','cards','reversed','featured'] },
+    { name: 'variant', type: 'string', options: ['default','expanded','cards','reversed','featured','editorial'] },
     { name: 'enabled', type: 'boolean' },
     object('media',[{name:'src',type:'image'}, {name:'crop',type:'string',options:['center','top','bottom']}]),
     object('items',[text('id',true),object('media',[{name:'src',type:'image'},{name:'crop',type:'string',options:['center','top','bottom']}])],true),
-    object('appearance', [
-      {
-        name: 'surface',
-        type: 'string',
-        options: ['default', 'muted', 'accent'],
-      },
-    ]),
+    object('appearance', appearanceFields),
   ],
 };
 export function pageReferences(project: ProjectConfig): TinaField {

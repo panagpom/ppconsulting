@@ -1,0 +1,20 @@
+{
+  "contentId": "guidance",
+  "slug": "accounting-support",
+  "status": "published",
+  "title": "Accounting support",
+  "description": "Bookkeeping, payroll, and reporting\\. A clear picture of the everyday finances of your business\\.",
+  "body": "Bookkeeping, payroll, and reporting\\. A clear picture of the everyday finances of your business\\.\n\nWe begin by understanding your situation and agreeing what support is appropriate\\. You will know what is included, what information is needed, and how we will work together\\.",
+  "seoDescription": "",
+  "audience": "business",
+  "number": "01",
+  "translations": {
+    "el": {
+      "status": "published",
+      "title": "Λογιστική υποστήριξη",
+      "description": "Οργάνωση βιβλίων, μισθοδοσία και οικονομική πληροφόρηση\\. Η καθημερινότητα της επιχείρησής σας σε σωστή βάση\\.",
+      "body": "Οργάνωση βιβλίων, μισθοδοσία και οικονομική πληροφόρηση\\. Η καθημερινότητα της επιχείρησής σας σε σωστή βάση\\.\n\nΞεκινάμε με την κατανόηση της κατάστασής σας και συμφωνούμε την κατάλληλη υποστήριξη\\. Γνωρίζετε τι περιλαμβάνεται, ποια στοιχεία χρειάζονται και πώς θα συνεργαστούμε\\.",
+      "seoDescription": ""
+    }
+  }
+}
