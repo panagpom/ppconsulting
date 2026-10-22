@@ -1,0 +1,73 @@
+{
+  "brand": {
+    "name": "PPConsulting",
+    "tagline": "Illustrative sample content. Replace these details before publication."
+  },
+  "legal": {
+    "businessName": "PPConsulting — demonstration company",
+    "privacyVersion": "sample-v1",
+    "notice": "Demonstration website. Review all business and legal information before public use."
+  },
+  "contact": {
+    "email": "hello@example.com",
+    "phone": "",
+    "address": ""
+  },
+  "navigation": [
+    {
+      "pageId": "home",
+      "label": "Home"
+    },
+    {
+      "pageId": "services",
+      "label": "Services"
+    },
+    {
+      "pageId": "about",
+      "label": "About"
+    },
+    {
+      "pageId": "insights",
+      "label": "Articles"
+    },
+    {
+      "pageId": "contact",
+      "label": "Contact"
+    }
+  ],
+  "translations": {
+    "el": {
+      "brand": {
+        "tagline": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+      },
+      "legal": {
+        "notice": "Ενδεικτικός ιστότοπος. Ελέγξτε όλα τα επιχειρηματικά και νομικά στοιχεία πριν από τη δημόσια χρήση."
+      },
+      "contact": {
+        "address": ""
+      },
+      "navigation": [
+        {
+          "pageId": "home",
+          "label": "Αρχική"
+        },
+        {
+          "pageId": "services",
+          "label": "Υπηρεσίες"
+        },
+        {
+          "pageId": "about",
+          "label": "Σχετικά"
+        },
+        {
+          "pageId": "insights",
+          "label": "Άρθρα"
+        },
+        {
+          "pageId": "contact",
+          "label": "Επικοινωνία"
+        }
+      ]
+    }
+  }
+}

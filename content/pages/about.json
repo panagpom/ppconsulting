@@ -1,0 +1,92 @@
+{
+  "contentId": "about",
+  "_template": "about",
+  "slug": "about",
+  "status": "published",
+  "meta": {
+    "title": "About our business",
+    "seoDescription": ""
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "_template": "hero",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "approach",
+      "_template": "rich-text",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "people_preview",
+      "_template": "people-list",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    }
+  ],
+  "copy": {
+    "sections": [
+      {
+        "id": "intro",
+        "_template": "hero",
+        "title": "About our business",
+        "description": "Meet the people and approach behind our work."
+      },
+      {
+        "id": "approach",
+        "_template": "rich-text",
+        "title": "How we begin",
+        "body": "We begin by listening. Together, we identify a practical next step and agree what a useful outcome looks like.\n\nThis is **sample content** to adapt to your own organization."
+      },
+      {
+        "id": "people_preview",
+        "_template": "people-list",
+        "title": "People",
+        "description": "Find the right person for your first question."
+      }
+    ]
+  },
+  "translations": {
+    "el": {
+      "status": "published",
+      "meta": {
+        "title": "Σχετικά με την επιχείρηση",
+        "seoDescription": ""
+      },
+      "copy": {
+        "sections": [
+          {
+            "id": "intro",
+            "_template": "hero",
+            "title": "Σχετικά με την επιχείρηση",
+            "description": "Γνωρίστε τους ανθρώπους και την προσέγγιση πίσω από τη δουλειά μας."
+          },
+          {
+            "id": "approach",
+            "_template": "rich-text",
+            "title": "Πώς ξεκινάμε",
+            "body": "Ξεκινάμε ακούγοντας. Μαζί εντοπίζουμε ένα πρακτικό επόμενο βήμα και συμφωνούμε ποιο αποτέλεσμα θα ήταν χρήσιμο.\n\nΑυτό είναι **ενδεικτικό περιεχόμενο** για προσαρμογή στον οργανισμό σας."
+          },
+          {
+            "id": "people_preview",
+            "_template": "people-list",
+            "title": "Άνθρωποι",
+            "description": "Βρείτε τον κατάλληλο άνθρωπο για την πρώτη σας ερώτηση."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "contentId": "insights",
+  "_template": "insights",
+  "slug": "insights",
+  "status": "published",
+  "meta": {
+    "title": "Articles",
+    "seoDescription": ""
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "_template": "hero",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "articles_list",
+      "_template": "article-list",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    }
+  ],
+  "copy": {
+    "sections": [
+      {
+        "id": "intro",
+        "_template": "hero",
+        "title": "Articles",
+        "description": "Notes and questions from everyday work."
+      },
+      {
+        "id": "articles_list",
+        "_template": "article-list",
+        "title": "Recent reading",
+        "description": "Browse our latest notes."
+      }
+    ]
+  },
+  "translations": {
+    "el": {
+      "status": "published",
+      "meta": {
+        "title": "Άρθρα",
+        "seoDescription": ""
+      },
+      "copy": {
+        "sections": [
+          {
+            "id": "intro",
+            "_template": "hero",
+            "title": "Άρθρα",
+            "description": "Σημειώσεις και ερωτήματα από την καθημερινή εργασία."
+          },
+          {
+            "id": "articles_list",
+            "_template": "article-list",
+            "title": "Πρόσφατα άρθρα",
+            "description": "Διαβάστε τις τελευταίες σημειώσεις μας."
+          }
+        ]
+      }
+    }
+  }
+}

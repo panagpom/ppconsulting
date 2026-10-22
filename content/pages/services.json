@@ -1,0 +1,71 @@
+{
+  "contentId": "services",
+  "_template": "offerings",
+  "slug": "services",
+  "status": "published",
+  "meta": {
+    "title": "Services",
+    "seoDescription": ""
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "_template": "hero",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "services_list",
+      "_template": "offering-list",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    }
+  ],
+  "copy": {
+    "sections": [
+      {
+        "id": "intro",
+        "_template": "hero",
+        "title": "Services",
+        "description": "Explore a starting point for working together."
+      },
+      {
+        "id": "services_list",
+        "_template": "offering-list",
+        "title": "Available services",
+        "description": "Each service can begin with a discussion of your needs."
+      }
+    ]
+  },
+  "translations": {
+    "el": {
+      "status": "published",
+      "meta": {
+        "title": "Υπηρεσίες",
+        "seoDescription": ""
+      },
+      "copy": {
+        "sections": [
+          {
+            "id": "intro",
+            "_template": "hero",
+            "title": "Υπηρεσίες",
+            "description": "Εξερευνήστε ένα σημείο εκκίνησης για τη συνεργασία μας."
+          },
+          {
+            "id": "services_list",
+            "_template": "offering-list",
+            "title": "Διαθέσιμες υπηρεσίες",
+            "description": "Κάθε υπηρεσία μπορεί να ξεκινήσει με μια συζήτηση για τις ανάγκες σας."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "application": "ppconsulting",
+  "target": "production",
+  "accountId": "00000000000000000000000000000000",
+  "siteUrl": "https://example.com",
+  "infrastructure": {
+    "databaseId": "00000000-0000-0000-0000-000000000000",
+    "accessIssuer": "",
+    "accessAudience": "",
+    "adminEmails": [],
+    "editorEmails": [],
+    "sendingEnabled": false,
+    "marketingEnabled": false,
+    "runtimeBudget": {
+      "dailyDispatchLimit": null,
+      "transactionalReserve": 0
+    },
+    "providerAnalytics": {
+      "enabled": false,
+      "includeAccountTotals": false
+    },
+    "turnstileSiteKey": ""
+  }
+}

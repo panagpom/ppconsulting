@@ -1,0 +1,64 @@
+{
+  "name": "ppconsulting",
+  "version": "2.0.0-dev",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": "22.x || 24.x"
+  },
+  "scripts": {
+    "configure": "node scripts/configure.mjs",
+    "check": "pnpm configure && tsc --noEmit && pnpm --filter @starter/site check",
+    "test": "pnpm configure && vitest run",
+    "build": "pnpm configure && pnpm --filter @starter/site build",
+    "dev": "node scripts/dev.mjs",
+    "dev:cms": "node scripts/dev.mjs --cms",
+    "worker:check": "pnpm configure && node scripts/wrangler.mjs deploy --dry-run --config wrangler.generated.json",
+    "db:local": "pnpm configure && node scripts/wrangler.mjs d1 migrations apply DB --local --config wrangler.generated.json",
+    "deploy:prepare": "node scripts/deployment/prepare.mjs",
+    "release:build": "node scripts/deployment/release-build.mjs",
+    "release:verify": "node scripts/deployment/release-artifact.mjs",
+    "release:deploy": "node scripts/deployment/release-command.mjs deploy",
+    "release:migrate": "node scripts/deployment/release-command.mjs migrate",
+    "site:inspect": "node scripts/site-inspect.mjs",
+    "report:capacity": "node scripts/report-capacity.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "deploy:check": "node scripts/doctor.mjs --production"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans": "5.2.8",
+    "aws4fetch": "1.0.20",
+    "jose": "6.2.12",
+    "markdown-it": "14.3.2",
+    "sharp": "0.35.5",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@cloudflare/workers-types": "5.20261007.1",
+    "@playwright/test": "1.63.0",
+    "@tinacms/cli": "4.0.1",
+    "@tinacms/mdx": "2.3.0",
+    "@types/node": "24.0.0",
+    "@types/react": "18.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tinacms": "3.14.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "wrangler": "4.148.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "tinacms": "3.14.3",
+      "@tinacms/app": "2.5.14"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd",
+      "@tailwindcss/oxide"
+    ]
+  }
+}

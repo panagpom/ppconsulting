@@ -1,0 +1,7 @@
+---
+import type {RenderContext} from '../../lib/render-context';
+import {renderContext as defaultContext} from '../../lib/content';
+interface Props {context?:RenderContext;body:string;locale:string}
+const {body,locale,context=defaultContext}=Astro.props;
+---
+<div class="prose" set:html={context.rich(body,locale)} />

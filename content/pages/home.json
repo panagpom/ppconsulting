@@ -1,0 +1,235 @@
+{
+  "contentId": "home",
+  "_template": "home",
+  "slug": "",
+  "status": "published",
+  "meta": {
+    "title": "Clear thinking for your next step",
+    "seoDescription": ""
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "_template": "hero",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "services_preview",
+      "_template": "offering-list",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "our_process",
+      "_template": "steps",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      },
+      "items": [
+        {
+          "id": "listen"
+        },
+        {
+          "id": "plan"
+        }
+      ]
+    },
+    {
+      "id": "our_people",
+      "_template": "people-list",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "insights_preview",
+      "_template": "article-list",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    },
+    {
+      "id": "questions",
+      "_template": "faq",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      },
+      "items": [
+        {
+          "id": "start"
+        }
+      ]
+    },
+    {
+      "id": "next_step",
+      "_template": "cta",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default"
+      }
+    }
+  ],
+  "copy": {
+    "sections": [
+      {
+        "id": "intro",
+        "_template": "hero",
+        "title": "Clear thinking for your next step",
+        "description": "Illustrative sample content. Replace these details before publication."
+      },
+      {
+        "id": "services_preview",
+        "_template": "offering-list",
+        "title": "Explore our services",
+        "description": "Illustrative sample content. Replace these details before publication."
+      },
+      {
+        "id": "our_process",
+        "_template": "steps",
+        "title": "How it works",
+        "description": "Illustrative sample content. Replace these details before publication.",
+        "items": [
+          {
+            "id": "listen",
+            "title": "We listen",
+            "body": "Illustrative sample content. Replace these details before publication."
+          },
+          {
+            "id": "plan",
+            "title": "We plan",
+            "body": "Illustrative sample content. Replace these details before publication."
+          }
+        ]
+      },
+      {
+        "id": "our_people",
+        "_template": "people-list",
+        "title": "Meet the people",
+        "description": "Illustrative sample content. Replace these details before publication."
+      },
+      {
+        "id": "insights_preview",
+        "_template": "article-list",
+        "title": "Ideas and perspective",
+        "description": "Illustrative sample content. Replace these details before publication."
+      },
+      {
+        "id": "questions",
+        "_template": "faq",
+        "title": "Useful questions",
+        "description": "Illustrative sample content. Replace these details before publication.",
+        "items": [
+          {
+            "id": "start",
+            "question": "How do we start?",
+            "answer": "Send a message through the [contact form](/contact)."
+          }
+        ]
+      },
+      {
+        "id": "next_step",
+        "_template": "cta",
+        "title": "Start a conversation",
+        "description": "Illustrative sample content. Replace these details before publication.",
+        "link": {
+          "label": "Contact us",
+          "href": "/contact"
+        }
+      }
+    ]
+  },
+  "translations": {
+    "el": {
+      "status": "published",
+      "meta": {
+        "title": "Καθαρή σκέψη για το επόμενο βήμα",
+        "seoDescription": ""
+      },
+      "copy": {
+        "sections": [
+          {
+            "id": "intro",
+            "_template": "hero",
+            "title": "Καθαρή σκέψη για το επόμενο βήμα",
+            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+          },
+          {
+            "id": "services_preview",
+            "_template": "offering-list",
+            "title": "Γνωρίστε τις υπηρεσίες",
+            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+          },
+          {
+            "id": "our_process",
+            "_template": "steps",
+            "title": "Πώς λειτουργεί",
+            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση.",
+            "items": [
+              {
+                "id": "listen",
+                "title": "Συζητάμε",
+                "body": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+              },
+              {
+                "id": "plan",
+                "title": "Σχεδιάζουμε",
+                "body": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+              }
+            ]
+          },
+          {
+            "id": "our_people",
+            "_template": "people-list",
+            "title": "Γνωρίστε την ομάδα",
+            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+          },
+          {
+            "id": "insights_preview",
+            "_template": "article-list",
+            "title": "Ιδέες και απόψεις",
+            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση."
+          },
+          {
+            "id": "questions",
+            "_template": "faq",
+            "title": "Χρήσιμες ερωτήσεις",
+            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση.",
+            "items": [
+              {
+                "id": "start",
+                "question": "Πώς ξεκινάμε;",
+                "answer": "Στείλτε μας ένα μήνυμα από τη [φόρμα επικοινωνίας](/contact)."
+              }
+            ]
+          },
+          {
+            "id": "next_step",
+            "_template": "cta",
+            "title": "Ας μιλήσουμε",
+            "description": "Ενδεικτικό περιεχόμενο. Αντικαταστήστε τα στοιχεία πριν τη δημοσίευση.",
+            "link": {
+              "label": "Επικοινωνία",
+              "href": "/contact"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

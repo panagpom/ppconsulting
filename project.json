@@ -1,0 +1,85 @@
+{
+  "name": "ppconsulting",
+  "starterVersion": "2.0.0-dev",
+  "schemaVersion": 2,
+  "profile": "enquiries",
+  "articles": true,
+  "modules": {
+    "rooms": false,
+    "newsletterPrompt": false,
+    "visitorPreferences": false
+  },
+  "locale": "en",
+  "languages": [
+    {
+      "code": "en",
+      "label": "English"
+    },
+    {
+      "code": "el",
+      "label": "Ελληνικά"
+    }
+  ],
+  "siteUrl": "https://example.com",
+  "environment": "local",
+  "design": {
+    "theme": "neutral",
+    "density": "comfortable",
+    "motion": {
+      "enabled": false,
+      "durationMs": 600,
+      "distancePx": 18,
+      "staggerMs": 70,
+      "interactionMs": 180
+    }
+  },
+  "media": {
+    "optimization": {
+      "enabled": true,
+      "widths": [
+        320,
+        640,
+        960,
+        1440,
+        1920
+      ],
+      "quality": 80
+    }
+  },
+  "infrastructure": {
+    "turnstileSiteKey": "",
+    "runtimeBudget": {
+      "policyId": "cloudflare-free-v1",
+      "dailyDispatchLimit": null,
+      "transactionalReserve": 0,
+      "warningPercent": 70,
+      "criticalPercent": 85
+    },
+    "providerAnalytics": {
+      "enabled": false,
+      "includeAccountTotals": false
+    },
+    "databaseId": "00000000-0000-0000-0000-000000000000",
+    "sesRegion": "eu-west-1",
+    "sender": "Example Studio <hello@example.com>",
+    "notificationEmail": "owner@example.com",
+    "allowedRecipients": [],
+    "sesConfigurationSet": "starter-transactional",
+    "snsTopicArn": "",
+    "accessIssuer": "",
+    "accessAudience": "",
+    "adminEmails": [],
+    "editorEmails": [],
+    "sendingEnabled": false,
+    "marketingEnabled": false,
+    "sendIntervalMs": 1000
+  },
+  "legalReviewed": false,
+  "contentReviewed": false,
+  "interests": [
+    {
+      "id": "updates",
+      "label": "Useful updates"
+    }
+  ]
+}
