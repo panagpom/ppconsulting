@@ -11,19 +11,108 @@
     {
       "id": "hero",
       "_template": "hero",
-      "variant": "editorial",
+      "variant": "split",
       "enabled": true,
       "appearance": {
         "surface": "default",
+        "colorScheme": "light",
+        "backgroundColor": "#ffffff",
         "imageEnabled": true,
-        "backgroundImage": "/uploads/advisory-consultation.webp"
+        "backgroundImage": "/uploads/advisory-method.webp",
+        "secondaryImage": "/uploads/advisory-perspective.webp"
+      }
+    },
+    {
+      "id": "services",
+      "_template": "offering-list",
+      "variant": "orbit",
+      "enabled": true,
+      "appearance": {
+        "surface": "default",
+        "colorScheme": "light",
+        "backgroundColor": "#ffffff",
+        "imageEnabled": false
+      }
+    },
+    {
+      "id": "people",
+      "_template": "media-text",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default",
+        "colorScheme": "light",
+        "backgroundColor": "#e9f3f6",
+        "imageEnabled": false
+      },
+      "media": {
+        "src": "/uploads/advisory-consultation.webp",
+        "crop": "center"
+      }
+    },
+    {
+      "id": "stats",
+      "_template": "steps",
+      "variant": "metrics",
+      "enabled": true,
+      "appearance": {
+        "surface": "default",
+        "colorScheme": "auto",
+        "backgroundColor": "#2c3766",
+        "imageEnabled": true,
+        "backgroundImage": "/uploads/advisory-perspective.webp",
+        "imageOpacity": 0.25,
+        "imageOpacityMobile": 0.25,
+        "overlayOpacity": 0.2
+      },
+      "items": [
+        {
+          "id": "experience"
+        },
+        {
+          "id": "clients"
+        },
+        {
+          "id": "projects"
+        },
+        {
+          "id": "partners"
+        }
+      ]
+    },
+    {
+      "id": "insights",
+      "_template": "article-list",
+      "variant": "digest",
+      "enabled": true,
+      "appearance": {
+        "surface": "default",
+        "colorScheme": "light",
+        "backgroundColor": "#ffffff",
+        "imageEnabled": false
+      }
+    },
+    {
+      "id": "closing",
+      "_template": "cta",
+      "variant": "default",
+      "enabled": true,
+      "appearance": {
+        "surface": "default",
+        "colorScheme": "light",
+        "backgroundColor": "#e9f3f6",
+        "imageEnabled": true,
+        "backgroundImage": "/uploads/advisory-method.webp",
+        "imageOpacity": 0.14,
+        "imageOpacityMobile": 0.1,
+        "overlayOpacity": 0.6
       }
     },
     {
       "id": "perspective",
       "_template": "rich-text",
       "variant": "editorial",
-      "enabled": true,
+      "enabled": false,
       "appearance": {
         "surface": "default",
         "backgroundColor": "#1b3048",
@@ -35,20 +124,10 @@
       }
     },
     {
-      "id": "services",
-      "_template": "offering-list",
-      "variant": "editorial",
-      "enabled": true,
-      "appearance": {
-        "surface": "default",
-        "imageEnabled": false
-      }
-    },
-    {
       "id": "approach",
       "_template": "steps",
       "variant": "editorial",
-      "enabled": true,
+      "enabled": false,
       "items": [
         {
           "id": "item_1"
@@ -71,21 +150,10 @@
       }
     },
     {
-      "id": "insights",
-      "_template": "article-list",
-      "variant": "editorial",
-      "enabled": true,
-      "appearance": {
-        "colorScheme": "light",
-        "surface": "muted",
-        "imageEnabled": false
-      }
-    },
-    {
       "id": "questions",
       "_template": "faq",
       "variant": "editorial",
-      "enabled": true,
+      "enabled": false,
       "items": [
         {
           "id": "item_1"
@@ -110,22 +178,121 @@
     "sections": [
       {
         "id": "hero",
-        "title": "Clear numbers.\nConsidered decisions.\nLasting value.",
-        "description": "Accounting support and financial planning, built around the needs of your business and your everyday life.\n",
-        "eyebrow": "Accounting · Consulting · Investment planning\n",
+        "title": "Let’s plan\nyour next step together.",
+        "description": "",
+        "eyebrow": "By your side as your business grows",
         "actions": [
           {
-            "label": "Discuss your needs",
-            "href": "/contact",
-            "icon": "conversation"
+            "label": "Funding & investment projects",
+            "caption": "Give your idea a clear direction.",
+            "href": "/offerings/funding-support"
           },
           {
-            "label": "Explore our services",
-            "href": "#services",
-            "icon": "briefcase"
+            "label": "Accounting & tax support",
+            "caption": "A partner for the day-to-day needs of your business.",
+            "href": "/offerings/accounting-support"
           }
         ],
         "_template": "hero"
+      },
+      {
+        "id": "services",
+        "title": "Your business,\nat the centre.",
+        "description": "We connect what your business needs today with your plans for tomorrow.",
+        "eyebrow": "A COMPLETE VIEW",
+        "_template": "offering-list",
+        "link": {
+          "label": "Let’s talk about what you need",
+          "href": "#closing"
+        },
+        "orbit": [
+          {
+            "label": "Funding & investment projects",
+            "description": "From the first idea to preparing your funding application.",
+            "href": "/offerings/funding-support",
+            "icon": "funding"
+          },
+          {
+            "label": "Accounting & tax support",
+            "description": "Clear accounts and a practical view of your obligations.",
+            "href": "/offerings/accounting-support",
+            "icon": "accounting"
+          },
+          {
+            "label": "Payroll & business organisation",
+            "description": "Support with the processes that keep your business running.",
+            "href": "/offerings/accounting-support",
+            "icon": "payroll"
+          },
+          {
+            "label": "Business advice & planning",
+            "description": "Talk through your options and decide what comes next.",
+            "href": "/offerings/business-consulting",
+            "icon": "advice"
+          }
+        ]
+      },
+      {
+        "id": "people",
+        "_template": "media-text",
+        "title": "Good partnerships\nstart with people.",
+        "eyebrow": "WHO WE ARE",
+        "body": "Before we talk about solutions, we’d like to get to know you.\n\nAt PPConsulting, we listen to what’s on your mind and take time to understand your day-to-day work. We keep in touch, answer in plain language and agree what happens next.",
+        "image": {
+          "alt": "An illustration of a meeting in an office"
+        },
+        "link": {
+          "label": "Meet us",
+          "href": "/about"
+        }
+      },
+      {
+        "id": "stats",
+        "_template": "steps",
+        "title": "Our experience",
+        "description": "",
+        "items": [
+          {
+            "id": "experience",
+            "title": "—",
+            "body": "Years of experience"
+          },
+          {
+            "id": "clients",
+            "title": "—",
+            "body": "Businesses we support"
+          },
+          {
+            "id": "projects",
+            "title": "—",
+            "body": "Investment projects"
+          },
+          {
+            "id": "partners",
+            "title": "—",
+            "body": "Partners by your side"
+          }
+        ]
+      },
+      {
+        "id": "insights",
+        "_template": "article-list",
+        "title": "Updates\nfor your business.",
+        "description": "",
+        "link": {
+          "label": "All articles",
+          "href": "/insights"
+        }
+      },
+      {
+        "id": "closing",
+        "_template": "cta",
+        "title": "Thinking about your\nnext business step?",
+        "description": "",
+        "link": {
+          "label": "Get in touch",
+          "href": "/contact"
+        }
       },
       {
         "id": "perspective",
@@ -133,13 +300,6 @@
         "body": "A business decision starts with the whole picture: day-to-day obligations, available resources, and what comes next. We bring these conversations together, with a practical plan you can follow.\n",
         "eyebrow": "Our perspective\n",
         "_template": "rich-text"
-      },
-      {
-        "id": "services",
-        "title": "The right support.\nAt every step.",
-        "description": "Every financial situation is different. Start with the support that fits yours.\n",
-        "eyebrow": "What we do\n",
-        "_template": "offering-list"
       },
       {
         "id": "approach",
@@ -168,17 +328,6 @@
         },
         "eyebrow": "Our method\n",
         "_template": "steps"
-      },
-      {
-        "id": "insights",
-        "title": "Useful ideas.\nA different perspective.",
-        "description": "",
-        "link": {
-          "label": "All stories",
-          "href": "/insights"
-        },
-        "eyebrow": "Insights\n",
-        "_template": "article-list"
       },
       {
         "id": "questions",
@@ -228,22 +377,121 @@
         "sections": [
           {
             "id": "hero",
-            "title": "Ξεκάθαροι αριθμοί.\nΣωστές αποφάσεις.\nΠραγματική αξία.",
-            "description": "Λογιστική υποστήριξη και οικονομικός σχεδιασμός, με επίκεντρο τις ανάγκες της επιχείρησης και της καθημερινότητάς σας.\n",
-            "eyebrow": "Λογιστική · Συμβουλευτική · Επενδυτικός σχεδιασμός\n",
+            "title": "Το επόμενο βήμα σας,\nτο σχεδιάζουμε μαζί.",
+            "description": "",
+            "eyebrow": "Δίπλα στην επιχείρησή σας",
             "actions": [
               {
-                "label": "Ας συζητήσουμε τις ανάγκες σας",
-                "href": "/contact",
-                "icon": "conversation"
+                "label": "ΕΣΠΑ & επενδυτικά σχέδια",
+                "caption": "Η ιδέα σας, με ξεκάθαρη κατεύθυνση.",
+                "href": "/offerings/funding-support"
               },
               {
-                "label": "Οι υπηρεσίες μας",
-                "href": "#services",
-                "icon": "briefcase"
+                "label": "Λογιστική & φορολογική στήριξη",
+                "caption": "Ένας συνεργάτης για όσα χρειάζεται η επιχείρησή σας.",
+                "href": "/offerings/accounting-support"
               }
             ],
             "_template": "hero"
+          },
+          {
+            "id": "services",
+            "title": "Η επιχείρησή σας,\nστο επίκεντρο.",
+            "description": "Συνδέουμε τις ανάγκες του σήμερα με όσα σχεδιάζετε για αύριο.",
+            "eyebrow": "ΜΙΑ ΣΥΝΟΛΙΚΗ ΜΑΤΙΑ",
+            "_template": "offering-list",
+            "link": {
+              "label": "Ας δούμε τι χρειάζεστε",
+              "href": "#closing"
+            },
+            "orbit": [
+              {
+                "label": "ΕΣΠΑ & επενδυτικά σχέδια",
+                "description": "Από την ιδέα και τη χρηματοδότηση στην οργάνωση του φακέλου σας.",
+                "href": "/offerings/funding-support",
+                "icon": "funding"
+              },
+              {
+                "label": "Λογιστική & φορολογική υποστήριξη",
+                "description": "Οι αριθμοί και οι υποχρεώσεις σας, οργανωμένα και κατανοητά.",
+                "href": "/offerings/accounting-support",
+                "icon": "accounting"
+              },
+              {
+                "label": "Μισθοδοσία & οργάνωση επιχείρησης",
+                "description": "Φροντίδα για τις διαδικασίες που στηρίζουν την καθημερινότητά σας.",
+                "href": "/offerings/accounting-support",
+                "icon": "payroll"
+              },
+              {
+                "label": "Συμβουλευτική & επιχειρηματικός σχεδιασμός",
+                "description": "Συζητούμε τις επιλογές σας και χαράζουμε μια σαφή κατεύθυνση.",
+                "href": "/offerings/business-consulting",
+                "icon": "advice"
+              }
+            ]
+          },
+          {
+            "id": "people",
+            "_template": "media-text",
+            "title": "Η συνεργασία ξεκινά\nαπό τους ανθρώπους.",
+            "eyebrow": "ΠΟΙΟΙ ΕΙΜΑΣΤΕ",
+            "body": "Πριν μιλήσουμε για λύσεις, θέλουμε να γνωρίσουμε εσάς.\n\nΣτην PPConsulting ακούμε όσα σας απασχολούν και αφιερώνουμε χρόνο για να καταλάβουμε την καθημερινότητα της επιχείρησής σας. Χτίζουμε τη συνεργασία μας με προσωπική επικοινωνία, απλές απαντήσεις και ξεκάθαρες συνεννοήσεις.",
+            "image": {
+              "alt": "Ενδεικτική φωτογραφία συνάντησης σε γραφείο"
+            },
+            "link": {
+              "label": "Γνωρίστε μας",
+              "href": "/about"
+            }
+          },
+          {
+            "id": "stats",
+            "_template": "steps",
+            "title": "Η εμπειρία μας",
+            "description": "",
+            "items": [
+              {
+                "id": "experience",
+                "title": "—",
+                "body": "Χρόνια εμπειρίας"
+              },
+              {
+                "id": "clients",
+                "title": "—",
+                "body": "Επιχειρήσεις που μας εμπιστεύονται"
+              },
+              {
+                "id": "projects",
+                "title": "—",
+                "body": "Επενδυτικά σχέδια"
+              },
+              {
+                "id": "partners",
+                "title": "—",
+                "body": "Συνεργάτες στο πλευρό σας"
+              }
+            ]
+          },
+          {
+            "id": "insights",
+            "_template": "article-list",
+            "title": "Ενημέρωση για όσα αξίζει\nνα γνωρίζετε για την επιχείρησή σας.",
+            "description": "",
+            "link": {
+              "label": "Όλα τα άρθρα",
+              "href": "/insights"
+            }
+          },
+          {
+            "id": "closing",
+            "_template": "cta",
+            "title": "Σκέφτεστε το επόμενο βήμα\nγια την επιχείρησή σας;",
+            "description": "",
+            "link": {
+              "label": "Επικοινωνήστε μαζί μας",
+              "href": "/contact"
+            }
           },
           {
             "id": "perspective",
@@ -251,13 +499,6 @@
             "body": "Μια επιχειρηματική απόφαση ξεκινά με τη συνολική εικόνα: τις καθημερινές υποχρεώσεις, τους διαθέσιμους πόρους και το επόμενο βήμα. Συνδέουμε αυτά τα θέματα σε ένα πρακτικό σχέδιο που μπορείτε να ακολουθήσετε.\n",
             "eyebrow": "Η οπτική μας\n",
             "_template": "rich-text"
-          },
-          {
-            "id": "services",
-            "title": "Η σωστή υποστήριξη.\nΣε κάθε βήμα.",
-            "description": "Κάθε οικονομική ανάγκη είναι διαφορετική. Ξεκινήστε με την υποστήριξη που ταιριάζει στη δική σας πραγματικότητα.\n",
-            "eyebrow": "Τι κάνουμε\n",
-            "_template": "offering-list"
           },
           {
             "id": "approach",
@@ -286,17 +527,6 @@
             },
             "eyebrow": "Ο τρόπος μας\n",
             "_template": "steps"
-          },
-          {
-            "id": "insights",
-            "title": "Χρήσιμες ιδέες.\nΜια διαφορετική οπτική.",
-            "description": "",
-            "link": {
-              "label": "Όλα τα άρθρα",
-              "href": "/insights"
-            },
-            "eyebrow": "Άρθρα και ιδέες\n",
-            "_template": "article-list"
           },
           {
             "id": "questions",

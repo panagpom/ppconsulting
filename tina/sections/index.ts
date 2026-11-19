@@ -13,7 +13,7 @@ export const references: TinaField = {
   fields: [
     text('id', true),
     text('_template', true),
-    { name: 'variant', type: 'string', options: ['default','expanded','cards','reversed','featured','editorial'] },
+    { name: 'variant', type: 'string', options: ['default','expanded','cards','reversed','featured','editorial','split','orbit','metrics','digest'] },
     { name: 'enabled', type: 'boolean' },
     object('media',[{name:'src',type:'image'}, {name:'crop',type:'string',options:['center','top','bottom']}]),
     object('items',[text('id',true),object('media',[{name:'src',type:'image'},{name:'crop',type:'string',options:['center','top','bottom']}])],true),

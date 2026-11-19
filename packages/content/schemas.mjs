@@ -66,7 +66,7 @@ export const offeringSchema=editorial({shared:{audience:z.enum(['business','indi
 export const personSchema=editorial({shared:{role:title},localized:{role:title}});
 const optionalId=z.preprocess(value=>value==null || (typeof value==='string'&&!value.trim())?undefined:value,identifier.optional());
 const articleDates={publishAt:z.iso.datetime({offset:true}),updatedAt:z.iso.datetime({offset:true}).optional()};
-export const articleSchema=editorial({shared:{authorId:optionalId,offeringId:optionalId,image:mediaReferenceSchema.optional(),imagePosition:z.enum(['center','left center','right center']).default('center'),imageAlt:z.string().max(500).default(''),category:z.string().max(100).default(''),...articleDates},localized:{...articleDates,imageAlt:z.string().max(500).default(''),category:z.string().max(100).default('')}}).superRefine((article,ctx)=>{
+export const articleSchema=editorial({shared:{createdAt:z.iso.datetime({offset:true}).nullish().transform(value=>value??undefined),authorId:optionalId,offeringId:optionalId,image:mediaReferenceSchema.optional(),imagePosition:z.enum(['center','left center','right center']).default('center'),imageAlt:z.string().max(500).default(''),category:z.string().max(100).default(''),...articleDates},localized:{...articleDates,imageAlt:z.string().max(500).default(''),category:z.string().max(100).default('')}}).superRefine((article,ctx)=>{
  for(const [value,path] of [[article,[]],...Object.entries(article.translations).map(([locale,translation])=>[translation,['translations',locale]])])
   if(value.updatedAt&&Date.parse(value.updatedAt)<Date.parse(value.publishAt))ctx.addIssue({code:'custom',path:[...path,'updatedAt'],message:'updatedAt must not precede publishAt'});
 });

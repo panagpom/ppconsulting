@@ -34,7 +34,7 @@ function baseSectionCopyFields(type: string): TinaField[] {
     ...(['hero', 'cta'].includes(type) ? [link] : [])];
 }
 
-export function sectionCopyFields(type:string):TinaField[]{const fields=baseSectionCopyFields(type);if(moduleSectionCopyFields[type])return fields;return [...fields,...(['steps','article-list'].includes(type)?[link]:[]),rich('eyebrow',true),...(type==='hero'?[object('actions',[text('label'),text('href'),{name:'icon',type:'string',options:['conversation','briefcase','arrow-right','mail']}],true)]:[]),...(type==='faq'?[text('contactTitle'),link]:[])];}
+export function sectionCopyFields(type:string):TinaField[]{const fields=baseSectionCopyFields(type);if(moduleSectionCopyFields[type])return fields;return [...fields,...(['steps','article-list','offering-list'].includes(type)?[link]:[]),rich('eyebrow',true),...(type==='hero'?[object('actions',[text('label'),text('href'),text('caption'),{name:'icon',type:'string',options:['conversation','briefcase','arrow-right','mail']}],true)]:[]),...(type==='offering-list'?[object('orbit',[text('label'),text('href'),text('description'),{name:'icon',type:'string',options:['funding','accounting','payroll','advice']}],true)]:[]),...(type==='faq'?[text('contactTitle'),link]:[])];}
 
 export const sectionCopyTemplates: Template[] = sectionDefinitions.map(definition => ({
   name: definition.nativeName,

@@ -187,10 +187,10 @@ export function useValues(tinaForm: any) {
     () => form.getState().values,
   );
 }
-export function appearanceChildFields(field:any,index:number){
+export function appearanceChildFields(field:any,index:number,split=false){
  const group=field.fields?.find((child:any)=>child.name==='appearance');
  if(!group?.fields)throw Error('Missing registered native appearance fields');
- return group.fields.filter((child:any)=>child.name!=='surface').map((child:any)=>({...child,label:child.label||editorLabel(child.name),name:`sections.${index}.appearance.${child.name}`}));
+ return group.fields.filter((child:any)=>child.name!=='surface'&&(split||child.name!=='secondaryImage')).map((child:any)=>({...child,label:split&&child.name==='backgroundImage'?'First split hero photo':child.label||editorLabel(child.name),name:`sections.${index}.appearance.${child.name}`}));
 }
 export function SectionControls({
   tinaForm,
@@ -275,7 +275,7 @@ export function SectionControls({
           ),
         ),
         h('label',{},' Layout ',h('select',{value:section.variant,onChange:(e:any)=>run(v=>setSectionVariant(v,section.id,e.target.value))},...definition(section._template).variants.map(variant=>h('option',{key:variant,value:variant},variant)))),
-        h('details',{},h('summary',{},'Background colour and image'),h(RegisteredFields,{tinaForm,fields:appearanceChildFields(field,index)})),
+        h('details',{},h('summary',{},'Background colour and image'),h(RegisteredFields,{tinaForm,fields:appearanceChildFields(field,index,section.variant==='split')})),
         definition(section._template).type==='media-text' && h(SectionMediaControls,{tinaForm,sectionId:section.id}),
         definition(section._template).itemCopySchema && h(SectionItemsControls,{tinaForm,sectionId:section.id}),
         h(

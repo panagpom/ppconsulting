@@ -11,6 +11,7 @@ apps/site/public/admin/
 coverage/
 test-results/
 playwright-report/
+.superpowers/
 *.log
 .DS_Store
 apps/site/public/cms/

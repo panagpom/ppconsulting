@@ -186,7 +186,7 @@ html[data-eyebrow-treatment='soft-highlight']
   background: color-mix(in srgb, var(--color-brand-accent) 16%, var(--color-surface-muted));
 }
 /* Without script-enhanced navigation, let the expanded fallback scroll naturally. */
-.header-shell:has([data-navigation-fallback]:not([hidden])) {
+.header-shell:not([data-navigation-ready]):has([data-navigation-fallback]:not([hidden])) {
   position: static;
 }
 /* Icon-only menu controls retain their open/close motion and comfortable targets. */

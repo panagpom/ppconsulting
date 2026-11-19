@@ -3,8 +3,36 @@ import type {RenderContext} from '../../lib/render-context';
 import {renderContext as defaultContext} from '../../lib/content';
 import Description from '../../components/ui/Description.astro';
 import Card from '../../components/ui/Card.astro';
+import Heading from '../../components/advisory/Heading.astro';
+import Icon from '../../components/advisory/Icon.astro';
 import type {LocalizedSection,LocalizedContent} from '../../../../../packages/content/types';
 interface Props {context?:RenderContext;section:Extract<LocalizedSection,{_template:'offering-list'}>;content:LocalizedContent;locale:string}
 const {section,content,locale,context=defaultContext}=Astro.props;
+const icons={funding:'mark',accounting:'article',payroll:'people',advice:'conversation'} as const;
+const {copy}=section;
 ---
-<section data-surface={section.appearance.surface} aria-labelledby={section.id}><div class="wrap"><div data-motion-reveal><h2 id={section.id}>{section.copy.title}</h2><Description context={context} text={section.copy.description} locale={locale}/></div><div class="cards" data-motion-group>{content.offerings.map(record=><Card context={context} record={record} locale={locale}/>)}</div></div></section>
+{section.variant==='orbit'?<section class="light-support" id={section.id} aria-label={copy.title.replaceAll('\n',' ')}>
+  <div class="wrap">
+    <header class="support-360-heading">
+      <div>{copy.eyebrow&&<div class="light-kicker" set:html={context.rich(copy.eyebrow,locale,true)}/>}<Heading text={copy.title} accentLastLine/></div>
+      {copy.description&&<div class="light-support-intro" set:html={context.rich(copy.description,locale,true)}/>}
+    </header>
+    <div class="support-orbit">
+      <svg class="support-connections" viewBox="0 0 1200 470" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M410 110L472 190M790 110L728 190M410 360L472 280M790 360L728 280"/><g><circle cx="410" cy="110" r="4"/><circle cx="790" cy="110" r="4"/><circle cx="410" cy="360" r="4"/><circle cx="790" cy="360" r="4"/></g></svg>
+      <div class="support-hub">
+        <svg class="support-ring" viewBox="0 0 320 320" aria-hidden="true" focusable="false"><circle class="support-ring-track" cx="160" cy="160" r="146"/><g fill="none" stroke-width="9" stroke-linecap="round" transform="rotate(-84 160 160)"><circle cx="160" cy="160" r="131" stroke="#19a8b8" stroke-dasharray="189 634"/><circle cx="160" cy="160" r="131" stroke="#2c3766" stroke-dasharray="189 634" stroke-dashoffset="-206"/><circle cx="160" cy="160" r="131" stroke="#8ad0d7" stroke-dasharray="189 634" stroke-dashoffset="-412"/><circle cx="160" cy="160" r="131" stroke="#477c99" stroke-dasharray="189 634" stroke-dashoffset="-618"/></g><circle class="support-ring-inner" cx="160" cy="160" r="111"/><g fill="#fff" stroke="#b7d7df" stroke-width="1.5"><circle cx="160" cy="14" r="4"/><circle cx="306" cy="160" r="4"/><circle cx="160" cy="306" r="4"/><circle cx="14" cy="160" r="4"/></g></svg>
+        <div class="support-hub-copy">
+          <span class="support-hub-symbol"><Icon name="building"/></span>
+          <p>{locale==='el'?'Η επιχείρησή σας':'Your business'}</p>
+          <strong class="support-hub-degrees">360°</strong>
+          <span class="support-hub-caption">{locale==='el'?'ΣΥΝΟΛΙΚΗ ΥΠΟΣΤΗΡΙΞΗ':'COMPREHENSIVE SUPPORT'}</span>
+        </div>
+      </div>
+      {copy.orbit?.map(node=><article class:list={['support-node', 'support-node--'+node.icon]}>
+        <div class="support-node-icon"><Icon name={icons[node.icon]}/></div>
+        <div><h3><a href={context.link(node.href,locale)}>{node.label} <span aria-hidden="true">↗</span></a></h3><p>{node.description}</p></div>
+      </article>)}
+    </div>
+    {copy.link&&<div class="support-360-bottom"><a class="light-text-link" href={context.link(copy.link.href,locale)}>{copy.link.label} <Icon name="arrow-right"/></a></div>}
+  </div>
+</section>:<section data-surface={section.appearance.surface} aria-labelledby={section.id}><div class="wrap"><div data-motion-reveal><h2 id={section.id}>{copy.title}</h2><Description context={context} text={copy.description} locale={locale}/></div><div class="cards" data-motion-group>{content.offerings.map(record=><Card context={context} record={record} locale={locale}/>)}</div></div></section>}

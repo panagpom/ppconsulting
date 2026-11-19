@@ -3,6 +3,13 @@ import source from '../project.json';
 import {parseProject} from '../packages/config/project.mjs';
 import {sectionSchema,sectionCopySchemas,offeringSchema,articleSchema} from '../packages/content/schemas.mjs';
 import {publicAssetHeaders} from '../packages/config/security-headers.mjs';
+import {latestArticleDigest} from '../packages/content/publication.mjs';
+
+it('selects five articles by creation date and falls back to publication for older records',()=>{
+ const articles=Array.from({length:7},(_,i)=>({contentId:`article-${i}`,publishAt:`2026-11-0${7-i}T00:00:00Z`,createdAt:i===0?undefined:`2026-11-0${i+1}T00:00:00Z`}));
+ expect(latestArticleDigest(articles).map(article=>article.contentId)).toEqual(['article-0','article-6','article-5','article-4','article-3']);
+ expect(articles[1].contentId).toBe('article-1');
+});
 it('validates advisory presentation controls without accepting arbitrary CSS/config',()=>{
  const project=parseProject({...source,design:{...source.design,radius:'3px',typography:{emphasisScale:.88,emphasisOpacity:.8},eyebrows:{treatment:'soft-highlight'},dividers:{serviceRows:true,faqItems:true,sections:false,footer:true},footer:{columnGap:64}}});
  expect(project.design.typography?.emphasisScale).toBe(.88);

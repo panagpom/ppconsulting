@@ -3,6 +3,7 @@ import type {RenderContext} from '../../lib/render-context';
 import {renderContext as defaultContext} from '../../lib/content';
 import RichText from '../../components/ui/RichText.astro';
 import Button from '../../components/ui/Button.astro';
+import Heading from '../../components/advisory/Heading.astro';
 import SectionImage from '../../components/ui/SectionImage.astro';
 import {resolveSectionMedia} from '../../lib/section-media';
 import type {LocalizedSection} from '../../../../../packages/content/types';
@@ -10,4 +11,4 @@ interface Props {context?:RenderContext;section:Extract<LocalizedSection,{_templ
 const {section,locale,pageId='unknown',context=defaultContext}=Astro.props;
 const media=section.enabled===false?undefined:await resolveSectionMedia(section.media,{pageId,sectionId:section.id});
 ---
-<section data-surface={section.appearance.surface} aria-labelledby={section.id}><div class:list={['wrap','media-text',{'media-text-reversed':section.variant==='reversed','media-text-with-image':!!media}]}>{media&&section.copy.image&&<SectionImage context={context} layout="media-text" media={media} {...section.copy.image} crop={section.media!.crop} ratio="landscape" locale={locale}/>}<div class="media-text-copy" data-motion-reveal><h2 id={section.id}>{section.copy.title}</h2><RichText context={context} body={section.copy.body} locale={locale}/>{section.copy.link&&<Button context={context} {...section.copy.link} locale={locale}/>}</div></div></section>
+<section id={section.id} data-surface={section.appearance.surface} aria-label={section.copy.title.replaceAll('\n',' ')}><div class:list={['wrap','media-text',{'media-text-reversed':section.variant==='reversed','media-text-with-image':!!media}]}>{media&&section.copy.image&&<SectionImage context={context} layout="media-text" media={media} {...section.copy.image} crop={section.media!.crop} ratio="landscape" locale={locale}/>}<div class="media-text-copy" data-motion-reveal>{section.copy.eyebrow&&<div class="light-kicker" set:html={context.rich(section.copy.eyebrow,locale,true)}/>}<Heading text={section.copy.title} accentLastLine/><RichText context={context} body={section.copy.body} locale={locale}/>{section.copy.link&&<Button context={context} {...section.copy.link} locale={locale}/>}</div></div></section>

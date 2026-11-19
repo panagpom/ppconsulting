@@ -9,6 +9,11 @@ export function localizedValue(record,locale,project) {
 export function isPublished(record,now) {
  return !!record && record.status==='published' && (!record.publishAt || Date.parse(record.publishAt)<=Date.parse(now));
 }
+/** Select from already localized and public articles. Older records use publication as their date. */
+export function latestArticleDigest(articles) {
+ const date=article=>Date.parse(article.createdAt??article.publishAt);
+ return [...articles].sort((a,b)=>date(b)-date(a)||a.contentId.localeCompare(b.contentId)).slice(0,5);
+}
 export function requiredPage(page,project) {
  return ['home','contact','offerings',...(project.articles?['insights']:[])].includes(page._template)||page.contentId==='privacy';
 }

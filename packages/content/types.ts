@@ -11,9 +11,9 @@ export interface Publication { status:Status; publishAt?:string }
 export interface Link { label:string; href:string }
 export interface Meta { title:string; seoDescription:string;noindex?:boolean }
 export interface SectionCopyMap {
- hero:{eyebrow?:string;title:string;description:string;link?:Link;actions?:(Link&{icon?:'conversation'|'briefcase'|'arrow-right'|'mail'})[]};
+ hero:{eyebrow?:string;title:string;description:string;link?:Link;actions?:(Link&{caption?:string;icon?:'conversation'|'briefcase'|'arrow-right'|'mail'})[]};
  'rich-text':{eyebrow?:string;title:string;body:string};
- 'offering-list':{eyebrow?:string;title:string;description:string};
+ 'offering-list':{eyebrow?:string;title:string;description:string;orbit?:(Link&{description:string;icon:'funding'|'accounting'|'payroll'|'advice'})[];link?:Link};
  'people-list':{eyebrow?:string;title:string;description:string};
  'article-list':{link?:Link;eyebrow?:string;title:string;description:string};
  faq:{eyebrow?:string;contactTitle?:string;link?:Link;title:string;description:string;items:{id:string;question:string;answer:string}[]};
@@ -23,7 +23,7 @@ export interface SectionCopyMap {
  cta:{eyebrow?:string;title:string;description:string;link:Link};
 }
 export type SectionCopy = SectionCopyMap[SectionType];
-export type SectionVariant = 'editorial'|'default'|'expanded'|'cards'|'reversed'|'featured';
+export type SectionVariant = 'editorial'|'default'|'expanded'|'cards'|'reversed'|'featured'|'split'|'orbit'|'metrics'|'digest';
 export interface SectionReference {id:string;_template:SectionType;variant:SectionVariant;enabled:boolean;appearance:SectionAppearance;media?:MediaReference;items?:{id:string;media?:MediaReference}[]}
 export interface PageCopy {sections:Record<string,SectionCopy>}
 export interface PageTranslation extends Publication {meta:Meta;copy:PageCopy}
@@ -33,7 +33,7 @@ export interface Offering extends EditorialCopy {audience?:'business'|'individua
 export interface PersonCopy extends EditorialCopy {role:string}
 export interface Person extends PersonCopy {contentId:string;slug:string;translations:Record<string,PersonCopy>}
 export interface ArticleCopy extends EditorialCopy {imageAlt?:string;category?:string;publishAt:string;updatedAt?:string}
-export interface Article extends ArticleCopy {image?:MediaReference;imagePosition?:'center'|'left center'|'right center';contentId:string;slug:string;authorId?:string;offeringId?:string;translations:Record<string,ArticleCopy>}
+export interface Article extends ArticleCopy {createdAt?:string;image?:MediaReference;imagePosition?:'center'|'left center'|'right center';contentId:string;slug:string;authorId?:string;offeringId?:string;translations:Record<string,ArticleCopy>}
 export interface NavigationItem {label:string;pageId:string}
 export interface SocialSettings {instagram:string;linkedin:string;facebook:string;whatsapp:string;showInHeader:boolean}
 export interface ContactLink {id:'email'|'phone'|'instagram'|'linkedin'|'facebook'|'whatsapp';label:string;href:string;external:boolean}

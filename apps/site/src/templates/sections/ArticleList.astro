@@ -3,8 +3,33 @@ import type {RenderContext} from '../../lib/render-context';
 import {renderContext as defaultContext} from '../../lib/content';
 import Description from '../../components/ui/Description.astro';
 import Card from '../../components/ui/Card.astro';
+import Heading from '../../components/advisory/Heading.astro';
+import Icon from '../../components/advisory/Icon.astro';
+import SectionImage from '../../components/ui/SectionImage.astro';
+import {resolveSectionMedia} from '../../lib/section-media';
+import {latestArticleDigest} from '../../../../../packages/content/publication.mjs';
 import type {LocalizedSection,LocalizedContent} from '../../../../../packages/content/types';
-interface Props {context?:RenderContext;section:Extract<LocalizedSection,{_template:'article-list'}>;content:LocalizedContent;locale:string}
-const {section,content,locale,context=defaultContext}=Astro.props;
+interface Props {context?:RenderContext;section:Extract<LocalizedSection,{_template:'article-list'}>;content:LocalizedContent;locale:string;pageId:string}
+const {section,content,locale,context=defaultContext,pageId}=Astro.props;
+const {copy}=section;
+const digest=section.variant==='digest';
+const latest=digest?latestArticleDigest(content.articles):[];
+const cards=await Promise.all(latest.map(async article=>({article,media:await resolveSectionMedia(article.image,{pageId,sectionId:section.id,itemId:article.contentId})})));
 ---
-<section data-surface={section.appearance.surface} aria-labelledby={section.id}><div class="wrap"><div data-motion-reveal><h2 id={section.id}>{section.copy.title}</h2><Description context={context} text={section.copy.description} locale={locale}/></div><div class="cards" data-motion-group>{content.articles.map(record=><Card context={context} record={record} locale={locale}/>)}</div></div></section>
+{digest?<section class="light-digest wrap" id={section.id} aria-label={copy.title.replaceAll('\n',' ')}>
+  <header>
+    <div>{copy.eyebrow&&<div class="light-kicker" set:html={context.rich(copy.eyebrow,locale,true)}/>}<Heading text={copy.title} accentLastLine/>{copy.description&&<Description context={context} text={copy.description} locale={locale}/>}</div>
+    {copy.link&&<a class="light-text-link" href={context.link(copy.link.href,locale)}>{copy.link.label} <Icon name="arrow-right"/></a>}
+  </header>
+  {cards.length>0&&<ul class="light-digest-list">
+    {cards.map(({article,media})=><li>
+      <a class:list={['light-digest-row',media&&'light-digest-row--illustrated']} href={context.link(article.path,locale)}>
+        <div>
+          {article.category&&<p class="light-kicker">{article.category}</p>}
+          <h3>{article.title}</h3>
+        </div>
+        {media&&article.image&&<SectionImage context={context} media={media} layout="gallery" itemCount={2} alt={article.imageAlt??''} crop={article.image.crop} ratio="gallery" locale={locale}/>}
+      </a>
+    </li>)}
+  </ul>}
+</section>:<section data-surface={section.appearance.surface} aria-labelledby={section.id}><div class="wrap"><div data-motion-reveal><h2 id={section.id}>{copy.title}</h2><Description context={context} text={copy.description} locale={locale}/></div><div class="cards" data-motion-group>{content.articles.map(record=><Card context={context} record={record} locale={locale}/>)}</div></div></section>}

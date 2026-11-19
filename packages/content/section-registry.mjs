@@ -9,14 +9,15 @@ const title = z.string().trim().min(1).max(LIMITS.title);
 const richSummary = z.string().max(LIMITS.description).refine(value=>isSafeMarkdown(value,true),'Description allows safe inline emphasis and links only');
 const richBody = z.string().max(LIMITS.body).refine(value=>isSafeMarkdown(value),'Body allows safe Markdown with H2/H3 only');
 export const linkSchema = z.strictObject({label:title,href:z.string().refine(isSafeLink,'Link must use a safe supported URL')});
+const orbitItem = linkSchema.extend({ description: title, icon: z.enum(['funding','accounting','payroll','advice']) });
 const itemId = z.string().regex(/^[a-z][a-z0-9_]{0,79}$/);
 const meaningfulBody = richBody.refine(value=>plainText(value).trim().length>0,'Item prose must contain text');
 const imageText = z.strictObject({alt:title,caption:richSummary.optional()});
 const itemSchemas = {gallery:z.strictObject({id:itemId,alt:title,caption:richSummary.optional()}),faq:z.strictObject({id:itemId,question:title,answer:meaningfulBody}),steps:z.strictObject({id:itemId,title,body:meaningfulBody})};
 const builtinCopySchemas = {
- hero:z.strictObject({title,description:richSummary,link:linkSchema.optional(),actions:z.array(linkSchema.extend({icon:z.enum(['conversation','briefcase','arrow-right','mail']).optional()})).max(2).optional()}),
+ hero:z.strictObject({title,description:richSummary,link:linkSchema.optional(),actions:z.array(linkSchema.extend({caption:title.optional(),icon:z.enum(['conversation','briefcase','arrow-right','mail']).optional()})).max(2).optional()}),
  'rich-text':z.strictObject({title,body:richBody}),
- 'offering-list':z.strictObject({title,description:richSummary}),
+ 'offering-list':z.strictObject({title,description:richSummary,orbit:z.array(orbitItem).max(4).optional(),link:linkSchema.optional()}),
  'people-list':z.strictObject({title,description:richSummary}),
  'article-list':z.strictObject({title,description:richSummary,link:linkSchema.optional()}),
  faq:z.strictObject({title,description:richSummary,contactTitle:richSummary.optional(),link:linkSchema.optional(),items:z.array(itemSchemas.faq)}),
@@ -27,7 +28,7 @@ const builtinCopySchemas = {
 };
 
 const builtinSectionDefinitions = BUILTIN_SECTION_TYPES.map(type=>Object.freeze({
- type, nativeName:type.replaceAll('-','_'), copySchema:builtinCopySchemas[type].extend({eyebrow:richSummary.optional()}), variants:Object.freeze(type==='faq'?['default','expanded','editorial']:type==='steps'?['default','cards','editorial']:type==='media-text'?['default','reversed']:type==='gallery'?['default','featured']:['default','editorial']),
+ type, nativeName:type.replaceAll('-','_'), copySchema:builtinCopySchemas[type].extend({eyebrow:richSummary.optional()}), variants:Object.freeze(type==='faq'?['default','expanded','editorial']:type==='steps'?['default','cards','editorial','metrics']:type==='hero'?['default','editorial','split']:type==='offering-list'?['default','editorial','orbit']:type==='media-text'?['default','reversed']:type==='article-list'?['default','editorial','digest']:type==='gallery'?['default','featured']:['default','editorial']),
  referenceFields:type==='media-text'?{media:mediaReferenceSchema.optional()}:itemSchemas[type]?{items:z.array(z.strictObject({id:itemId,...(type==='gallery'?{media:mediaReferenceSchema}:{})}))}:{},
  defaultReference:()=>itemSchemas[type]?{items:[]}:{},
  richFields:Object.freeze([{path:['eyebrow'],inline:true},...(type==='media-text'?[{path:['body'],inline:false},{path:['image','caption'],inline:true}]:type==='rich-text'?[{path:['body'],inline:false}]:[{path:['description'],inline:true}]),...(itemSchemas[type]?[{path:['items','*',type==='gallery'?'caption':type==='faq'?'answer':'body'],inline:type==='gallery'}]:[])]),

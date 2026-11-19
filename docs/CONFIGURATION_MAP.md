@@ -35,6 +35,10 @@ Use normal prompts to describe the intended outcome; the maintenance skill shoul
 
 ## PPConsulting presentation extension
 
+The approved homepage reference is [revision 11](prototypes/light-theme/share/PPConsulting-mockup.html). In Tina under **Pages → Home → Page sections**, the hero's **Background colour and image** fields hold the first and second service photos. The `people` section has its own **Shared image** field and localized image description. The metrics band displays unfinished slots only in the local environment. Replace a dash with a verified figure in each published language to show that entry on the public site.
+
+The homepage digest lists up to five published articles per language, newest creation date first. In Tina, **Articles → Created on** is shared across languages and defaults to the time of the first save for new articles. Existing articles without that field use their publication date until a creation date is supplied. Article images are managed in Articles.
+
 This app uses the advisory theme and editorial section variants. The source financial example is a read-only reference, never a runtime dependency. All public identity is PPConsulting.
 
 - Shared palette: CMS **Theme colours → advisory → Palette**, persisted in `packages/design-system/themes/advisory.json`. Semantic roles, fonts and layout remain developer-owned. The native save validates colour contrast.

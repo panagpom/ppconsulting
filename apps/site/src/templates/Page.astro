@@ -7,11 +7,14 @@ import Background from '../components/advisory/Background.astro';
 import AdvisorySection from '../components/advisory/Section.astro';
 import ContactForm from './ContactForm.astro';
 interface Props {context?:RenderContext;page:LocalizedPage;content:LocalizedContent}
-const {page,content,context=defaultContext}=Astro.props;const firstHero=page.sections.find(s=>s._template==='hero')?.id;
+const {page,content,context=defaultContext}=Astro.props;
+const lightHome=page._template==='home'&&page.sections.some(s=>s.variant==='split');
+const sections=page.sections.filter(section=>!(page._template==='contact'&&section._template==='hero')&&!(section._template==='steps'&&section.variant==='metrics'&&context.project.environment!=='local'&&section.copy.items.every(item=>item.title==='—')));
+const firstHero=page.sections.find(s=>s._template==='hero')?.id;
 ---
-<div class="home-composition">
+<div class:list={['home-composition',lightHome&&'light-home']}>
 {!firstHero&&<div class="wrap page-title"><h1>{page.meta.title}</h1></div>}
-{page.sections.filter(section=>!(page._template==='contact'&&section._template==='hero')).map(section=>{const Renderer=section.variant==='editorial'?AdvisorySection:sectionRenderer(section._template,section.variant);return section.variant==='editorial'?<Renderer context={context} section={section as never} pageId={page.contentId} content={content} locale={content.locale} primary={section.id===firstHero}/>:<div class:list={['default-section-band','home-section-band',section.appearance.imageEnabled&&'home-section-band--photographic']} data-section-color-scheme={section.appearance.colorScheme??'auto'} data-page-id={page.contentId} data-page-section={section.id}><Background src={section.appearance.backgroundImage} enabled={section.appearance.imageEnabled} pageId={page.contentId} sectionId={section.id}/><Renderer context={context} section={section as never} pageId={page.contentId} content={content} locale={content.locale} primary={section.id===firstHero}/></div>;})}
+{sections.map(section=>{const Renderer=section.variant==='editorial'?AdvisorySection:sectionRenderer(section._template,section.variant);return section.variant==='editorial'?<Renderer context={context} section={section as never} pageId={page.contentId} content={content} locale={content.locale} primary={section.id===firstHero}/>:<div class:list={['default-section-band','home-section-band',section.appearance.imageEnabled&&'home-section-band--photographic']} data-section-color-scheme={section.appearance.colorScheme??'auto'} data-page-id={page.contentId} data-page-section={section.id}>{section.variant!=='split'&&<Background src={section.appearance.backgroundImage} enabled={section.appearance.imageEnabled} pageId={page.contentId} sectionId={section.id}/>}<Renderer context={context} section={section as never} pageId={page.contentId} content={content} locale={content.locale} primary={section.id===firstHero}/></div>;})}
 {page._template==='contact'&&<ContactForm context={context} content={content} page={page}/>}
 
 </div>

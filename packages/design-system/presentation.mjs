@@ -2,7 +2,8 @@ import {z} from 'zod';
 import {parseMediaSource} from '../content/media.mjs';
 const optional=schema=>z.preprocess(value=>value==null||value===''?undefined:value,schema.optional());
 const position=z.enum(['center','left center','right center','top','bottom','50% 50%','65% center']);
-export const appearanceSchema=z.strictObject({surface:z.enum(['default','muted','accent']),colorScheme:z.enum(['auto','light']).optional(),backgroundColor:optional(z.string().regex(/^#[a-f0-9]{6}$/i)),backgroundImage:optional(z.string().refine(value=>{try{parseMediaSource(value);return true;}catch{return false;}},'Choose an original local upload')),imageEnabled:z.boolean().default(false),imagePosition:optional(position),imagePositionMobile:optional(position),imageOpacity:optional(z.number().min(0).max(1)),imageOpacityMobile:optional(z.number().min(0).max(1)),overlayOpacity:optional(z.number().min(0).max(1))});
+const upload = z.string().refine(value=>{try{parseMediaSource(value);return true;}catch{return false;}},'Choose an original local upload');
+export const appearanceSchema=z.strictObject({surface:z.enum(['default','muted','accent']),colorScheme:z.enum(['auto','light']).optional(),backgroundColor:optional(z.string().regex(/^#[a-f0-9]{6}$/i)),backgroundImage:optional(upload),secondaryImage:optional(upload),imageEnabled:z.boolean().default(false),imagePosition:optional(position),imagePositionMobile:optional(position),imageOpacity:optional(z.number().min(0).max(1)),imageOpacityMobile:optional(z.number().min(0).max(1)),overlayOpacity:optional(z.number().min(0).max(1))});
 export function sectionAppearanceCSS(pageId,section){
  if(!/^[a-z][a-z0-9_]{0,79}$/.test(pageId)||!/^[a-z][a-z0-9_]{0,79}$/.test(section.id))throw Error('Unsafe appearance identity');
  const a=appearanceSchema.parse(section.appearance),rules=[];

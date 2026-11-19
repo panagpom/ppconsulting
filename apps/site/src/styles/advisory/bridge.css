@@ -31,13 +31,48 @@
   transform: translateY(-50%);
   width: 1px;
   height: 28px;
-  background: var(--palette-white);
+  background: var(--color-border);
   pointer-events: none;
 }
 .site-header .social-group .social-links {
   gap: 0;
   align-items: center;
   flex-wrap: nowrap;
+}
+
+/* Keep the shared navigation light during the homepage redesign. */
+.header-shell {
+  --color-surface: var(--palette-white);
+  --color-surface-muted: var(--color-light-surface-muted);
+  --color-text-primary: var(--color-light-text-primary);
+  --color-text-muted: var(--color-light-text-muted);
+  --color-brand-accent: var(--color-light-accent);
+  --color-border: var(--color-light-border);
+  --color-focus: var(--color-light-focus);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.site-header.wrap {
+  flex-wrap: wrap;
+  column-gap: var(--space-4);
+  row-gap: var(--space-2);
+}
+
+.site-header .header-fallback {
+  order: 1;
+  flex: 1 0 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 var(--space-2);
+}
+
+@media (min-width: 1200px) {
+  .site-header .header-fallback {
+    order: 0;
+    flex: 1 1 auto;
+  }
 }
 
 /* Intro spans the contact column; social and direct channels form the row below. */

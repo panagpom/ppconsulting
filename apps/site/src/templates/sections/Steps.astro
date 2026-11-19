@@ -5,5 +5,11 @@ import RichText from '../../components/ui/RichText.astro';
 import type {LocalizedSection} from '../../../../../packages/content/types';
 interface Props {context?:RenderContext;section:Extract<LocalizedSection,{_template:'steps'}>;locale:string}
 const {section,locale,context=defaultContext}=Astro.props;
+const metrics=context.project.environment==='local'?section.copy.items:section.copy.items.filter(item=>item.title!=='—');
 ---
-<section data-surface={section.appearance.surface} aria-labelledby={section.id}><div class="wrap"><div data-motion-reveal><h2 id={section.id}>{section.copy.title}</h2><div class="description" set:html={context.rich(section.copy.description,locale,true)}/></div><ol data-motion-group class:list={['steps',{'steps-cards':section.variant==='cards'}]}>{section.copy.items.map(item=><li data-motion-reveal><h3>{item.title}</h3><RichText context={context} body={item.body} locale={locale}/></li>)}</ol></div></section>
+{section.variant==='metrics'?metrics.length>0&&<section class="light-metrics" id={section.id} aria-label={section.copy.title}>
+  <div class="wrap">
+    <ul>{metrics.map(item=><li><strong>{item.title}</strong><RichText context={context} body={item.body} locale={locale}/></li>)}</ul>
+    {context.project.environment==='local'&&metrics.some(item=>item.title==='—')&&<p class="light-metrics-note">{locale==='el'?'Ενδεικτική διάταξη. Τα στοιχεία θα προστεθούν όταν επιβεβαιωθούν.':'Preview layout. Figures will be added once confirmed.'}</p>}
+  </div>
+</section>:<section data-surface={section.appearance.surface} aria-labelledby={section.id}><div class="wrap"><div data-motion-reveal><h2 id={section.id}>{section.copy.title}</h2><div class="description" set:html={context.rich(section.copy.description,locale,true)}/></div><ol data-motion-group class:list={['steps',{'steps-cards':section.variant==='cards'}]}>{section.copy.items.map(item=><li data-motion-reveal><h3>{item.title}</h3><RichText context={context} body={item.body} locale={locale}/></li>)}</ol></div></section>}

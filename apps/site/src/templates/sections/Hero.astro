@@ -3,8 +3,63 @@ import type {RenderContext} from '../../lib/render-context';
 import {renderContext as defaultContext} from '../../lib/content';
 import Description from '../../components/ui/Description.astro';
 import Button from '../../components/ui/Button.astro';
+import HeadingBlock from '../../components/advisory/Heading.astro';
+import Icon from '../../components/advisory/Icon.astro';
+import SectionImage from '../../components/ui/SectionImage.astro';
+import {resolveSectionMedia} from '../../lib/section-media';
 import type {LocalizedSection} from '../../../../../packages/content/types';
-interface Props {context?:RenderContext;section:Extract<LocalizedSection,{_template:'hero'}>;locale:string;primary?:boolean}
-const {section,locale,primary=false,context=defaultContext}=Astro.props;const {copy}=section;const Heading=primary?'h1':'h2';
+interface Props {context?:RenderContext;section:Extract<LocalizedSection,{_template:'hero'}>;locale:string;primary?:boolean;pageId:string}
+const {section,locale,primary=false,context=defaultContext,pageId}=Astro.props;
+const {copy,appearance}=section;
+const Heading=primary?'h1':'h2';
+const split=section.variant==='split';
+const photos=appearance.imageEnabled?[appearance.backgroundImage,appearance.secondaryImage]:[];
+const panels=split?await Promise.all((copy.actions??[]).map(async (action,index)=>({
+  ...action,
+  media:await resolveSectionMedia(photos[index]?{src:photos[index],crop:'center'}:undefined,{pageId,sectionId:section.id}),
+}))):[];
 ---
-<section class="hero" data-surface={section.appearance.surface} aria-labelledby={section.id}><div class="wrap" data-motion-reveal={!primary || undefined}><Heading id={section.id}>{copy.title}</Heading><Description context={context} text={copy.description} locale={locale}/>{copy.link&&<Button context={context} {...copy.link} locale={locale}/>}</div></section>
+{split?<section class="light-split" id={section.id}>
+  <div class="wrap light-split-intro">
+    {copy.eyebrow&&<div class="light-kicker" set:html={context.rich(copy.eyebrow,locale,true)}/>}
+    <HeadingBlock text={copy.title} level={Heading} accentLastLine/>
+    {copy.description&&<Description context={context} text={copy.description} locale={locale}/>}
+  </div>
+  <div class="pp-chart-background" aria-hidden="true">
+  <svg class="pp-growth-chart" viewBox="0 0 1440 760" preserveAspectRatio="none" focusable="false">
+    <defs>
+      <linearGradient id="pp-chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#54cad5" stop-opacity=".32"/><stop offset=".65" stop-color="#8adce3" stop-opacity=".12"/><stop offset="1" stop-color="#dbf3f5" stop-opacity="0"/></linearGradient>
+      <linearGradient id="pp-chart-stroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#249bd4"/><stop offset="1" stop-color="#36cbd2"/></linearGradient>
+      <radialGradient id="pp-node-glow"><stop offset="0" stop-color="#4bd8e1" stop-opacity=".35"/><stop offset=".48" stop-color="#8ee6ec" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      <radialGradient id="pp-soft-light"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".2" stop-color="#fff" stop-opacity=".65"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    </defs>
+    <path class="pp-chart-area" d="M-35 660L205 425L380 468L535 365L710 350L945 125L1255 43L1475 5V800H-35Z" fill="url(#pp-chart-fill)"/>
+    <g class="pp-chart-guides" stroke="#b0d9de" stroke-opacity=".17" stroke-width="1"><path d="M205 425V760M380 468V760M535 365V760M710 350V760M945 125V760M1255 43V760"/></g>
+    <g class="pp-chart-trace">
+    <path class="pp-chart-line" d="M-35 660L205 425L380 468L535 365L710 350L945 125L1255 43L1475 5" stroke="url(#pp-chart-stroke)" stroke-width="1.8" fill="none" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    <g class="pp-chart-nodes">
+      <g transform="translate(205 425)"><circle class="pp-node-halo" r="23" fill="url(#pp-node-glow)"/><circle r="9" fill="#fff" fill-opacity=".6"/><circle r="6" fill="#74dce5"/></g>
+      <g transform="translate(380 468)"><circle class="pp-node-halo" r="23" fill="url(#pp-node-glow)"/><circle r="9" fill="#fff" fill-opacity=".6"/><circle r="6" fill="#74dce5"/></g>
+      <g transform="translate(535 365)"><circle class="pp-node-halo" r="23" fill="url(#pp-node-glow)"/><circle r="9" fill="#fff" fill-opacity=".6"/><circle r="6" fill="#74dce5"/></g>
+      <g transform="translate(710 350)"><circle class="pp-node-halo" r="23" fill="url(#pp-node-glow)"/><circle r="9" fill="#fff" fill-opacity=".6"/><circle r="6" fill="#74dce5"/></g>
+      <g transform="translate(945 125)"><circle class="pp-node-halo" r="23" fill="url(#pp-node-glow)"/><circle r="9" fill="#fff" fill-opacity=".6"/><circle r="6" fill="#74dce5"/></g>
+      <g transform="translate(1255 43)"><circle class="pp-node-halo" r="23" fill="url(#pp-node-glow)"/><circle r="9" fill="#fff" fill-opacity=".6"/><circle r="6" fill="#74dce5"/></g>
+    </g>
+    </g>
+    <g class="pp-chart-lights"><circle cx="140" cy="85" r="22" fill="url(#pp-soft-light)"/><circle cx="490" cy="170" r="15" fill="url(#pp-soft-light)"/><circle cx="815" cy="80" r="28" fill="url(#pp-soft-light)"/><circle cx="1070" cy="430" r="23" fill="url(#pp-soft-light)"/><circle cx="1330" cy="260" r="15" fill="url(#pp-soft-light)"/></g>
+  </svg>
+</div>
+  <div class="wrap light-split-content">
+    <div class="light-split-panels">
+      {panels.map(panel=><article>
+        <a class="light-split-link" href={context.link(panel.href,locale)}>
+          <h2>{panel.label}</h2>
+          {panel.media&&<SectionImage context={context} media={panel.media} layout="gallery" itemCount={2} alt="" crop="center" ratio="landscape" locale={locale}/>}
+          <span class="light-split-arrow"><Icon name="arrow"/></span>
+        </a>
+        {panel.caption&&<p>{panel.caption}</p>}
+      </article>)}
+    </div>
+    {copy.link&&<Button context={context} {...copy.link} locale={locale}/>}
+  </div>
+</section>:<section class="hero" data-surface={appearance.surface} aria-labelledby={section.id}><div class="wrap" data-motion-reveal={!primary || undefined}><Heading id={section.id}>{copy.title}</Heading><Description context={context} text={copy.description} locale={locale}/>{copy.link&&<Button context={context} {...copy.link} locale={locale}/>}</div></section>}

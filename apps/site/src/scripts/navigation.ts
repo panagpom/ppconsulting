@@ -4,11 +4,20 @@ const menuOpener = document.querySelector<HTMLButtonElement>('[data-menu-open]')
 const closer = document.querySelector<HTMLButtonElement>('[data-menu-close]');
 const fallback = document.querySelector<HTMLElement>('[data-navigation-fallback]');
 if (dialog && menuOpener && closer && fallback && typeof dialog.showModal === 'function') {
-  menuOpener.hidden = false;
-  fallback.hidden = true;
+  const desktop = matchMedia('(min-width: 768px)');
+  const syncNavigation = () => {
+    const focusNeedsTransfer = desktop.matches && (dialog.open || document.activeElement === menuOpener);
+    menuOpener.hidden = desktop.matches;
+    fallback.hidden = !desktop.matches;
+    if (desktop.matches && dialog.open) dialog.close();
+    if (focusNeedsTransfer) fallback.querySelector('a')?.focus();
+  };
+  syncNavigation();
+  desktop.addEventListener('change', syncNavigation);
   // Anchor clearance follows the rendered header, including wrapped/enlarged labels.
   // Its minimum height is a separate token, so measurements cannot hold it open.
   const header = document.querySelector<HTMLElement>('.header-shell');
+  if (header) header.dataset.navigationReady = '';
   if (header && typeof ResizeObserver !== 'undefined') {
     const updateHeaderHeight = () => {
       document.documentElement.style.setProperty(
@@ -74,7 +83,7 @@ if (dialog && menuOpener && closer && fallback && typeof dialog.showModal === 'f
     else finishClose();
   };
   menuOpener.addEventListener('click', () => {
-    if (dialog.open) return;
+    if (dialog.open || desktop.matches) return;
     previousOverflow = document.body.style.overflow;
     dialog.showModal();
     document.body.style.overflow = 'hidden';
@@ -93,7 +102,7 @@ if (dialog && menuOpener && closer && fallback && typeof dialog.showModal === 'f
     dialog.dataset.menuState = 'closed';
     document.body.style.overflow = previousOverflow;
     menuOpener.setAttribute('aria-expanded', 'false');
-    menuOpener.focus();
+    if (!desktop.matches) menuOpener.focus();
   });
   document.addEventListener('ppconsulting:accessibility-change', () => {
     if(document.documentElement.dataset.a11yMotion!=='1')return;cancelMotion();if(dialog.dataset.menuState==='closing')finishClose();

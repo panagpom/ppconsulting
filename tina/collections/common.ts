@@ -25,12 +25,16 @@ export function collection(
       },
       beforeSubmit: async ({ values, cms, form }) => {
         try {
+          const submission = resolveNativeSubmission(form, values, path);
+          const candidate = name === 'article' && submission.operation === 'create' && !values.createdAt
+            ? { ...values, createdAt: new Date().toISOString() }
+            : values;
           return await validateCurrentSave(
-            values,
+            candidate,
             name,
             project,
             cms,
-            resolveNativeSubmission(form, values, path),
+            submission,
           );
         } catch (error) {
           // Native Form invokes this hook before createDocument/updateDocument's alert handler.
