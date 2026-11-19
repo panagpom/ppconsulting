@@ -198,13 +198,9 @@
       {
         "id": "services",
         "title": "Your business,\nat the centre.",
-        "description": "We connect what your business needs today with your plans for tomorrow.",
+        "description": "",
         "eyebrow": "A COMPLETE VIEW",
         "_template": "offering-list",
-        "link": {
-          "label": "Let’s talk about what you need",
-          "href": "#closing"
-        },
         "orbit": [
           {
             "label": "Funding & investment projects",
@@ -397,13 +393,9 @@
           {
             "id": "services",
             "title": "Η επιχείρησή σας,\nστο επίκεντρο.",
-            "description": "Συνδέουμε τις ανάγκες του σήμερα με όσα σχεδιάζετε για αύριο.",
+            "description": "",
             "eyebrow": "ΜΙΑ ΣΥΝΟΛΙΚΗ ΜΑΤΙΑ",
             "_template": "offering-list",
-            "link": {
-              "label": "Ας δούμε τι χρειάζεστε",
-              "href": "#closing"
-            },
             "orbit": [
               {
                 "label": "ΕΣΠΑ & επενδυτικά σχέδια",
