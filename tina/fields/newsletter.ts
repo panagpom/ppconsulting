@@ -1,9 +1,12 @@
 import type {TinaField} from 'tinacms';
 import type {ProjectConfig} from '../../packages/config/project.mjs';
-import {object,text} from './common';
+import {text} from './common';
 import {rich} from './rich-text';
 export function newsletterFields(project:ProjectConfig,{translated=false}={}):TinaField[]{
  const copy:TinaField[]=[{...text('title'),label:'Modal title'},{...rich('body'),label:'Modal body'},{...rich('footerPrompt',true),label:'Short footer prompt'},...['emailLabel','submitLabel','consentLabel','privacyLinkLabel','dismissLabel','successTitle'].map(name=>text(name)),{...rich('successBody'),label:'Received request message',description:'A request is not an active subscription. Ask visitors to confirm by email.'}];
+ copy.push({...text('subscriberTypeLabel'),label:'Subscriber type question'},
+  {...text('individualLabel'),label:'Individual option'},
+  {...text('businessLabel'),label:'Business option'});
  const fields:TinaField[]=translated?copy:[
   {name:'enabled',label:'Enable newsletter signup',type:'boolean',ui:{defaultValue:false}},
   {name:'modalEnabled',label:'Enable modal',type:'boolean',ui:{defaultValue:true}},

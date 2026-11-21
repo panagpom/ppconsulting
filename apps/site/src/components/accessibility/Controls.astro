@@ -8,7 +8,25 @@ const {locale,projectName,settings}=Astro.props;const m=accessibilityMessages(lo
 <div data-accessibility data-project-name={projectName} data-locale={locale} data-position={settings.position}>
  <button type="button" class="accessibility-launcher" data-accessibility-open aria-label={m.title} aria-controls="accessibility-panel" aria-haspopup="dialog" aria-expanded="false" hidden><Icon name="person"/></button>
  <dialog id="accessibility-panel" class="accessibility-panel" data-accessibility-dialog aria-labelledby="accessibility-title" aria-describedby="accessibility-intro">
-  <header class="accessibility-panel-header"><div class="accessibility-panel-heading"><span class="accessibility-panel-kicker">{m.kicker}</span><h2 id="accessibility-title">{m.title}</h2></div><button type="button" data-accessibility-close aria-label={m.close} autofocus><Icon name="close"/></button></header>
-  <div class="accessibility-panel-body"><p id="accessibility-intro">{m.intro}</p><div class="accessibility-grid">{m.controls.map(control=><button type="button" data-a11y-control={control.key} aria-pressed="false"><span class="accessibility-control-icon"><Icon name={control.icon}/></span><span class="accessibility-control-label">{control.label}</span><span class="accessibility-control-value" data-a11y-value>{control.states?.[0]??m.off}</span><span class="accessibility-control-hint" data-a11y-hint>{control.states?m.change:m.enable}</span></button>)}</div><p class="accessibility-system-note">{m.systemMotion}</p><p class="accessibility-feedback" data-accessibility-status role="status" aria-live="polite"></p><button class="accessibility-reset" type="button" data-accessibility-reset><Icon name="reset"/>{m.reset}</button><p class="accessibility-panel-note">{m.note}</p></div>
+  <header class="accessibility-panel-header">
+   <span class="accessibility-panel-symbol"><Icon name="person"/></span>
+   <h2 id="accessibility-title">{m.title}</h2>
+   <button type="button" data-accessibility-close aria-label={m.close} autofocus><Icon name="close"/></button>
+  </header>
+  <div class="accessibility-panel-body">
+   <p id="accessibility-intro">{m.intro}</p>
+   <div class="accessibility-grid">
+    {m.controls.map(control=><button type="button" data-a11y-control={control.key} aria-pressed="false">
+     <span class="accessibility-control-icon"><Icon name={control.icon}/></span>
+     <span class="accessibility-control-label">{control.label}</span>
+     <span class="accessibility-control-value" data-a11y-value>{control.states?.[0]??m.off}</span>
+    </button>)}
+   </div>
+   <p class="accessibility-system-note">{m.systemMotion}</p>
+  </div>
+  <footer class="accessibility-panel-footer">
+   <p class="accessibility-feedback" data-accessibility-status role="status" aria-live="polite"></p>
+   <button class="accessibility-reset" type="button" data-accessibility-reset><Icon name="reset"/>{m.reset}</button>
+  </footer>
  </dialog>
 </div>

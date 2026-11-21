@@ -23,17 +23,22 @@ export const inquirySchema = z
     turnstileToken: bounded(2048).min(1),
   })
   .strict();
-export const signupSchema = z
+export const subscriberTypes = ['individual', 'business'] as const;
+export type SubscriberType = typeof subscriberTypes[number];
+const subscriberTypeSchema = z.enum(subscriberTypes);
+export const subscriptionSchema = z
   .object({
     requestKey: z.uuid(),
     email: emailSchema,
     name: bounded(120).optional(),
     consent: z.literal(true),
     interest: bounded(40).min(1),
+    subscriberType: subscriberTypeSchema.optional(),
     sourceArticle: bounded(80).optional(),
     turnstileToken: bounded(2048).min(1),
   })
   .strict();
+export const signupSchema = subscriptionSchema.extend({subscriberType: subscriberTypeSchema});
 export const campaignSchema = z
   .object({
     requestKey: z.uuid(),

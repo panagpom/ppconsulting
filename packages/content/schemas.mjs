@@ -71,11 +71,12 @@ export const articleSchema=editorial({shared:{createdAt:z.iso.datetime({offset:t
   if(value.updatedAt&&Date.parse(value.updatedAt)<Date.parse(value.publishAt))ctx.addIssue({code:'custom',path:[...path,'updatedAt'],message:'updatedAt must not precede publishAt'});
 });
 const optionalContactText=max=>z.preprocess(value=>value==null?'':value,z.string().max(max));
+const optionalBrandImage=z.preprocess(value=>value==null||value===''?undefined:value,mediaReferenceSchema.shape.src.optional());
 const settingsCopy = {
  accessibility:accessibilitySettingsSchema.prefault({}),
  newsletterPrompt:newsletterSettingsSchema.prefault({}),
  social:socialSettingsSchema,
- brand:z.strictObject({name:title,tagline:z.string().max(300)}),
+ brand:z.strictObject({name:title,tagline:z.string().max(300),logo:optionalBrandImage,logoRetina:optionalBrandImage}),
  legal:z.strictObject({businessName:title,privacyVersion:z.string().trim().min(1).max(80),notice:richBody}),
  contact:z.strictObject({email:z.email(),phone:optionalContactText(100),address:optionalContactText(1000)}),
  navigation:z.array(z.strictObject({label:title,pageId:fieldId})),

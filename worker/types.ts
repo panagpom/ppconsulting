@@ -1,3 +1,5 @@
+import type { SubscriberType } from '../packages/contracts';
+
 export interface Env {
   DEPLOYMENT_IDENTITY?:string;
   CMS_LOCAL_ORIGINS?:string;
@@ -39,6 +41,7 @@ export interface Subscriber {
   email: string;
   email_key: string;
   name: string | null;
+  subscriber_type: SubscriberType | null;
   status: string;
   generation: number;
   consent_version: string;

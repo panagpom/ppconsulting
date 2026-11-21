@@ -41,7 +41,7 @@
       {
         "id": "articles",
         "_template": "article-list",
-        "title": "Useful ideas.\nA fresh perspective.",
+        "title": "All articles",
         "description": ""
       }
     ]
@@ -66,7 +66,7 @@
           {
             "id": "articles",
             "_template": "article-list",
-            "title": "Χρήσιμες ιδέες.\nΜια νέα οπτική.",
+            "title": "Όλα τα άρθρα",
             "description": ""
           }
         ]

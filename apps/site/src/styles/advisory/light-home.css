@@ -2,7 +2,6 @@
   --home-spacing: clamp(3rem, 6vw, 5.5rem);
   --orbit-line: #b3d3db;
   --orbit-dot: #6ab6c4;
-  --home-gradient: radial-gradient(ellipse at 50% 55%, #e9f5f6, #fff 76%);
 }
 
 html[lang] .light-home :is(h1, h2, h3) {
@@ -19,7 +18,9 @@ html[lang] .light-home :is(h1, h2, h3) {
 .light-home .default-section-band > .light-split {
   position: relative;
   isolation: isolate;
-  background: radial-gradient(ellipse at 28% 18%, #fff, #f1f7f8 75%, #edf5f6);
+  --hero-tint: var(--section-background-surface, var(--color-surface-muted));
+  background: radial-gradient(ellipse at 28% 18%, var(--color-surface),
+    color-mix(in srgb, var(--hero-tint) 65%, var(--color-surface)) 75%, var(--hero-tint));
   padding-block: clamp(2rem, 5vw, 4rem) 2.5rem;
 }
 
@@ -93,7 +94,10 @@ html[data-a11y-images='1'] .pp-chart-background { display: none; }
   .light-split-panels h2 { text-shadow: none; }
 }
 
-.light-home .default-section-band > .light-support { padding-block: var(--home-spacing); background: var(--home-gradient); }
+.light-home .default-section-band > .light-support {
+  padding-block: var(--home-spacing);
+  background: radial-gradient(ellipse at 50% 55%, var(--section-background-surface, var(--color-surface)), var(--color-surface) 76%);
+}
 .support-360-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; border-block-end: 0; }
 .light-support-intro { max-width: 26ch; color: var(--color-text-muted); }
 .support-orbit { display: grid; position: relative; grid-template-columns: minmax(0, 1fr) clamp(13rem, 25vw, 20rem) minmax(0, 1fr); grid-template-rows: 1fr 1fr; gap: 2.5rem clamp(1rem, 3vw, 3rem); min-height: 27rem; align-items: center; margin-block: 2rem; }
@@ -138,7 +142,13 @@ html[data-a11y-motion='1'] .support-node h3 a:is(:hover, :focus-visible) > span 
 .light-metrics { color: var(--palette-white); }
 .light-home [data-page-section='stats'] { background-image: linear-gradient(105deg, #087386, #2c3766); }
 .light-home [data-page-section='stats'] .section-background::after { background: linear-gradient(105deg, #08738680, #2c376680); }
-.light-home [data-page-section='closing'] .section-background::after { background: linear-gradient(90deg, #e9f3f6ed, #e9f3f633); }
+.light-home [data-page-section='closing'] .section-background::after,
+.light-interior .offering-closing .section-background::after {
+  --closing-overlay-color: var(--section-background-surface, var(--color-surface-muted));
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--closing-overlay-color) 93%, transparent),
+    color-mix(in srgb, var(--closing-overlay-color) 20%, transparent));
+}
 /* The full-width closing banner already creates the transition to the footer. */
 main:has(> .light-home > [data-page-section='closing']:last-child) + .site-footer {
   border-block-start: 0;

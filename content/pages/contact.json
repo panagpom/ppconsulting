@@ -17,7 +17,7 @@
       "appearance": {
         "surface": "default",
         "backgroundImage": "/uploads/advisory-method.webp",
-        "imageEnabled": true,
+        "imageEnabled": false,
         "imagePosition": "right center",
         "imagePositionMobile": "65% center",
         "imageOpacity": 0.65,

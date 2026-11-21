@@ -3,7 +3,7 @@ import {chromium} from '@playwright/test';
 import {contrast} from '../packages/design-system/theme-validation.mjs';
 const base=process.env.SITE_TEST_URL;
 const hex=(rgb:string)=>'#'+rgb.match(/[\d.]+/g)!.slice(0,3).map(n=>Math.round(Number(n)).toString(16).padStart(2,'0')).join('');
-it.skipIf(!base)('light section titles and curved accents resolve their own palette in EN/EL and on hover',async()=>{
+it.skipIf(!base)('article rows and homepage titles have readable contrast in EN/EL at both widths',async()=>{
  const browser=await chromium.launch({headless:true});
  try{for(const width of [1440,375])for(const locale of ['en','el']){
   const page=await browser.newPage({viewport:{width,height:950},reducedMotion:'reduce'});await page.goto(base+'/'+locale+'/insights');
@@ -14,8 +14,9 @@ it.skipIf(!base)('light section titles and curved accents resolve their own pale
   }
   const card=section.locator('.article-card').first();await card.hover();
   const foreground=await card.locator('h3').evaluate(e=>getComputedStyle(e).color);expect(contrast(hex(foreground),hex(background))).toBeGreaterThanOrEqual(4.5);
-  const accent=await card.evaluate(e=>({line:getComputedStyle(e,'::before').backgroundImage,curve:getComputedStyle(e,'::after').borderTopColor}));
-  expect(accent.line).toContain(accent.curve);
+  const cards=section.locator('.article-card');
+  expect(await cards.evaluateAll(elements=>elements.map(e=>getComputedStyle(e).borderBlockStartWidth))).toEqual(['0px','1px']);
+  expect(await cards.nth(1).evaluate(e=>e.getBoundingClientRect().top)).toBeGreaterThan(await card.evaluate(e=>e.getBoundingClientRect().bottom-1));
   await page.goto(base+'/'+locale);
   const digest=page.locator('[data-page-section="insights"]');
   const digestBackground=await digest.evaluate(e=>getComputedStyle(e).backgroundColor);

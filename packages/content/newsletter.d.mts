@@ -1,7 +1,7 @@
 import type {FormProtection} from '../config/form-protection.mjs';
 import type {ZodType} from 'zod';
 import type {ProjectConfig} from '../config/project.mjs';
-export interface NewsletterCopy {title:string;body:string;footerPrompt:string;emailLabel:string;submitLabel:string;consentLabel:string;privacyLinkLabel:string;dismissLabel:string;successTitle:string;successBody:string}
+export interface NewsletterCopy {title:string;body:string;footerPrompt:string;emailLabel:string;subscriberTypeLabel:string;individualLabel:string;businessLabel:string;submitLabel:string;consentLabel:string;privacyLinkLabel:string;dismissLabel:string;successTitle:string;successBody:string}
 export interface NewsletterPolicy {modalEnabled:boolean;autoOpen:boolean;footerMode:'off'|'open-modal'|'inline';delaySeconds:number;dismissDays:number;acceptedDays:number}
 export interface NewsletterSettings extends NewsletterCopy,NewsletterPolicy {enabled:boolean;interestId:string}
 export interface NewsletterExperience extends NewsletterSettings {protection:FormProtection;interest:string;privacyHref:string;canSubmit:boolean;autoEligible:boolean;preferences:boolean}

@@ -17,10 +17,20 @@ const {copy}=section;
       <div>{copy.eyebrow&&<div class="light-kicker" set:html={context.rich(copy.eyebrow,locale,true)}/>}<Heading text={copy.title} accentLastLine/></div>
       {copy.description&&<div class="light-support-intro" set:html={context.rich(copy.description,locale,true)}/>}
     </header>
-    <div class="support-orbit">
+    <div class="support-orbit" data-motion-orbit>
       <svg class="support-connections" viewBox="0 0 1200 470" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M410 110L472 190M790 110L728 190M410 360L472 280M790 360L728 280"/><g><circle cx="410" cy="110" r="4"/><circle cx="790" cy="110" r="4"/><circle cx="410" cy="360" r="4"/><circle cx="790" cy="360" r="4"/></g></svg>
       <div class="support-hub">
-        <svg class="support-ring" viewBox="0 0 320 320" aria-hidden="true" focusable="false"><circle class="support-ring-track" cx="160" cy="160" r="146"/><g fill="none" stroke-width="9" stroke-linecap="round" transform="rotate(-84 160 160)"><circle cx="160" cy="160" r="131" stroke="#19a8b8" stroke-dasharray="189 634"/><circle cx="160" cy="160" r="131" stroke="#2c3766" stroke-dasharray="189 634" stroke-dashoffset="-206"/><circle cx="160" cy="160" r="131" stroke="#8ad0d7" stroke-dasharray="189 634" stroke-dashoffset="-412"/><circle cx="160" cy="160" r="131" stroke="#477c99" stroke-dasharray="189 634" stroke-dashoffset="-618"/></g><circle class="support-ring-inner" cx="160" cy="160" r="111"/><g fill="#fff" stroke="#b7d7df" stroke-width="1.5"><circle cx="160" cy="14" r="4"/><circle cx="306" cy="160" r="4"/><circle cx="160" cy="306" r="4"/><circle cx="14" cy="160" r="4"/></g></svg>
+        <svg class="support-ring" viewBox="0 0 320 320" aria-hidden="true" focusable="false">
+          <circle class="support-ring-track" cx="160" cy="160" r="146"/>
+          <g fill="none" stroke-width="9" stroke-linecap="round">
+            <path data-orbit-segment="funding" pathLength="1" stroke="#477c99" d="M29.79 145.63 A131 131 0 0 1 157.62 29.02"/>
+            <path data-orbit-segment="accounting" pathLength="1" stroke="#19a8b8" d="M173.69 29.72 A131 131 0 0 1 290.96 156.94"/>
+            <path data-orbit-segment="advice" pathLength="1" stroke="#2c3766" d="M290.26 173.92 A131 131 0 0 1 162.83 290.97"/>
+            <path data-orbit-segment="payroll" pathLength="1" stroke="#8ad0d7" d="M145.86 290.23 A131 131 0 0 1 29.03 162.60"/>
+          </g>
+          <circle class="support-ring-inner" cx="160" cy="160" r="111"/>
+          <g fill="#fff" stroke="#b7d7df" stroke-width="1.5"><circle cx="160" cy="14" r="4"/><circle cx="306" cy="160" r="4"/><circle cx="160" cy="306" r="4"/><circle cx="14" cy="160" r="4"/></g>
+        </svg>
         <div class="support-hub-copy">
           <span class="support-hub-symbol"><Icon name="building"/></span>
           <p>{locale==='el'?'Η επιχείρησή σας':'Your business'}</p>
@@ -28,7 +38,7 @@ const {copy}=section;
           <span class="support-hub-caption">{locale==='el'?'ΣΥΝΟΛΙΚΗ ΥΠΟΣΤΗΡΙΞΗ':'COMPREHENSIVE SUPPORT'}</span>
         </div>
       </div>
-      {copy.orbit?.map(node=><article class:list={['support-node', 'support-node--'+node.icon]}>
+      {copy.orbit?.map(node=><article class:list={['support-node', 'support-node--'+node.icon]} data-orbit-node={node.icon}>
         <div class="support-node-icon"><Icon name={icons[node.icon]}/></div>
         <div><h3><a href={context.link(node.href,locale)}>{node.label} <span aria-hidden="true">↗</span></a></h3><p>{node.description}</p></div>
       </article>)}

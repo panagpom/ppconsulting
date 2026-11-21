@@ -40,5 +40,6 @@ it('light sections remap and validate eyebrow text contrast',async()=>{
  const {sectionAppearanceCSS}=await import('../packages/design-system/presentation.mjs');const {validateTheme,contrast}=await import('../packages/design-system/theme-validation.mjs');const {readFileSync}=await import('node:fs');const theme=JSON.parse(readFileSync('packages/design-system/themes/advisory.json','utf8'));
  expect(sectionAppearanceCSS('home',{id:'insights',appearance:{surface:'muted',colorScheme:'light'}})).toContain('--color-eyebrow-text:var(--color-light-eyebrow-text)');
  const color=(role:string)=>theme.primitiveColors[theme.semanticColors[role]];expect(contrast(color('lightEyebrowText'),color('lightSurfaceMuted'))).toBeGreaterThanOrEqual(4.5);
- const bad=structuredClone(theme);bad.semanticColors.lightEyebrowText='lightSurfaceMuted';expect(()=>validateTheme(bad)).toThrow(/contrast/);
+ expect(theme.semanticColors.lightSurfaceMuted).toBe(theme.semanticColors.surfaceMuted);
+ const bad=structuredClone(theme);bad.semanticColors.lightEyebrowText=theme.semanticColors.lightSurfaceMuted;expect(()=>validateTheme(bad)).toThrow(/contrast/);
 });

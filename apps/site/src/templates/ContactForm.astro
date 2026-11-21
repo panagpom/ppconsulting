@@ -22,7 +22,26 @@ const channels=contactChannels(content.settings,content.locale);if(preview){chan
 const hero=page.sections.find(s=>s._template==='hero')!;const copy=hero.copy as {eyebrow?:string;title:string;description:string};
 const email=channels.direct.find(link=>link.id==='email')!;
 ---
-<section data-section-color-scheme={hero.appearance.colorScheme??'auto'} data-page-id={page.contentId} data-page-section={hero.id} class="home-section-band home-section-band--photographic contact-page-band"><Background src={hero.appearance.backgroundImage} enabled={hero.appearance.imageEnabled} pageId={page.contentId} sectionId={hero.id}/><div class="wrap contact-layout contact-page-grid"><aside class="contact-aside"><div class="page-header">{copy.eyebrow&&<p class="eyebrow" set:html={context.rich(copy.eyebrow,content.locale,true)}/>}<Heading text={copy.title} level="h1" variant="display" accentLastLine/><div class="intro description" set:html={context.rich(copy.description,content.locale,true)}/></div><ContactDetails channels={channels} locale={content.locale}/><SocialLinks links={channels.social} locale={content.locale} variant="labeled"/></aside><div class="contact-form-panel"><h2>{el?'Στείλτε μας ένα μήνυμα':'Send us a message'}</h2><p>{el?'Τα πεδία με * είναι υποχρεωτικά.':'Fields marked * are required.'}</p>
+<section data-section-color-scheme={hero.appearance.colorScheme??'auto'} data-page-id={page.contentId} data-page-section={hero.id} class="home-section-band home-section-band--photographic contact-page-band"><Background src={hero.appearance.backgroundImage} enabled={hero.appearance.imageEnabled} pageId={page.contentId} sectionId={hero.id}/><div class="wrap contact-layout contact-page-grid"><aside class="contact-aside"><div class="page-header">{copy.eyebrow&&<p class="eyebrow" set:html={context.rich(copy.eyebrow,content.locale,true)}/>}<Heading text={copy.title} level="h1" variant="display" accentLastLine/><div class="intro description" set:html={context.rich(copy.description,content.locale,true)}/></div><ContactDetails channels={channels} locale={content.locale}/><SocialLinks links={channels.social} locale={content.locale} variant="labeled"/>
+  {!preview&&<div class="contact-journey" aria-hidden="true">
+    <svg viewBox="0 0 620 210" class="contact-journey-graphic" data-contact-journey focusable="false">
+      <defs>
+        <linearGradient id="contact-route-ink"><stop stop-color="#89cbd8"/><stop offset="1" stop-color="#087386"/></linearGradient>
+      </defs>
+      <circle cx="545" cy="89" r="57" class="contact-journey-halo"/>
+      <circle cx="545" cy="89" r="42" class="contact-journey-ring"/>
+      <path data-contact-route d="M36 154C130 179 152 55 242 71C325 86 286 158 374 150C444 144 441 89 497 89" fill="none" stroke="url(#contact-route-ink)" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="36" cy="154" r="7" class="contact-journey-origin"/>
+      <g data-contact-packet transform="translate(497 89)" class="contact-journey-packet">
+        <rect x="-17" y="-12" width="34" height="24" rx="4" fill="var(--color-surface)"/>
+        <path d="m-15-9 15 11 15-11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="contact-journey-delivered" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m531 89 9 9 18-20"/>
+      </g>
+    </svg>
+  </div>}
+</aside><div class="contact-form-panel"><h2>{el?'Στείλτε μας ένα μήνυμα':'Send us a message'}</h2><p>{el?'Τα πεδία με * είναι υποχρεωτικά.':'Fields marked * are required.'}</p>
 <form id={preview?'preview-contact-form':'contact-form'} action={preview?undefined:'/api/contact'} method="post" data-locale={content.locale} data-protection-mode={protection.mode} data-protection-key={protection.siteKey} data-protection-action="contact">
 <Field disabled={preview} name="name" label={el?'Όνομα':'Name'} required maxlength={120} autocomplete="name"/>
 <Field disabled={preview} name="email" label={el?'Email':'Email'} type="email" required maxlength={254} autocomplete="email"/>
@@ -37,6 +56,39 @@ const email=channels.direct.find(link=>link.id==='email')!;
 </form></div></div></section>
 <script>
 import {createFormProtection} from '../scripts/form-protection';
+
+const journey=document.querySelector<SVGSVGElement>('[data-contact-journey]');
+const route=journey?.querySelector<SVGPathElement>('[data-contact-route]');
+const packet=journey?.querySelector<SVGGElement>('[data-contact-packet]');
+if(journey&&route&&packet){
+ const root=document.documentElement;
+ const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+ const deliveredTransform=packet.getAttribute('transform')??'';
+ const canAnimate=()=>root.dataset.motion==='on'&&root.dataset.a11yMotion!=='1'&&!reducedMotion.matches;
+ requestAnimationFrame(start=>{
+  if(!canAnimate())return;
+  const length=route.getTotalLength();
+  journey.dataset.journeyState='sending';
+  route.setAttribute('stroke-dasharray',`${length} ${length}`);
+  const draw=(time:number)=>{
+   const progress=Math.min(1,(time-start)/2100);
+   if(progress===1||!canAnimate()){
+    route.removeAttribute('stroke-dasharray');
+    route.removeAttribute('stroke-dashoffset');
+    packet.setAttribute('transform',deliveredTransform);
+    journey.dataset.journeyState='delivered';
+    return;
+   }
+   const distance=length*progress*progress*(3-2*progress);
+   const point=route.getPointAtLength(distance);
+   route.setAttribute('stroke-dashoffset',String(length-distance));
+   packet.setAttribute('transform',`translate(${point.x} ${point.y})`);
+   requestAnimationFrame(draw);
+  };
+  draw(start);
+ });
+}
+
 const form=document.querySelector<HTMLFormElement>('#contact-form');
 if(form){
  const context=form.querySelector<HTMLSelectElement>('#contextId')!;

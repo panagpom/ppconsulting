@@ -25,7 +25,10 @@ export function settings(p: ProjectConfig) {
       [
         {name:'accessibility',label:'Accessibility controls',type:'object',description:'Visitor presentation preferences. These controls do not replace accessibility checks of the underlying site.',fields:[{name:'enabled',label:'Show accessibility controls',type:'boolean'},{name:'position',label:'Desktop launcher position',type:'string',options:[{value:'right-middle',label:'Right middle'},{value:'right-bottom',label:'Right bottom'}],description:'Small screens always use right bottom.'}]},
         ...newsletterFields(p),
-        object('brand', [text('name'), text('tagline')]),
+        object('brand', [text('name'), text('tagline'),
+          {name:'logo',label:'Logo',type:'image'},
+          {name:'logoRetina',label:'Logo (2×)',type:'image',description:'Optional higher-resolution version of the same logo.'},
+        ]),
         object('legal', [
           text('businessName'),
           text('privacyVersion'),

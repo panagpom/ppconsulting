@@ -6,8 +6,35 @@ import {localizeContent} from '../packages/content/localize.mjs';
 import {beforeSubmit} from '../tina/validation';
 import {sectionCopyFields} from '../tina/fields/section-copy';
 import {parseMDX} from '@tinacms/mdx';
+import {signupSchema} from '../packages/contracts';
+import {createNewsletterRequest} from '../apps/site/src/scripts/newsletter-form';
+import {settingsSchema} from '../packages/content/schemas.mjs';
 const project=parseProject(JSON.parse(readFileSync('project.json','utf8')));
 const snapshot=()=>readContent(process.cwd(),project);
+
+it('shares optional local brand assets across languages and rejects external image URLs',()=>{
+ const source=snapshot();
+ const logo='/uploads/ppconsulting-logo.png',logoRetina='/uploads/ppconsulting-logo-2x.png';
+ source.settings=settingsSchema.parse({...source.settings,brand:{...source.settings.brand,logo,logoRetina}});
+ expect(localizeContent(source,'el',project).settings.brand).toMatchObject({logo,logoRetina});
+ expect(settingsSchema.safeParse({...source.settings,brand:{...source.settings.brand,logo:'https://example.com/logo.png'}}).success).toBe(false);
+});
+
+it('requires a recognised subscriber type and includes it in the newsletter request',async()=>{
+ const requestKey='73be6d40-f858-4eb7-9c36-719986c16cc4';
+ const payload={requestKey,email:'visitor@example.com',consent:true,interest:'updates',turnstileToken:'local'};
+ expect(signupSchema.safeParse(payload).success).toBe(false);
+ expect(signupSchema.safeParse({...payload,subscriberType:'unknown'}).success).toBe(false);
+ expect(signupSchema.parse({...payload,subscriberType:'individual'}).subscriberType).toBe('individual');
+ let submitted:unknown;
+ const request=createNewsletterRequest({interest:'updates',coordinator:{busy:false,listeners:new Set()},token:()=>payload.turnstileToken,uuid:()=>requestKey,onAccepted:()=>{},fetch:async(_url,options)=>{
+  submitted=JSON.parse(String(options?.body));
+  return new Response(null,{status:202});
+ }});
+ expect(await request.submit(payload.email,true,'')).toBe('invalid');
+ expect(await request.submit(payload.email,true,'business')).toBe('accepted');
+ expect(submitted).toEqual({...payload,subscriberType:'business'});
+});
 it('preserves the complete bilingual financial catalog, relationships and inert delivery',()=>{
  const source=snapshot();expect(source.pages).toHaveLength(6);expect(source.offerings).toHaveLength(7);expect(source.articles).toHaveLength(2);expect(source.people).toHaveLength(1);
  expect(project.infrastructure.sendingEnabled).toBe(false);expect(project.infrastructure.marketingEnabled).toBe(false);expect(source.settings.brand.name).toBe('PPConsulting');

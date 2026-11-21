@@ -6,12 +6,12 @@ export function createNewsletterRequest(options:RequestOptions){
  let signature='',requestKey='',destroyed=false;let pending:AbortController|undefined;
  const notify=()=>options.coordinator.listeners.forEach(fn=>fn());
  return {
-  async submit(email:string,consent:boolean):Promise<'invalid'|'busy'|'accepted'|'error'>{
+  async submit(email:string,consent:boolean,subscriberType:string):Promise<'invalid'|'busy'|'accepted'|'error'>{
    if(destroyed)return 'error';
    if(options.coordinator.busy)return 'busy';
-   const next=JSON.stringify([email.trim(),consent,options.interest]);
+   const next=JSON.stringify([email.trim(),consent,options.interest,subscriberType]);
    if(signature!==next){signature=next;requestKey=(options.uuid??(()=>crypto.randomUUID()))();}
-   const parsed=signupSchema.safeParse({requestKey,email:email.trim(),consent,interest:options.interest,turnstileToken:'pending'});
+   const parsed=signupSchema.safeParse({requestKey,email:email.trim(),consent,interest:options.interest,subscriberType,turnstileToken:'pending'});
    if(!parsed.success)return 'invalid';
    options.coordinator.busy=true;notify();let timeout:ReturnType<typeof setTimeout>|undefined;
    try{const turnstileToken=await options.token();if(destroyed)return 'error';const protectedPayload=signupSchema.safeParse({...parsed.data,turnstileToken});if(!protectedPayload.success)return 'error';pending=new AbortController();timeout=setTimeout(()=>pending?.abort(),20000);const response=await(options.fetch??fetch)('/api/newsletter/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(protectedPayload.data),signal:pending.signal});if(destroyed||pending.signal.aborted||response.status!==202)return 'error';options.onAccepted();return 'accepted';}
@@ -26,7 +26,7 @@ export function initNewsletterForm(form:HTMLFormElement,options:Omit<RequestOpti
  let destroyed=false;const protection=createFormProtection(form);const request=createNewsletterRequest({...options,token:()=>protection.token(),reset:()=>protection.reset()});
  const busy=()=>{fields.disabled=options.coordinator.busy;form.setAttribute('aria-busy',String(options.coordinator.busy));};options.coordinator.listeners.add(busy);
  function showReceipt(){status.textContent='';receipt.hidden=false;}
- async function submit(event:SubmitEvent){event.preventDefault();if(!form.reportValidity())return;status.textContent=options.messages.sending;const result=await request.submit(email.value,consent.checked);if(destroyed)return;if(result==='accepted')showReceipt();else if(result!=='busy')status.textContent=options.messages[result==='invalid'?'invalid':'error'];}
+ async function submit(event:SubmitEvent){event.preventDefault();if(!form.reportValidity())return;const subscriberType=String(new FormData(form).get('subscriberType')??'');status.textContent=options.messages.sending;const result=await request.submit(email.value,consent.checked,subscriberType);if(destroyed)return;if(result==='accepted')showReceipt();else if(result!=='busy')status.textContent=options.messages[result==='invalid'?'invalid':'error'];}
  form.addEventListener('submit',submit);busy();
  return {showReceipt,destroy(){destroyed=true;form.hidden=true;request.destroy();protection.destroy();form.removeEventListener('submit',submit);options.coordinator.listeners.delete(busy);}};
 }

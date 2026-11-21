@@ -16,6 +16,9 @@
     "body": "Practical perspectives on your next financial step. Choose to receive occasional email updates.\n",
     "footerPrompt": "Useful ideas and updates in your inbox.\n",
     "emailLabel": "Email",
+    "subscriberTypeLabel": "I’m signing up as…",
+    "individualLabel": "Individual",
+    "businessLabel": "Business",
     "submitLabel": "Send me useful updates",
     "consentLabel": "I agree to receive these updates. I can unsubscribe at any time.",
     "privacyLinkLabel": "Privacy notice",
@@ -25,6 +28,8 @@
   },
   "brand": {
     "name": "PPConsulting",
+    "logo": "/uploads/ppconsulting-logo.png",
+    "logoRetina": "/uploads/ppconsulting-logo-2x.png",
     "tagline": "Accounting support and financial planning, built around the needs of your business and your everyday life."
   },
   "legal": {
@@ -73,6 +78,9 @@
         "body": "Χρήσιμες ιδέες και πρακτικές ενημερώσεις για την επιχείρηση και τα οικονομικά σας.\n",
         "footerPrompt": "Χρήσιμες ιδέες και ενημερώσεις στο email σας.\n",
         "emailLabel": "Email",
+        "subscriberTypeLabel": "Εγγράφεστε ως…",
+        "individualLabel": "Ιδιώτης",
+        "businessLabel": "Επιχείρηση",
         "submitLabel": "Θέλω χρήσιμες ενημερώσεις",
         "consentLabel": "Συμφωνώ να λαμβάνω αυτές τις ενημερώσεις. Μπορώ να διαγραφώ οποιαδήποτε στιγμή.",
         "privacyLinkLabel": "Πολιτική απορρήτου",

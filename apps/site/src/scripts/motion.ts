@@ -1,5 +1,23 @@
 const owners = new WeakMap<Document | HTMLElement, () => void>();
 
+function animateOrbit(orbit: HTMLElement, animations: Animation[]) {
+  const segments = orbit.querySelectorAll<SVGPathElement>('[data-orbit-segment]');
+  const nodes = new Map(Array.from(orbit.querySelectorAll<HTMLElement>('[data-orbit-node]'),
+    node => [node.dataset.orbitNode, node]));
+  segments.forEach((segment, index) => {
+    const delay = index * 320;
+    animations.push(segment.animate([
+      {strokeDasharray: '1 1', strokeDashoffset: '1', opacity: 0},
+      {strokeDasharray: '1 1', strokeDashoffset: '.92', opacity: 1, offset: .08},
+      {strokeDasharray: '1 1', strokeDashoffset: '0', opacity: 1},
+    ], {duration: 400, delay, easing: 'ease-in-out', fill: 'backwards'}));
+    const node = nodes.get(segment.dataset.orbitSegment);
+    if (node) animations.push(node.animate([
+      {opacity: 0, translate: '0 5px'}, {opacity: 1, translate: '0 0'},
+    ], {duration: 350, delay: delay + 50, easing: 'ease-out', fill: 'backwards'}));
+  });
+}
+
 /** Visible HTML is the baseline. Animations never commit a hidden inline state. */
 export function initMotion(root: Document | HTMLElement): () => void {
   const previous = owners.get(root);
@@ -10,14 +28,16 @@ export function initMotion(root: Document | HTMLElement): () => void {
   let observer: IntersectionObserver | undefined;
   let preference: MediaQueryList | undefined;
   let disposed = false;
-  const active = new Map<HTMLElement, Animation>();
+  const active = new Map<HTMLElement, Animation[]>();
   const pending = new Set<HTMLElement>();
   const cancel = (target: HTMLElement) => {
     pending.delete(target);
     try { observer?.unobserve(target); } catch { /* cancellation remains fail-open */ }
-    const animation = active.get(target);
+    const animations = active.get(target) ?? [];
     active.delete(target);
-    try { animation?.cancel(); } catch { /* no committed styles to restore */ }
+    for (const animation of animations) {
+      try { animation.cancel(); } catch { /* no committed styles to restore */ }
+    }
   };
   const fragment = () => {
     const hash = win?.location.hash.slice(1);
@@ -65,7 +85,7 @@ export function initMotion(root: Document | HTMLElement): () => void {
     const stagger = number('--motion-stagger', 'ms');
     const maximum = number('--motion-max-delay', 'ms');
     const easing = style.getPropertyValue('--motion-ease').trim();
-    const targets = Array.from(root.querySelectorAll<HTMLElement>('[data-motion-reveal]'))
+    const targets = Array.from(root.querySelectorAll<HTMLElement>('[data-motion-reveal], [data-motion-orbit]'))
       .filter(target => !target.parentElement?.closest('[data-motion-reveal]') && !target.closest('[hidden]'));
     const delays = new Map<HTMLElement, number>();
     const groupCounts = new Map<Element, number>();
@@ -91,15 +111,23 @@ export function initMotion(root: Document | HTMLElement): () => void {
           if (scope.dataset.a11yMotion === '1' || preference?.matches || target.closest('[hidden]') || target.contains(doc.activeElement)) continue;
           const destination = fragment();
           if (destination && target.contains(destination)) continue;
-          const hasTranslation = win.getComputedStyle(target).translate !== 'none';
-          const frames: Keyframe[] = hasTranslation ? [{opacity: 0}, {opacity: 1}] : [
-            {opacity: 0, translate: `0 ${distance}px`}, {opacity: 1, translate: '0 0'},
-          ];
-          const animation = target.animate(frames, {duration, delay: delays.get(target) || 0, easing, fill: 'none'});
-          active.set(target, animation);
-          // Both completion and cancellation release handles; rejected finished is consumed.
-          const release = () => { if (active.get(target) === animation) active.delete(target); };
-          void animation.finished.then(release, release);
+          const animations: Animation[] = [];
+          active.set(target, animations);
+          try {
+            if (target.hasAttribute('data-motion-orbit')) {
+              animateOrbit(target, animations);
+            } else {
+              const hasTranslation = win.getComputedStyle(target).translate !== 'none';
+              const frames: Keyframe[] = hasTranslation ? [{opacity: 0}, {opacity: 1}] : [
+                {opacity: 0, translate: `0 ${distance}px`}, {opacity: 1, translate: '0 0'},
+              ];
+              animations.push(target.animate(frames, {duration, delay: delays.get(target) || 0, easing, fill: 'none'}));
+            }
+          } finally {
+            void Promise.allSettled(animations.map(animation => animation.finished)).then(() => {
+              if (active.get(target) === animations) active.delete(target);
+            });
+          }
         }
       } catch { dispose(); }
     }, {threshold: 0});

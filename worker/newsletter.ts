@@ -1,4 +1,4 @@
-import { emailKey, hash, randomToken, signupSchema } from '../packages/contracts';
+import { emailKey, hash, randomToken, signupSchema, subscriptionSchema } from '../packages/contracts';
 import project from '../project.json';
 import settings from '../content/settings/site.json';
 import type { Env, Subscriber } from './types';
@@ -10,20 +10,21 @@ import { HttpError, readToken } from './security';
  * statements use that unique token as the operation marker, never a stale JS read.
  */
 export async function subscriptionStatements(env: Env, input: unknown): Promise<D1PreparedStatement[]> {
-  const data = signupSchema.parse(input);
+  const data = subscriptionSchema.parse(input);
   if (!project.interests.some(i => i.id === data.interest)) throw new HttpError(400, 'Unknown interest.');
   if (!(await rateLimit(env, `email:${await hash(emailKey(data.email))}`, 3))) return [];
   const timestamp = now(), raw = randomToken(), tokenHash = await hash(raw), key = emailKey(data.email);
   return [
-    env.DB.prepare(`INSERT INTO subscriber(id,email,email_key,name,status,generation,created_at,last_requested_at,source_article,consent_version)
- SELECT ?,?,?,?,'pending',1,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM consent_record WHERE id=?)
+    env.DB.prepare(`INSERT INTO subscriber(id,email,email_key,name,status,generation,created_at,last_requested_at,source_article,consent_version,subscriber_type)
+ SELECT ?,?,?,?,'pending',1,?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM consent_record WHERE id=?)
  ON CONFLICT(email_key) DO UPDATE SET status='pending',
  generation=subscriber.generation+CASE WHEN subscriber.status='unsubscribed' THEN 1 ELSE 0 END,
- last_requested_at=excluded.last_requested_at,consent_version=excluded.consent_version
+ last_requested_at=excluded.last_requested_at,consent_version=excluded.consent_version,
+ subscriber_type=COALESCE(excluded.subscriber_type,subscriber.subscriber_type)
  WHERE subscriber.status IN ('pending','unsubscribed') AND subscriber.last_requested_at<=?
  AND NOT EXISTS(SELECT 1 FROM consent_record WHERE id=?)`).bind(
       crypto.randomUUID(),data.email,key,data.name||null,timestamp,timestamp,data.sourceArticle||null,
-      settings.legal.privacyVersion,data.requestKey,timestamp-60000,data.requestKey),
+      settings.legal.privacyVersion,data.subscriberType??null,data.requestKey,timestamp-60000,data.requestKey),
     env.DB.prepare(`INSERT INTO action_token(token_hash,subscriber_id,generation,expires_at)
  SELECT ?,id,generation,? FROM subscriber WHERE email_key=? AND status='pending' AND changes()=1`)
       .bind(tokenHash,timestamp+48*3600000,key),
@@ -43,7 +44,7 @@ export async function subscriptionStatements(env: Env, input: unknown): Promise<
   ];
 }
 export async function subscribe(env: Env, input: unknown) {
-  const statements = await subscriptionStatements(env,input);
+  const statements = await subscriptionStatements(env,signupSchema.parse(input));
   if (statements.length) await env.DB.batch(statements);
 }
 export async function confirm(env: Env, raw: string) {

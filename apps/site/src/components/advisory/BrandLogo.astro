@@ -1,0 +1,11 @@
+---
+import type { SettingsCopy } from '../../../../../packages/content/types';
+
+interface Props { brand: SettingsCopy['brand']; decorative?: boolean }
+const { brand, decorative = false } = Astro.props;
+const { logo, logoRetina, name } = brand;
+const src = logo ?? logoRetina;
+const candidate = (path: string) => path.replaceAll(' ', '%20').replaceAll(',', '%2C');
+const srcset = logo && logoRetina ? `${candidate(logo)} 1x, ${candidate(logoRetina)} 2x` : undefined;
+---
+{src ? <img class="brand-logo" src={src} srcset={srcset} alt={decorative ? '' : name} /> : <slot />}

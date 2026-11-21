@@ -16,7 +16,6 @@
       "appearance": {
         "surface": "default",
         "colorScheme": "light",
-        "backgroundColor": "#ffffff",
         "imageEnabled": true,
         "backgroundImage": "/uploads/advisory-method.webp",
         "secondaryImage": "/uploads/advisory-perspective.webp"
@@ -28,9 +27,8 @@
       "variant": "orbit",
       "enabled": true,
       "appearance": {
-        "surface": "default",
+        "surface": "muted",
         "colorScheme": "light",
-        "backgroundColor": "#ffffff",
         "imageEnabled": false
       }
     },
@@ -40,9 +38,8 @@
       "variant": "default",
       "enabled": true,
       "appearance": {
-        "surface": "default",
+        "surface": "muted",
         "colorScheme": "light",
-        "backgroundColor": "#e9f3f6",
         "imageEnabled": false
       },
       "media": {
@@ -98,9 +95,8 @@
       "variant": "default",
       "enabled": true,
       "appearance": {
-        "surface": "default",
+        "surface": "muted",
         "colorScheme": "light",
-        "backgroundColor": "#e9f3f6",
         "imageEnabled": true,
         "backgroundImage": "/uploads/advisory-method.webp",
         "imageOpacity": 0.14,

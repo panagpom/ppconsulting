@@ -5,7 +5,7 @@ import {LIMITS} from './section-registry.mjs';
 const text=z.string().trim().max(LIMITS.title).default('');
 const body=z.string().max(LIMITS.body).refine(v=>isSafeMarkdown(v),'Only safe Markdown is allowed').default('');
 const inline=z.string().max(LIMITS.description).refine(v=>isSafeMarkdown(v,true),'Only inline emphasis and safe links are allowed').default('');
-const copy={title:text,body,footerPrompt:inline,emailLabel:text,submitLabel:text,consentLabel:z.string().trim().max(LIMITS.description).default(''),privacyLinkLabel:text,dismissLabel:text,successTitle:text,successBody:body};
+const copy={title:text,body,footerPrompt:inline,emailLabel:text,subscriberTypeLabel:text,individualLabel:text,businessLabel:text,submitLabel:text,consentLabel:z.string().trim().max(LIMITS.description).default(''),privacyLinkLabel:text,dismissLabel:text,successTitle:text,successBody:body};
 export const newsletterCopySchema=z.strictObject(copy);
 export const newsletterSettingsSchema=z.strictObject({enabled:z.boolean().default(false),modalEnabled:z.boolean().default(true),autoOpen:z.boolean().default(true),footerMode:z.enum(['off','open-modal','inline']).default('open-modal'),delaySeconds:z.number().int().min(5).max(120).default(12),dismissDays:z.number().int().min(1).max(180).default(30),acceptedDays:z.number().int().min(30).max(365).default(180),interestId:z.string().max(40).default(''),...copy});
 const active=p=>p.profile!=='enquiries'&&p.modules.newsletterPrompt;
@@ -31,5 +31,10 @@ export function resolveNewsletterExperience(settings,project,context){
  const protection=formProtection(project);
  const canSubmit=protection.mode==='turnstile'||protection.mode==='local'&&context.localProtectionAvailable;
  const excluded=['contact','privacy','error','system','newsletter','cms','admin','showcase'];
- return {...value,protection,interest:value.interestId,privacyHref:context.privacyHref,canSubmit,autoEligible:canSubmit&&value.modalEnabled&&value.autoOpen&&!excluded.includes(context.pageKind),preferences:project.modules.visitorPreferences&&value.modalEnabled&&value.autoOpen};
+ const el=context.locale==='el';
+ return {...value,
+  subscriberTypeLabel:value.subscriberTypeLabel||(el?'Εγγράφεστε ως…':'I’m signing up as…'),
+  individualLabel:value.individualLabel||(el?'Ιδιώτης':'Individual'),
+  businessLabel:value.businessLabel||(el?'Επιχείρηση':'Business'),
+  protection,interest:value.interestId,privacyHref:context.privacyHref,canSubmit,autoEligible:canSubmit&&value.modalEnabled&&value.autoOpen&&!excluded.includes(context.pageKind),preferences:project.modules.visitorPreferences&&value.modalEnabled&&value.autoOpen};
 }

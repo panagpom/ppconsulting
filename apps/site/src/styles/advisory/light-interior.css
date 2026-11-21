@@ -1,0 +1,236 @@
+.light-interior {
+  --interior-space: clamp(2.75rem, 6vw, 5.5rem);
+  --interior-title: clamp(2.1rem, 4.6vw, 4rem);
+  --interior-heading: clamp(1.75rem, 3.5vw, 2.75rem);
+  --interior-scrim: color-mix(in srgb, var(--color-surface) 88%, transparent);
+}
+
+html[lang] .light-interior :is(h1, h2, h3, h4, .contact-page-grid .page-header h1) {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+html[lang] .light-interior :is(h1, .ds-heading.ds-heading--display, .contact-page-grid .page-header h1) {
+  font-size: var(--interior-title);
+  margin-block: 0;
+  max-inline-size: 23ch;
+}
+
+html[lang] .light-interior :is(.ds-section h2, .contact-form-panel h2) { font-size: var(--interior-heading); }
+.light-interior .ds-heading em { font-style: normal; }
+.light-interior :is(.ds-hero-copy, .contact-page-grid .page-header) > .eyebrow {
+  padding: 0;
+  margin-block: 0 1rem;
+  background: none;
+  color: var(--color-brand-accent);
+}
+.light-interior :is(.ds-hero-copy, .contact-page-grid .page-header) > .eyebrow::before { display: none; }
+
+.light-interior :is(.home-hero-band, .interior-detail-intro) {
+  background-color: var(--hero-background-surface, var(--color-surface-muted));
+}
+.light-interior :is(.ds-hero.hero.ds-hero--editorial, .hero:not(.light-split)) {
+  min-block-size: 0;
+  padding-block: var(--interior-space);
+}
+.light-interior :is(.ds-hero-copy, .page-header, .interior-detail-intro) .description {
+  max-inline-size: 57ch;
+  margin: 1.25rem 0 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.65;
+}
+.light-interior .ds-hero-copy .description:empty { display: none; }
+.light-interior .hero-actions { padding-block-end: var(--space-8); }
+.light-interior .ds-section--editorial {
+  padding-block: var(--interior-space);
+  border-block-start: 0;
+}
+.light-interior .ds-section .section-heading { margin-block-end: clamp(1.5rem, 4vw, 3rem); }
+.light-interior .ds-section .section-heading .ds-heading { margin-block-end: 0; }
+.light-interior .ds-section > .reading { max-inline-size: 68ch; line-height: 1.7; }
+
+/* Maintain the CMS backgrounds; programs, articles and contact use the same light surfaces. */
+.light-interior [data-page-id='about'][data-page-section='method'],
+.light-interior .contact-page-band {
+  background-color: var(--section-background-surface, var(--color-surface-muted));
+}
+.light-interior .axia-service-group--split.axia-service-group--reverse {
+  grid-template-columns: minmax(0, var(--service-group-title-track)) minmax(0, var(--service-group-rows-track));
+  grid-template-areas: 'intro rows';
+}
+.light-interior .axia-service-group--split .axia-group-intro { align-self: start; padding-block-start: 1.35rem; }
+.light-interior .axia-service-group--rows .axia-group-title { display: flex; gap: .8rem; font-size: clamp(1.4rem, 2.5vw, 2rem); }
+.light-interior .axia-service-group--rows .axia-group-title > .ui-icon { color: var(--color-brand-accent); }
+.light-interior .ds-card.ds-card--row .ds-card-title { font-size: clamp(1.15rem, 2vw, 1.4rem); }
+.light-interior .ds-card--row > .description { color: var(--color-text-muted); }
+
+.light-interior .editorial-articles.cards { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.light-interior .editorial-articles .article-card.ds-card--editorial {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: center;
+  gap: .65rem clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(1.25rem, 3vw, 2.25rem) 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.light-interior .editorial-articles .article-card:first-child { padding-block-start: 0; }
+.light-interior .editorial-articles .article-card + .article-card { border-block-start: 1px solid var(--color-border); }
+.light-interior .editorial-articles .article-card::before,
+.light-interior .editorial-articles .article-card::after { content: none; }
+.light-interior .editorial-articles .article-card:has(.article-preview-image) { grid-template-columns: minmax(0, 1fr) minmax(0, 32%); }
+.light-interior .article-card .article-preview-media { display: contents; }
+.light-interior .article-card .article-preview-image { grid-column: 2; grid-row: 1 / span 4; align-self: center; }
+.light-interior .article-card :is(.article-preview-meta, .ds-card-title, .description, .ds-card-arrow) { grid-column: 1; }
+.light-interior .article-card .article-preview-meta { justify-content: flex-start; color: var(--color-brand-accent); }
+.light-interior .article-card.ds-card--editorial .ds-card-title { font-size: clamp(1.25rem, 2.7vw, 1.85rem); }
+.light-interior .article-card .description { margin: 0; }
+.light-interior .article-card.ds-card--editorial .ds-card-arrow { justify-self: start; color: var(--color-brand-accent); }
+
+.light-interior .contact-page-band {
+  padding-block: var(--interior-space);
+  background-image: radial-gradient(ellipse at 20% 10%, var(--color-surface), transparent 64%);
+}
+.light-interior .contact-page-band .section-background::after { background: var(--interior-scrim); }
+.light-interior .contact-page-grid { padding-block: 0; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 5rem); }
+.light-interior .contact-page-grid .page-header { border: 0; }
+.light-interior .contact-form-panel { box-sizing: border-box; min-width: 0; width: 100%; padding: clamp(1.1rem, 3vw, 2.5rem); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-control); }
+.light-interior .contact-form-panel form { max-width: none; }
+.light-interior .contact-form-panel h2 { margin-block: 0 .75rem; }
+.light-interior .contact-form-panel > p { color: var(--color-text-muted); }
+.light-interior .contact-form-panel .field :is(input, select, textarea) {
+  background: color-mix(in srgb, var(--color-surface-muted) 52%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--color-border) 40%, var(--color-surface));
+}
+.light-interior .contact-form-panel .field :is(input, select, textarea):focus {
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 1px var(--color-focus);
+}
+.light-interior .contact-form-panel .field :is(input, select, textarea)[aria-invalid='true'] { border-color: var(--color-feedback-error); }
+html:is([data-a11y-contrast='1'], [data-a11y-contrast='2']) .light-interior .contact-form-panel .field :is(input, select, textarea):not(:focus):not([aria-invalid='true']) { border-color: var(--color-control-border); }
+
+.contact-journey { grid-column: 1 / -1; pointer-events: none; min-width: 0; }
+.contact-journey-graphic { display: block; width: min(100%, 33rem); height: auto; opacity: .82; }
+.contact-journey-halo { fill: color-mix(in srgb, var(--color-brand-accent) 5%, transparent); stroke: var(--color-border); }
+.contact-journey-ring { fill: var(--color-surface); stroke: var(--color-border); }
+.contact-journey-origin { fill: var(--color-surface); stroke: #81bfcd; stroke-width: 2; }
+.contact-journey-packet { stroke: var(--color-brand-accent); stroke-width: 1.8; }
+.contact-journey-delivered { stroke: var(--color-brand-accent); stroke-width: 2.7; transition: opacity 200ms ease; }
+[data-journey-state='sending'] .contact-journey-delivered { opacity: .15; }
+html[data-a11y-images='1'] .contact-journey { display: none; }
+@media (prefers-reduced-motion: reduce) { .contact-journey-delivered { transition: none; } }
+@media (min-width: 768px) {
+  .light-interior .contact-journey { grid-row: 2; }
+  .light-interior .contact-page-grid .contact-aside > :is(.social-group, .contact-details) { grid-row: 3; }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .light-interior .contact-page-grid .contact-aside > .social-group { grid-row: 4; }
+}
+
+.light-interior .interior-detail-intro { padding-block: var(--interior-space); }
+.light-interior .interior-detail-meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: 0 0 1rem; color: var(--color-brand-accent); font-weight: 700; }
+.light-interior .interior-detail-body { max-inline-size: min(46rem, calc(100% - 3rem)); padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+.light-interior .interior-detail-photo { margin-block-end: clamp(1.5rem, 4vw, 3rem); }
+.light-interior .interior-detail-photo .image-frame { aspect-ratio: 16 / 9; }
+.light-interior .interior-detail-body .rich-text { font-size: clamp(1.05rem, 1.5vw, 1.125rem); }
+.light-interior .interior-enquiry { background: var(--color-surface-muted); }
+.light-interior .interior-enquiry .advisory-enquiry { justify-content: flex-start; width: min(46rem, calc(100% - 3rem)); margin-inline: auto; padding: clamp(1.75rem, 4vw, 3rem) 0; }
+
+.light-interior .offering-intro {
+  display: block;
+  border: 0;
+  padding-block: clamp(2rem, 5vw, 4.5rem);
+  background: radial-gradient(ellipse at 18% 15%, var(--color-surface), var(--color-surface-muted));
+}
+.offering-intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(8rem, 19vw, 15rem);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+.offering-back {
+  display: inline-flex;
+  gap: .55rem;
+  align-items: center;
+  min-block-size: 44px;
+  margin-block-end: .65rem;
+  color: var(--color-brand-accent);
+  font-size: var(--type-label);
+  font-weight: 700;
+}
+.offering-back:hover { text-decoration: underline; }
+.light-interior .offering-intro .description { margin: 1.15rem 0 0; max-inline-size: 61ch; line-height: 1.65; }
+.light-interior .offering-intro .description:empty { display: none; }
+.offering-emblem {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-surface-muted), transparent 75%);
+}
+.offering-emblem span {
+  display: grid;
+  place-items: center;
+  inline-size: 56%;
+  aspect-ratio: 1;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-brand-accent);
+  box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-brand-accent) 6%, transparent);
+}
+.offering-emblem .ui-icon { inline-size: 43%; block-size: 43%; }
+.offering-content {
+  padding-block: clamp(2.25rem, 5vw, 4.5rem);
+}
+.offering-reading { max-inline-size: 64ch; font-size: clamp(1rem, 1.55vw, 1.125rem); line-height: 1.75; }
+.offering-reading > :first-child { margin-block-start: 0; }
+.offering-reading > :last-child { margin-block-end: 0; }
+.light-interior .offering-detail .offering-closing {
+  --section-background-surface: var(--color-surface-muted);
+  background-color: var(--section-background-surface);
+}
+.light-interior .offering-closing h2 { font-size: clamp(1.9rem, 3.7vw, 2.75rem); line-height: 1.23; }
+main.light-interior:has(> .offering-detail:last-child > .offering-closing:last-child) + .site-footer,
+main.light-interior:has(> .home-composition > .contact-page-band) + .site-footer { border-block-start: 0; }
+.light-interior [data-page-id='services'][data-page-section='services'] .axia-service-group--split {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'intro' 'rows';
+  gap: var(--space-8);
+}
+.light-interior [data-page-id='services'][data-page-section='services'] .axia-group-intro {
+  padding: var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+}
+.light-interior [data-page-id='services'][data-page-section='services'] .axia-group-title {
+  flex-direction: row;
+  gap: var(--space-4);
+  font-size: 1.4rem;
+  text-align: start;
+}
+.light-interior [data-page-id='services'][data-page-section='services'] .axia-group-title > .ui-icon {
+  width: var(--service-group-icon-size);
+  height: var(--service-group-icon-size);
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .light-interior .axia-service-group--split.axia-service-group--reverse { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'intro' 'rows'; }
+  .light-interior .contact-page-grid { display: flex; flex-direction: column; gap: 1.75rem; }
+  .light-interior .contact-page-grid .contact-aside { display: contents; }
+  .light-interior .contact-page-grid .page-header { order: 0; }
+  .light-interior .contact-page-grid .contact-journey { order: 1; margin-block: -.65rem; }
+  .light-interior .contact-page-grid .contact-journey-graphic { max-block-size: 7rem; }
+  .light-interior .contact-page-grid .contact-form-panel { order: 2; }
+  .light-interior .contact-page-grid .contact-details { order: 3; }
+  .light-interior .contact-page-grid .social-group { order: 4; }
+  .offering-intro-layout { grid-template-columns: minmax(0, 1fr); }
+  .offering-emblem { display: none; }
+}
