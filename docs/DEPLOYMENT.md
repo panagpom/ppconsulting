@@ -8,6 +8,8 @@ Keep canonical project.json in local mode for development. Create a developer-ow
 
 Resource names derive from the application plus -production: Worker APPLICATION-production, D1 APPLICATION-production-db, Queue APPLICATION-production-outbound, DLQ APPLICATION-production-dead, and APPLICATION-production-welcome for the nurture Workflow. The database UUID must identify the actual production database. Queue and Workflow names are binding references, not resources created by this tool. The account ID and a custom-domain route are explicitly included in the plan. Hosted analytics, if enabled, must use that account and the same Worker/database identity. Account-wide limits may still be shared with other applications.
 
+For an informational release, set `infrastructure.publicFormsEnabled` to `false` in the production target. The contact page shows direct contact details, the newsletter signup is hidden and the Worker rejects new contact and newsletter submissions. Keep both delivery flags disabled for that release. The default is `true` so existing local development and other targets keep their current form behavior. Release review and remote execution remain separate from this setting.
+
 ## Prepare locally
 
 Stop this checkout's owned dev launcher before changing module/configuration or running the complete checks.

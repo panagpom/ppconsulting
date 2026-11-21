@@ -42,7 +42,7 @@
         "id": "privacy_details",
         "_template": "rich-text",
         "title": "Privacy",
-        "body": "## Enquiries\n\nThe starter stores the information you submit so that the business can respond\\. Newsletter consent is separate and optional\\.\n\n## Email updates\n\nWhen enabled, subscriptions require email confirmation\\. On the newsletter form, we save your choice of individual or business with your email address so we can tailor updates to you\\. Every marketing email includes an unsubscribe link\\.\n\n## Before publishing\n\nIdentify the controller, contact details, purposes and lawful bases, processors and transfers, retention periods, rights, withdrawal procedures and complaint authority\\. Replace this template with reviewed business\\-specific wording\\."
+        "body": "## Visiting the site\n\nPPConsulting publishes this site for information. The public site currently has no contact form or newsletter signup. Our hosting provider, Cloudflare, may process technical information such as your IP address and the time of a request to deliver and protect the site.\n\n## Accessibility preferences\n\nIf you use the accessibility controls, your preferences are saved in your browser so they can be applied on future visits. You can reset them from the accessibility panel.\n\n## Contacting us\n\nIf you email or call us directly, we use the details you share to respond to your enquiry and follow up where needed. For privacy questions or requests about information you have shared, email [panagpom@gmail.com](mailto:panagpom@gmail.com)."
       }
     ]
   },
@@ -67,7 +67,7 @@
             "id": "privacy_details",
             "_template": "rich-text",
             "title": "Πολιτική απορρήτου",
-            "body": "## Αιτήματα\n\nΗ εφαρμογή αποθηκεύει τα στοιχεία που υποβάλλετε ώστε η επιχείρηση να απαντήσει\\. Η συγκατάθεση για ενημερώσεις είναι χωριστή και προαιρετική\\.\n\n## Ενημερώσεις μέσω email\n\nΌταν ενεργοποιούνται, οι εγγραφές απαιτούν επιβεβαίωση μέσω email\\. Στη φόρμα του newsletter αποθηκεύουμε μαζί με το email σας την επιλογή «Ιδιώτης» ή «Επιχείρηση», ώστε να προσαρμόζουμε τις ενημερώσεις που λαμβάνετε\\. Κάθε ενημερωτικό email περιλαμβάνει σύνδεσμο διαγραφής\\.\n\n## Πριν από τη δημοσίευση\n\nΠροσδιορίστε τον υπεύθυνο επεξεργασίας, τα στοιχεία επικοινωνίας, τους σκοπούς και τις νομικές βάσεις, τους εκτελούντες και τις διαβιβάσεις, τους χρόνους διατήρησης, τα δικαιώματα, τη διαδικασία ανάκλησης και την αρμόδια αρχή\\. Αντικαταστήστε το πρότυπο με ελεγμένο κείμενο για την επιχείρησή σας\\."
+            "body": "## Επίσκεψη στον ιστότοπο\n\nΗ PPConsulting διατηρεί τον ιστότοπο για ενημερωτικούς σκοπούς. Στη δημόσια έκδοση δεν λειτουργούν προς το παρόν φόρμα επικοινωνίας ή εγγραφή σε newsletter. Η Cloudflare, που φιλοξενεί τον ιστότοπο, ενδέχεται να επεξεργάζεται τεχνικές πληροφορίες όπως η διεύθυνση IP και η ώρα πρόσβασης για τη λειτουργία και την προστασία του.\n\n## Προτιμήσεις προσβασιμότητας\n\nΑν χρησιμοποιήσετε τις ρυθμίσεις προσβασιμότητας, οι επιλογές σας αποθηκεύονται στο πρόγραμμα περιήγησης ώστε να εφαρμόζονται σε επόμενες επισκέψεις. Μπορείτε να τις επαναφέρετε από το πάνελ προσβασιμότητας.\n\n## Επικοινωνία μαζί μας\n\nΑν μας στείλετε email ή μας καλέσετε απευθείας, χρησιμοποιούμε τα στοιχεία που μας δίνετε για να απαντήσουμε και να συνεχίσουμε την επικοινωνία όπου χρειάζεται. Για ερωτήσεις σχετικά με το απόρρητο ή αιτήματα σχετικά με στοιχεία που έχετε μοιραστεί μαζί μας, γράψτε στο [panagpom@gmail.com](mailto:panagpom@gmail.com)."
           }
         ]
       }

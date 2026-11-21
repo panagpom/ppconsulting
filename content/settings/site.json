@@ -33,13 +33,13 @@
     "tagline": "Accounting support and financial planning, built around the needs of your business and your everyday life."
   },
   "legal": {
-    "businessName": "PPConsulting — demonstration company",
-    "privacyVersion": "sample-v1",
-    "notice": "Demonstration website. Business details and privacy wording require review before launch.\n"
+    "businessName": "PPConsulting",
+    "privacyVersion": "informational-v1",
+    "notice": ""
   },
   "contact": {
-    "email": "hello@example.com",
-    "phone": "+30 210 000 0000",
+    "email": "panagpom@gmail.com",
+    "phone": "+30 693 845 3031",
     "address": "Greece · Online and in person"
   },
   "social": {
@@ -92,7 +92,7 @@
         "tagline": "Λογιστική υποστήριξη και οικονομικός σχεδιασμός, με επίκεντρο τις ανάγκες της επιχείρησης και της καθημερινότητάς σας."
       },
       "legal": {
-        "notice": "Ενδεικτικός ιστότοπος. Τα επιχειρηματικά στοιχεία και η πολιτική απορρήτου χρειάζονται έλεγχο πριν τη δημοσίευση.\n"
+        "notice": ""
       },
       "contact": {
         "address": "Ελλάδα · Διαδικτυακά και από κοντά"

@@ -11,6 +11,7 @@ const origin = z.string().refine(value => {
   catch { return false; }
 }, 'siteUrl must be an HTTPS origin without credentials, path, query or fragment');
 const infrastructure = z.strictObject({
+  publicFormsEnabled: z.boolean().default(true),
   turnstileSiteKey:z.string().regex(/^[A-Za-z0-9_-]{1,100}$|^$/).default(''),
   runtimeBudget:runtimeBudgetSchema.prefault({}),
   providerAnalytics:providerAnalyticsSchema.prefault({}),

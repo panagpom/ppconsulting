@@ -98,6 +98,7 @@ html[lang] .light-interior :is(.ds-section h2, .contact-form-panel h2) { font-si
 }
 .light-interior .contact-page-band .section-background::after { background: var(--interior-scrim); }
 .light-interior .contact-page-grid { padding-block: 0; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 5rem); }
+.light-interior .contact-page-grid--direct { grid-template-columns: minmax(0, 1fr); }
 .light-interior .contact-page-grid .page-header { border: 0; }
 .light-interior .contact-form-panel { box-sizing: border-box; min-width: 0; width: 100%; padding: clamp(1.1rem, 3vw, 2.5rem); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-control); }
 .light-interior .contact-form-panel form { max-width: none; }

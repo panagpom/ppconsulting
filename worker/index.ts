@@ -23,6 +23,7 @@ import type { Env } from './types';
 import manifest from './manifest';
 import settings from '../content/settings/site.json';
 export { WelcomeWorkflow } from './workflow';
+const publicFormsDisabled = 'publicFormsEnabled' in project.infrastructure && project.infrastructure.publicFormsEnabled === false;
 const json = (data: unknown, status = 200) =>
   new Response(JSON.stringify(data), {
     status,
@@ -136,6 +137,7 @@ const handlers = {
           );
         }
         if (path === '/api/newsletter/subscribe' && request.method === 'POST') {
+          if (publicFormsDisabled) throw new HttpError(404, 'Not found.');
           requireOrigin(request, env);
           const data = signupSchema.parse(await body(request, 8192));
           if (data.sourceArticle && !manifest.articles.some((a) => a.id === data.sourceArticle))
@@ -153,6 +155,7 @@ const handlers = {
         throw new HttpError(404, 'Not found.');
       }
       if (path === '/api/contact' && request.method === 'POST') {
+        if (publicFormsDisabled) throw new HttpError(404, 'Not found.');
         requireOrigin(request, env);
         const data = inquirySchema.parse(await body(request));
         if (data.contextId && !manifest.enquiryContexts.some((context) => context.id === data.contextId))

@@ -51,7 +51,7 @@
       "id": "stats",
       "_template": "steps",
       "variant": "metrics",
-      "enabled": true,
+      "enabled": false,
       "appearance": {
         "surface": "default",
         "colorScheme": "auto",
@@ -231,7 +231,7 @@
         "eyebrow": "WHO WE ARE",
         "body": "Before we talk about solutions, we’d like to get to know you.\n\nAt PPConsulting, we listen to what’s on your mind and take time to understand your day-to-day work. We keep in touch, answer in plain language and agree what happens next.",
         "image": {
-          "alt": "An illustration of a meeting in an office"
+          "alt": "Two people meeting in an office"
         },
         "link": {
           "label": "Meet us",
@@ -426,7 +426,7 @@
             "eyebrow": "ΠΟΙΟΙ ΕΙΜΑΣΤΕ",
             "body": "Πριν μιλήσουμε για λύσεις, θέλουμε να γνωρίσουμε εσάς.\n\nΣτην PPConsulting ακούμε όσα σας απασχολούν και αφιερώνουμε χρόνο για να καταλάβουμε την καθημερινότητα της επιχείρησής σας. Χτίζουμε τη συνεργασία μας με προσωπική επικοινωνία, απλές απαντήσεις και ξεκάθαρες συνεννοήσεις.",
             "image": {
-              "alt": "Ενδεικτική φωτογραφία συνάντησης σε γραφείο"
+              "alt": "Δύο άνθρωποι σε συνάντηση στο γραφείο"
             },
             "link": {
               "label": "Γνωρίστε μας",

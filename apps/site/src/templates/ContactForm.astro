@@ -16,14 +16,15 @@ import type {LocalizedContent,LocalizedPage} from '../../../../packages/content/
 interface Props {context?:RenderContext;content:LocalizedContent;page:LocalizedPage}
 const {content,page,context=defaultContext}=Astro.props;const el=content.locale==='el';
 const project=context.project;const preview=Boolean(context.previewBase);
+const showForm=project.infrastructure.publicFormsEnabled;
 const protection=formProtection(project,preview);
 const contexts=getEnquiryContexts(content);
 const channels=contactChannels(content.settings,content.locale);if(preview){channels.social=[];channels.direct=channels.direct.map(item=>({...item,href:'#'}));}
 const hero=page.sections.find(s=>s._template==='hero')!;const copy=hero.copy as {eyebrow?:string;title:string;description:string};
 const email=channels.direct.find(link=>link.id==='email')!;
 ---
-<section data-section-color-scheme={hero.appearance.colorScheme??'auto'} data-page-id={page.contentId} data-page-section={hero.id} class="home-section-band home-section-band--photographic contact-page-band"><Background src={hero.appearance.backgroundImage} enabled={hero.appearance.imageEnabled} pageId={page.contentId} sectionId={hero.id}/><div class="wrap contact-layout contact-page-grid"><aside class="contact-aside"><div class="page-header">{copy.eyebrow&&<p class="eyebrow" set:html={context.rich(copy.eyebrow,content.locale,true)}/>}<Heading text={copy.title} level="h1" variant="display" accentLastLine/><div class="intro description" set:html={context.rich(copy.description,content.locale,true)}/></div><ContactDetails channels={channels} locale={content.locale}/><SocialLinks links={channels.social} locale={content.locale} variant="labeled"/>
-  {!preview&&<div class="contact-journey" aria-hidden="true">
+<section data-section-color-scheme={hero.appearance.colorScheme??'auto'} data-page-id={page.contentId} data-page-section={hero.id} class="home-section-band home-section-band--photographic contact-page-band"><Background src={hero.appearance.backgroundImage} enabled={hero.appearance.imageEnabled} pageId={page.contentId} sectionId={hero.id}/><div class:list={['wrap','contact-layout','contact-page-grid',!showForm&&'contact-page-grid--direct']}><aside class="contact-aside"><div class="page-header">{copy.eyebrow&&<p class="eyebrow" set:html={context.rich(copy.eyebrow,content.locale,true)}/>}<Heading text={copy.title} level="h1" variant="display" accentLastLine/><div class="intro description" set:html={context.rich(copy.description,content.locale,true)}/></div><ContactDetails channels={channels} locale={content.locale}/><SocialLinks links={channels.social} locale={content.locale} variant="labeled"/>
+  {showForm&&!preview&&<div class="contact-journey" aria-hidden="true">
     <svg viewBox="0 0 620 210" class="contact-journey-graphic" data-contact-journey focusable="false">
       <defs>
         <linearGradient id="contact-route-ink"><stop stop-color="#89cbd8"/><stop offset="1" stop-color="#087386"/></linearGradient>
@@ -41,7 +42,7 @@ const email=channels.direct.find(link=>link.id==='email')!;
       </g>
     </svg>
   </div>}
-</aside><div class="contact-form-panel"><h2>{el?'Στείλτε μας ένα μήνυμα':'Send us a message'}</h2><p>{el?'Τα πεδία με * είναι υποχρεωτικά.':'Fields marked * are required.'}</p>
+</aside>{showForm&&<div class="contact-form-panel"><h2>{el?'Στείλτε μας ένα μήνυμα':'Send us a message'}</h2><p>{el?'Τα πεδία με * είναι υποχρεωτικά.':'Fields marked * are required.'}</p>
 <form id={preview?'preview-contact-form':'contact-form'} action={preview?undefined:'/api/contact'} method="post" data-locale={content.locale} data-protection-mode={protection.mode} data-protection-key={protection.siteKey} data-protection-action="contact">
 <Field disabled={preview} name="name" label={el?'Όνομα':'Name'} required maxlength={120} autocomplete="name"/>
 <Field disabled={preview} name="email" label={el?'Email':'Email'} type="email" required maxlength={254} autocomplete="email"/>
@@ -53,7 +54,7 @@ const email=channels.direct.find(link=>link.id==='email')!;
 {!preview&&protection.mode==='unavailable'&&<p role="status">{el?'Η ηλεκτρονική φόρμα δεν είναι διαθέσιμη προσωρινά. Επικοινωνήστε μαζί μας μέσω email ή τηλεφώνου.':'The online form is temporarily unavailable. Please contact us by email or phone.'}</p>}
 <div id="form-errors" tabindex="-1" role="alert" hidden></div><button class="button ds-action ds-action--primary ds-action--large" disabled={preview||protection.mode==='unavailable'} type="submit">{el?'Αποστολή μηνύματος':'Send message'}<Icon name="send"/></button><p id="form-status" role="status" aria-live="polite"></p>
 <noscript><p>{el?'Η φόρμα χρειάζεται JavaScript. Εναλλακτικά, στείλτε email.':'This form needs JavaScript. You can also email us directly.'} <a href={email.href}>{email.label}</a></p></noscript>
-</form></div></div></section>
+</form></div>}</div></section>
 <script>
 import {createFormProtection} from '../scripts/form-protection';
 

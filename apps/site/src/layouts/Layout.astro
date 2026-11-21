@@ -47,8 +47,8 @@ const contactHref=content.pages.find(page=>page._template==='contact')?.path??`/
     <a class="brand" href={href(content.pages.find(p=>p._template==='home')?.path)}><BrandLogo brand={settings.brand}>{settings.brand.name}</BrandLogo></a>
     <div class="footer-identity">
       <p class="footer-tagline">{settings.brand.tagline}</p>
-      <p class="footer-legal-name">{settings.legal.businessName}</p>
-      <RichText context={context} body={settings.legal.notice} locale={locale}/>
+      {settings.legal.businessName!==settings.brand.name&&<p class="footer-legal-name">{settings.legal.businessName}</p>}
+      {settings.legal.notice.trim()&&<RichText context={context} body={settings.legal.notice} locale={locale}/>}
     </div>
   </div>
   <div class="footer-contact">

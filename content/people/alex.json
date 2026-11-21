@@ -3,16 +3,16 @@
   "slug": "alex-example",
   "status": "published",
   "title": "PPConsulting editorial team",
-  "description": "Practical notes from the PPConsulting demonstration project\\. Replace this editorial profile with your verified team information before publication\\.",
-  "body": "Practical notes from the PPConsulting demonstration project\\. Replace this editorial profile with your verified team information before publication\\.",
+  "description": "Articles from PPConsulting on accounting and business planning.",
+  "body": "Browse PPConsulting articles on accounting, financial organisation and business planning.",
   "seoDescription": "",
   "role": "Accounting and consulting",
   "translations": {
     "el": {
       "status": "published",
       "title": "Συντακτική ομάδα PPConsulting",
-      "description": "Πρακτικά κείμενα από το ενδεικτικό έργο PPConsulting\\. Αντικαταστήστε το προφίλ με επαληθευμένα στοιχεία της ομάδας πριν από τη δημοσίευση\\.",
-      "body": "Πρακτικά κείμενα από το ενδεικτικό έργο PPConsulting\\. Αντικαταστήστε το προφίλ με επαληθευμένα στοιχεία της ομάδας πριν από τη δημοσίευση\\.",
+      "description": "Άρθρα της PPConsulting για τη λογιστική και τον επιχειρηματικό σχεδιασμό.",
+      "body": "Διαβάστε άρθρα της PPConsulting για τη λογιστική, την οικονομική οργάνωση και τον επιχειρηματικό σχεδιασμό.",
       "seoDescription": "",
       "role": "Λογιστική και συμβουλευτική"
     }

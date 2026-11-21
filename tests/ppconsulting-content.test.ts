@@ -12,6 +12,16 @@ import {settingsSchema} from '../packages/content/schemas.mjs';
 const project=parseProject(JSON.parse(readFileSync('project.json','utf8')));
 const snapshot=()=>readContent(process.cwd(),project);
 
+it('keeps the newsletter prompt and hosted form protection off for the informational release',async()=>{
+ const {formProtection}=await import('../packages/config/form-protection.mjs');
+ const {resolveNewsletterExperience}=await import('../packages/content/newsletter.mjs');
+ const settings=localizeContent(snapshot(),'el',project).settings;
+ const hosted=parseProject({...project,environment:'production',siteUrl:'https://ppconsulting.cc',infrastructure:{...project.infrastructure,turnstileSiteKey:'site-key',publicFormsEnabled:false}});
+ expect(formProtection(hosted)).toEqual({mode:'unavailable',siteKey:''});
+ expect(resolveNewsletterExperience(settings,hosted,{locale:'el',privacyHref:'/el/privacy',pageKind:'home',localProtectionAvailable:false})).toBeNull();
+ expect(formProtection(project).mode).toBe('local');
+});
+
 it('shares optional local brand assets across languages and rejects external image URLs',()=>{
  const source=snapshot();
  const logo='/uploads/ppconsulting-logo.png',logoRetina='/uploads/ppconsulting-logo-2x.png';

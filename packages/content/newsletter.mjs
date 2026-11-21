@@ -24,6 +24,7 @@ export function validateNewsletterSettings(settings,project){
  for(const language of project.languages)if(language.code!==project.locale)validateCopy(settings.translations?.[language.code]?.newsletterPrompt,policy,language.code);
 }
 export function resolveNewsletterExperience(settings,project,context){
+ if(project.infrastructure.publicFormsEnabled===false)return null;
  const value=newsletterSettingsSchema.parse(settings.newsletterPrompt??{});
  if(!active(project)||!value.enabled||!context.privacyHref)return null;
  try{validateCopy(value,value,context.locale);}catch{return null;}
