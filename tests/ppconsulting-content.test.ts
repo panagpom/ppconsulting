@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import {parseProject} from '../packages/config/project.mjs';
 import {readContent} from '../packages/content/read.mjs';
 import {localizeContent} from '../packages/content/localize.mjs';
-import {beforeSubmit} from '../tina/validation';
+import {beforeSubmit, validateCurrentSave} from '../tina/validation';
 import {sectionCopyFields} from '../tina/fields/section-copy';
 import {parseMDX} from '@tinacms/mdx';
 import {signupSchema} from '../packages/contracts';
@@ -11,6 +11,30 @@ import {createNewsletterRequest} from '../apps/site/src/scripts/newsletter-form'
 import {settingsSchema} from '../packages/content/schemas.mjs';
 const project=parseProject(JSON.parse(readFileSync('project.json','utf8')));
 const snapshot=()=>readContent(process.cwd(),project);
+
+it('saves unrelated Settings changes with hosted Tina logo previews and preserves native values',async()=>{
+ const clientId='11111111-2222-4333-8444-555555555555';
+ const raw=JSON.parse(readFileSync('content/settings/site.json','utf8'));
+ for(const key of ['logo','logoRetina'])raw.brand[key]='https://assets.tina.io/'+clientId+raw.brand[key].slice('/uploads'.length);
+ raw.accessibility.enabled=false;
+ const before=structuredClone(raw);
+ const records:Record<string,Array<{filename:string;values:unknown}>>={settings:[{filename:'site.json',values:raw}],campaign:[]};
+ const {readdirSync}=await import('node:fs');
+ for(const [collection,directory] of Object.entries({page:'pages',offering:'offerings',person:'people',article:'articles'})){
+  const folder='content/'+directory;
+  records[collection]=readdirSync(folder).filter(name=>name.endsWith('.json')).map(filename=>({filename,values:JSON.parse(readFileSync(folder+'/'+filename,'utf8'))}));
+ }
+ const cms={api:{tina:{clientId,request:async(query:string)=>{
+  const key=query.match(/\{(\w+)Connection/)![1];
+  return {[key+'Connection']:{edges:records[key].map(record=>({node:{_sys:{relativePath:record.filename},_values:record.values}})),pageInfo:{hasNextPage:false}}};
+ }}}};
+ const submission={operation:'update' as const,relativePath:'site.json'};
+ expect(await validateCurrentSave(raw,'settings',project,cms,submission)).toBe(raw);
+ expect(raw).toEqual(before);
+ for(const logo of ['https://example.com/'+clientId+'/ppconsulting-logo.png','https://assets.tina.io/other-project/logo.png','https://assets.tina.io/'+clientId+'/%2e%2e/logo.png']){
+  await expect(validateCurrentSave({...raw,brand:{...raw.brand,logo}},'settings',project,cms,submission)).rejects.toThrow(/original local/);
+ }
+});
 
 it('keeps the newsletter prompt and hosted form protection off for the informational release',async()=>{
  const {formProtection}=await import('../packages/config/form-protection.mjs');

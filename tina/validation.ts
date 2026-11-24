@@ -23,6 +23,9 @@ import {
 } from '../packages/content/documents.mjs';
 import { sectionDefinitions } from '../packages/content/section-registry.mjs';
 import { assertExistingPageIdentity } from '../packages/content/composition.mjs';
+type NativeValidationOptions = NativeDomainOptions & {
+  cloudMedia?: {clientId: string; branch?: string};
+};
 const schemas = {
   settings: settingsSchema,
   page: pageSchema,
@@ -111,12 +114,40 @@ export function nativeProjection(
   values: Record<string, unknown>,
   project: ProjectConfig,
   kind?:string,
-  options:NativeDomainOptions={},
+  options:NativeValidationOptions={},
 ): Record<string, any> {
   const copy: any = normalizeNativeLocales(values, project);
   if (copy._collection !== 'page' && copy._template === copy._collection)
     delete copy._template;
   delete copy._collection;
+  const {cloudMedia} = options;
+  if (cloudMedia && /^[a-z0-9_-]+$/i.test(cloudMedia.clientId)) {
+    const prefixes = ['assets.tina.io', 'assets.tinajs.io'].map(host => `https://${host}/${cloudMedia.clientId}/`);
+    const staging = cloudMedia.branch ? `__staging/${cloudMedia.branch}/__file/` : undefined;
+    // Tina serializes these previews back to media-root paths on save. Map only
+    // the detached validation copy so the native image fields reach that serializer unchanged.
+    const projectImage = (record: Record<string, unknown> | undefined, key: string) => {
+      const value = record?.[key];
+      if (!record || typeof value !== 'string') return;
+      const prefix = prefixes.find(candidate => value.startsWith(candidate));
+      if (!prefix) return;
+      let relative = value.slice(prefix.length);
+      if (relative.startsWith('__staging/')) {
+        if (!staging || !relative.startsWith(staging)) return;
+        relative = relative.slice(staging.length);
+      }
+      record[key] = '/uploads/' + relative;
+    };
+    projectImage(copy.brand, 'logo');
+    projectImage(copy.brand, 'logoRetina');
+    projectImage(copy.image, 'src');
+    if (Array.isArray(copy.sections)) for (const section of copy.sections) {
+      projectImage(section?.appearance, 'backgroundImage');
+      projectImage(section?.appearance, 'secondaryImage');
+      projectImage(section?.media, 'src');
+      if (Array.isArray(section?.items)) for (const item of section.items) projectImage(item?.media, 'src');
+    }
+  }
   function prose(record: any): void {
     if (!record || typeof record !== 'object') return;
     for (const key of ['body', 'description'])
@@ -177,7 +208,7 @@ function parseNative(
   values: Record<string, unknown>,
   kind: string,
   project: ProjectConfig,
-  options:NativeDomainOptions={},
+  options:NativeValidationOptions={},
 ): any {
   if (kind === 'campaign' && project.profile === 'enquiries')
     throw Error('Campaign copy is disabled');
@@ -288,7 +319,7 @@ export function validateNativeSave(
   project: ProjectConfig,
   currentPage?: unknown,
   submission?: NativeSubmission,
-  options:NativeDomainOptions={},
+  options:NativeValidationOptions={},
 ): void {
   const context = submission ? submissionContext(submission) : undefined;
   if (
@@ -339,7 +370,7 @@ export function beforeSubmit(
   project: ProjectConfig,
   currentPage?: unknown,
   submission?: NativeSubmission,
-  options:NativeDomainOptions={},
+  options:NativeValidationOptions={},
 ) {
   validateNativeSave(values, kind, project, currentPage, submission,options);
   return values;
@@ -352,8 +383,12 @@ export async function validateCurrentSave(
   project: ProjectConfig,
   cms: any,
   submission: NativeSubmission,
-  options:NativeDomainOptions={},
+  options:NativeValidationOptions={},
 ) {
+  const tina = cms.api.tina;
+  if (typeof tina.clientId === 'string') options = {
+    ...options, cloudMedia: {clientId:tina.clientId, branch: typeof tina.branch === 'string' ? tina.branch : undefined},
+  };
   const context = submissionContext(submission),
     relativePath = context.relativePath;
   const candidate = submissionValues(values, context);

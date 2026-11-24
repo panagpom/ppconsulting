@@ -1,6 +1,6 @@
 {
   "accessibility": {
-    "enabled": true,
+    "enabled": false,
     "position": "right-middle"
   },
   "newsletterPrompt": {
