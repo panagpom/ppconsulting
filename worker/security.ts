@@ -3,6 +3,7 @@ import {chargeExternal} from './budget';
 import { hash } from '../packages/contracts';
 import type { Env } from './types';
 import { accessEmail, accessEmails } from '../packages/config/access.mjs';
+export type AccessEnvironment = Pick<Env, 'ENVIRONMENT' | 'ADMIN_EMAILS' | 'EDITOR_EMAILS' | 'ACCESS_ISSUER' | 'ACCESS_AUDIENCE'>;
 const encoder = new TextEncoder();
 export class HttpError extends Error {
   constructor(
@@ -12,7 +13,7 @@ export class HttpError extends Error {
     super(message);
   }
 }
-export function isLocal(request: Request, env: Env) {
+export function isLocal(request: Request, env: Pick<Env, 'ENVIRONMENT'>) {
   return (
     env.ENVIRONMENT === 'local' &&
     ['127.0.0.1', 'localhost', '[::1]'].includes(new URL(request.url).hostname)
@@ -120,7 +121,7 @@ export async function readToken(env: Env, token: string, purpose: string) {
   }
 }
 const keys = new Map<string,JWKSCacheInput>();
-function roleLists(env: Env) {
+function roleLists(env: AccessEnvironment) {
   try {
     return {
       admins: accessEmails.parse(JSON.parse(env.ADMIN_EMAILS)),
@@ -130,7 +131,7 @@ function roleLists(env: Env) {
     throw new HttpError(503, 'Access roles are not configured.');
   }
 }
-async function authorize(request: Request, env: Env, role: 'admin' | 'editor') {
+async function authorize(request: Request, env: AccessEnvironment, role: 'admin' | 'editor') {
   if (isLocal(request, env)) return 'local-developer';
   const lists = roleLists(env);
   if (!env.ACCESS_ISSUER || !env.ACCESS_AUDIENCE)
@@ -158,6 +159,6 @@ async function authorize(request: Request, env: Env, role: 'admin' | 'editor') {
 export async function admin(request: Request, env: Env) {
   return authorize(request, env, 'admin');
 }
-export async function editor(request: Request, env: Env) {
+export async function editor(request: Request, env: AccessEnvironment) {
   return authorize(request, env, 'editor');
 }

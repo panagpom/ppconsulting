@@ -12,6 +12,32 @@ For an informational release, set `infrastructure.publicFormsEnabled` to `false`
 
 ## Prepare locally
 
+### Publish the existing informational site from Cloudflare Workers Builds
+
+The informational Worker uses the non-secret target in
+`scripts/deployment/informational-target.json`. Its build packages the static
+site and hosted Tina editor in an isolated workspace and dry-runs the generated
+Worker configuration before exposing it to the deploy command. The Worker serves
+public pages and checks Cloudflare Access on `/cms` and its assets. This path
+has no D1, queue, workflow or sending bindings.
+
+For `ppconsulting-production`, open **Settings → Builds**. Use the repository
+root and production branch `main`, with preview builds disabled. Set:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `pnpm run build:production` |
+| Deploy command | `pnpm exec wrangler deploy --config .generated/production/wrangler.json` |
+| Build variable | `TINA_CLIENT_ID` |
+| Build secret | `TINA_TOKEN` (TinaCloud Content read-only token) |
+
+After the settings are saved, build the latest commit on `main`. Verify the
+public change and that a signed-out request to `/cms` requires Cloudflare
+Access. The guarded release-candidate workflow below still applies to releases
+with forms, database changes or delivery.
+
+### Prepare a release candidate
+
 Stop this checkout's owned dev launcher before changing module/configuration or running the complete checks.
 
 ```powershell

@@ -32,7 +32,7 @@ export interface WorkResult{processed:number;deferred:boolean}
 export function workContext(env:Env,kind:'http'|'scheduled'|'queue'|'workflow'='http',at=Date.now()):WorkContext{
  return (env as any)[contextKey]??{scope:createBudgetScope(kind,resolveRuntimePolicy(env.PROFILE||'enquiries')),at};
 }
-export function chargeExternal(env:Env){const c=(env as any)[contextKey] as WorkContext|undefined;if(c){const cost={sqlStatements:0,externalCalls:1,internalCalls:0};if(c.reservation)c.reservation.consume(cost);else c.scope.charge('external',cost);}}
+export function chargeExternal(env:Partial<Env>){const c=(env as any)[contextKey] as WorkContext|undefined;if(c){const cost={sqlStatements:0,externalCalls:1,internalCalls:0};if(c.reservation)c.reservation.consume(cost);else c.scope.charge('external',cost);}}
 export function meterEnvironment(env:Env,scope:BudgetScope,reservation?:BudgetReservation,at=Date.now()):Env{
  if((env as any)[contextKey]?.scope===scope&&!reservation)return env;
  env=(env as any)[sourceKey]??env;

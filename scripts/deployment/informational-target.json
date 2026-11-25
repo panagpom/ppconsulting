@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "application": "ppconsulting",
+  "target": "production",
+  "accountId": "1264ab4626cc05b7aed13021a01222e4",
+  "siteUrl": "https://ppconsulting.cc",
+  "infrastructure": {
+    "publicFormsEnabled": false,
+    "accessIssuer": "https://raspy-breeze-6d28.cloudflareaccess.com",
+    "accessAudience": "1d0eb30595190c339e436015f5fc5bd597fcdf40ce961f2c89328349a411184f",
+    "adminEmails": ["panagpom@gmail.com"]
+  }
+}
