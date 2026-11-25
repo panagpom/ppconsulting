@@ -1,7 +1,7 @@
 {
   "accessibility": {
     "enabled": true,
-    "position": "right-middle"
+    "position": "right-bottom"
   },
   "newsletterPrompt": {
     "enabled": true,
